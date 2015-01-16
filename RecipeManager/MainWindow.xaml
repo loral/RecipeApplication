@@ -1,0 +1,45 @@
+﻿<Window x:Class="RecipeManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Recipe Mangager" Height="550" Width="725" MinHeight="550" MinWidth="725" Loaded="Window_Loaded">
+
+    <Grid Margin="0,0,2,-20">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <Menu IsMainMenu="True">
+                <MenuItem Header="_File">
+                    <MenuItem Header="_Add Recipe..." />
+                    <MenuItem Header="_View Recipe..." />
+                    <MenuItem Header="_Create Menu..." />
+                    <Separator />
+                    <MenuItem Header="_Open..." />
+                    <Separator />
+                    <MenuItem Header="_Save" />
+                    <MenuItem Header="_Save As..." />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+                <MenuItem Header="_Tools" />
+                <MenuItem Header="_Help" />
+            </Menu>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="225"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+        </Grid>
+
+    </Grid>
+
+</Window>

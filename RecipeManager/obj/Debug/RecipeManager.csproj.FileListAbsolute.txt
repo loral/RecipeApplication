@@ -1,0 +1,14 @@
+C:\GitHub\RecipeApplication\RecipeManager\RecipeManager\bin\Debug\RecipeManager.exe.config
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.exe.config
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.exe
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.pdb
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.csprojResolveAssemblyReference.cache
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\MainWindow.baml
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\MainWindow.g.cs
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\App.g.cs
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager_MarkupCompile.cache
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.g.resources
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.Properties.Resources.resources
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.csproj.GenerateResource.Cache
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.exe
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.pdb
