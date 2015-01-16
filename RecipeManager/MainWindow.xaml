@@ -14,19 +14,19 @@
 
             <Menu IsMainMenu="True">
                 <MenuItem Header="_File">
-                    <MenuItem Header="_Add Recipe..." />
-                    <MenuItem Header="_View Recipe..." />
-                    <MenuItem Header="_Create Menu..." />
+                    <MenuItem Header="_Add Recipe..." Click="AddRecipe"/>
+                    <MenuItem Header="_View Recipe..." Click="ViewRecipe"/>
+                    <MenuItem Header="_Create Menu..." Click="CreateMenu"/>
                     <Separator />
-                    <MenuItem Header="_Open..." />
+                    <MenuItem Header="_Open..." Click="Open"/>
                     <Separator />
-                    <MenuItem Header="_Save" />
-                    <MenuItem Header="_Save As..." />
+                    <MenuItem Header="_Save" Click="Save"/>
+                    <MenuItem Header="_Save As..." Click="SaveAs"/>
                     <Separator />
-                    <MenuItem Header="_Exit" />
+                    <MenuItem Header="_Exit" Click="Exit"/>
                 </MenuItem>
-                <MenuItem Header="_Tools" />
-                <MenuItem Header="_Help" />
+                <MenuItem Header="_Tools" Click="Tools"/>
+                <MenuItem Header="_Help" Click="Help"/>
             </Menu>
 
         </Grid>
