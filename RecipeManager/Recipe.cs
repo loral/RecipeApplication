@@ -14,7 +14,7 @@ namespace RecipeManager
         public List<Ingredient> ingredients;
         public List<string> directions;
         public string yeild;
-        public enum mealType { Breakfast, Lunch, Dinner };
-        public enum recipeType { MainDish, Side, Dessert, Beverage };
+        public List<MealType> mealTypes;
+        public List<RecipeType> recipeTypes;
     }
 }

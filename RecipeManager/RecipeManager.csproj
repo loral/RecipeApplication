@@ -55,7 +55,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Ingredient.cs" />
+    <Compile Include="MealType.cs" />
     <Compile Include="Recipe.cs" />
+    <Compile Include="RecipeType.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
