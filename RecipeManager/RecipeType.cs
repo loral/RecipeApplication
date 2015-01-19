@@ -2,6 +2,6 @@
 {
     public class RecipeType
     {
-        public enum recipeType { MainDish, Side, Dessert, Beverage };
+        public enum recipeType { MainDish, Side, Other };
     }
 }

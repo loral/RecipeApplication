@@ -2,6 +2,6 @@
 {
     public class MealType
     {
-        public enum mealType { Breakfast, Lunch, Dinner };
+        public enum meal { Breakfast, Lunch, Dinner, Other };
     }
 }
