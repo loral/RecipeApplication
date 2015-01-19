@@ -21,7 +21,8 @@ namespace RecipeManager
 
         private void AddRecipe(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You clicked 'Add Recipe'");
+            AddRecipeWindow addRecipeWindow = new AddRecipeWindow();
+            addRecipeWindow.Show();
         }
 
         private void ViewRecipe(object sender, RoutedEventArgs e)
