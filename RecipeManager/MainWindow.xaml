@@ -2,8 +2,9 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Recipe Mangager" Height="550" Width="725" MinHeight="550" MinWidth="725" Loaded="Window_Loaded">
-
-    <Grid> <!--Margin="0,0,2,-20"-->
+    
+    <Grid>
+        <!--Margin="0,0,2,-20"-->
 
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -22,6 +23,8 @@
                     <Separator />
                     <MenuItem Header="_Save" Click="Save"/>
                     <MenuItem Header="_Save As..." Click="SaveAs"/>
+                    <Separator />
+                    <MenuItem Header="Print" Click="Print"/>
                     <Separator />
                     <MenuItem Header="_Exit" Click="Exit"/>
                 </MenuItem>
