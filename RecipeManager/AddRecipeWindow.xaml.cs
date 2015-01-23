@@ -24,5 +24,15 @@ namespace RecipeManager
         {
             InitializeComponent();
         }
+
+        private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void cancelRecipe_btn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

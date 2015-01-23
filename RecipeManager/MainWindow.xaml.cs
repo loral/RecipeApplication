@@ -40,7 +40,6 @@ namespace RecipeManager
 
         private void LoadFileData(string filePath)
         {
-            MessageBox.Show(filePath);
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
             MessageBox.Show(doc.InnerXml);
