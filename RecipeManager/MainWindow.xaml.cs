@@ -26,10 +26,13 @@ namespace RecipeManager
         public MainWindow()
         {
             InitializeComponent();
-            var fileName = Application.Current.Properties["StartFile"].ToString();
-            if (fileName != null &&  fileName != "No filename given")
+            if (Application.Current.Properties["StartFile"] != null)
             {
-                LoadFileData(fileName);
+                var fileName = Application.Current.Properties["StartFile"].ToString();
+                if (fileName != null && fileName != "No filename given")
+                {
+                    LoadFileData(fileName);
+                }
             }
         }
 
@@ -40,7 +43,7 @@ namespace RecipeManager
             MessageBox.Show(filePath);
             XmlDocument doc = new XmlDocument();
             doc.Load(filePath);
-            MessageBox.Show(doc.ToString());
+            MessageBox.Show(doc.InnerXml);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
