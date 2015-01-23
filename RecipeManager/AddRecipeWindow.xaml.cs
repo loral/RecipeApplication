@@ -27,12 +27,13 @@ namespace RecipeManager
 
         private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            //Save recipe
+            MessageBox.Show("You clicked 'Save'");
         }
 
         private void cancelRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            this.Close();
         }
     }
 }
