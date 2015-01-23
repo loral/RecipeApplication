@@ -28,3 +28,10 @@ C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.manifest
 C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.application
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe.manifest
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.application
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.baml
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.g.cs
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.manifest
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.application
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.TrustInfo.xml
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe.manifest
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.application

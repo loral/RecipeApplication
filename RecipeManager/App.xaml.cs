@@ -15,8 +15,7 @@ namespace RecipeManager
     {
         protected override void OnStartup(StartupEventArgs e)
         {
-            // Check if this was launched by double-clicking a doc. If so, use that as the
-            // startup file name.
+            // Check if this was launched by double-clicking a doc. If so, use that as the startup file name.
             if (e.Args != null && e.Args.Length > 0)
             {
                 string fname = "No filename given";
@@ -28,7 +27,7 @@ namespace RecipeManager
                     Uri uri = new Uri(fname);
                     fname = uri.LocalPath;
 
-                    this.Properties["ArbitraryArgName"] = fname;
+                    this.Properties["StartFile"] = fname;
                 }
                 catch (Exception ex)
                 {

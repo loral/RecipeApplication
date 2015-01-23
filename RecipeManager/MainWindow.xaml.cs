@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using System.Windows.Navigation;
+using System.Xml;
+using System.IO;
 
 namespace RecipeManager
 {
@@ -24,9 +26,22 @@ namespace RecipeManager
         public MainWindow()
         {
             InitializeComponent();
+            var fileName = Application.Current.Properties["StartFile"].ToString();
+            if (fileName != null &&  fileName != "No filename given")
+            {
+                LoadFileData(fileName);
+            }
         }
 
         #region Application Logic
+
+        private void LoadFileData(string filePath)
+        {
+            MessageBox.Show(filePath);
+            XmlDocument doc = new XmlDocument();
+            doc.Load(filePath);
+            MessageBox.Show(doc.ToString());
+        }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -62,6 +77,7 @@ namespace RecipeManager
             {
                 // Open document 
                 string filename = dlg.FileName;
+                LoadFileData(filename);
             }
         }
 
