@@ -96,8 +96,10 @@
     <Compile Include="Category.cs" />
     <Compile Include="Ingredient.cs" />
     <Compile Include="MealType.cs" />
+    <Compile Include="Rating.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="RecipeType.cs" />
+    <Compile Include="UnitOfMeasure.cs" />
     <Page Include="AddRecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

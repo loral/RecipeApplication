@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\
 RecipeManager
 none
 false
 DEBUG;TRACE
-C:\GitHub\RecipeApplication\RecipeManager\App.xaml
-11151548125
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\App.xaml
+22095101650
 
-5-2017746502
-12-1401562060
-MainWindow.xaml;
+13-1655706191
+13-1868018694
+AddRecipeWindow.xaml;MainWindow.xaml;
 
 False
 

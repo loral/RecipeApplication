@@ -61,6 +61,11 @@ namespace RecipeManager
             MessageBox.Show("You clicked 'View Recipe'");
         }
 
+        private void EditRecipe(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You clicked 'Edit Recipe'");
+        }
+
         private void CreateMenu(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked 'Create Menu'");

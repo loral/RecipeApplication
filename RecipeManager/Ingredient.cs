@@ -2,7 +2,8 @@
 {
     public class Ingredient
     {
-        public string Name;
-        public string Quanity;
+        public string Name { get; set; }
+        public double Quanity { get; set; }
+        public UnitOfMeasure Unit { get; set; }
     }
 }

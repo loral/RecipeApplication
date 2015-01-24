@@ -4,7 +4,6 @@
         Title="Recipe Mangager" Height="550" Width="725" MinHeight="550" MinWidth="725" Loaded="Window_Loaded">
     
     <Grid>
-        <!--Margin="0,0,2,-20"-->
 
         <Grid.RowDefinitions>
             <RowDefinition Height="25"/>
@@ -17,6 +16,7 @@
                 <MenuItem Header="_File">
                     <MenuItem Header="_Add Recipe..." Click="AddRecipe"/>
                     <MenuItem Header="_View Recipe..." Click="ViewRecipe"/>
+                    <MenuItem Header="_Edit Recipe..." Click="EditRecipe"/>
                     <MenuItem Header="_Create Menu..." Click="CreateMenu"/>
                     <Separator />
                     <MenuItem Header="_Open..." Click="Open"/>
