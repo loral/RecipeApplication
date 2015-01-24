@@ -31,3 +31,4 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\Recipe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.application
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.pdb
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.csprojResolveAssemblyReference.cache
