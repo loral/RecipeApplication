@@ -4,6 +4,6 @@
     {
         public string Name { get; set; }
         public double Quanity { get; set; }
-        public UnitOfMeasure Unit { get; set; }
+        public string Unit { get; set; }
     }
 }
