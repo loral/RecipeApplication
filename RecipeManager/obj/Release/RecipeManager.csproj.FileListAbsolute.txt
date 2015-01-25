@@ -26,3 +26,13 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\Reci
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.g.resources
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.Resources.resources
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.config
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.manifest
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.application
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.pdb
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.TrustInfo.xml
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe.manifest
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.application
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
