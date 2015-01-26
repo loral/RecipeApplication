@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RecipeManager.exe" size="30144">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="RecipeManager.exe" size="31744">
       <assemblyIdentity name="RecipeManager" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>HkPRlMh95hmf7uHKNIKZAWf3pt4vZ14SkrivKnbyGaQ=</dsig:DigestValue>
+        <dsig:DigestValue>fa8uxoorg8w+3BPZhWBiH5s7B8yqIeZjgKGIcWCttHk=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

@@ -11,7 +11,7 @@
             <RowDefinition Height="35" Name="Yeild"/>
             <RowDefinition Height="35" Name="MealTypes"/>
             <RowDefinition Height="35" Name="RecipeTypes"/>
-            <RowDefinition Name="Ingredients"/>
+            <RowDefinition Height="35" Name="Ingredients"/>
             <RowDefinition Name="Directions"/>
             <RowDefinition Height="125" Name="Categories"/>
             <RowDefinition Height="40" Name="ButtonSave"/>
@@ -67,8 +67,13 @@
         </Grid>
 
         <Grid Grid.Row="6">
-            <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_ingredients" Content="Ingredients" />
-            <TextBox Grid.Row="0" Margin="85,5,5,5" Name="tb_ingredients" TextWrapping="Wrap" Text=""/>
+            <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0" Name="lbl_ingredients" Content="Ingredients" />
+            <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80,0,0,0" Name="lbl_ingredientName" Content="Name" />
+            <ComboBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="121,0,0,0" Width="180" Height="25" Name="cb_ingredientName" MaxDropDownHeight="275" IsEditable="True" Text=""/>
+            <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="307,0,0,0" Name="lbl_ingredientQuantity" Content="Quantity" />
+            <TextBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="365,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity" TextWrapping="Wrap" Text=""/>
+            <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="412,0,0,0" Name="lbl_ingredientUnit" Content="Units" />
+            <ComboBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="450,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit" Text=""/>
         </Grid>
 
         <Grid Grid.Row="7">

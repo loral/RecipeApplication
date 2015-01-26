@@ -2,7 +2,6 @@ C:\GitHub\RecipeApplication\RecipeManager\RecipeManager\bin\Debug\RecipeManager.
 C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.exe.config
 C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.pdb
-C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.csprojResolveAssemblyReference.cache
 C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\MainWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\MainWindow.g.cs
 C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\App.g.cs
@@ -31,3 +30,10 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\Recipe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.application
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.pdb
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.exe.manifest
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.application
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\AddRecipeWindow.baml
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\AddRecipeWindow.g.cs
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.TrustInfo.xml
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.exe.manifest
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.application

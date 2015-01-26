@@ -22,6 +22,7 @@ namespace RecipeManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        public XmlDocument doc = new XmlDocument();
 
         public MainWindow()
         {
@@ -39,8 +40,7 @@ namespace RecipeManager
         #region Application Logic
 
         private void LoadFileData(string filePath)
-        {
-            XmlDocument doc = new XmlDocument();
+        {  
             doc.Load(filePath);
             MessageBox.Show(doc.InnerXml);
         }
@@ -52,7 +52,7 @@ namespace RecipeManager
 
         private void AddRecipe(object sender, RoutedEventArgs e)
         {
-            AddRecipeWindow addRecipeWindow = new AddRecipeWindow();
+            AddRecipeWindow addRecipeWindow = new AddRecipeWindow(doc);
             addRecipeWindow.Show();
         }
 
