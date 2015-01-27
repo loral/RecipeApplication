@@ -32,11 +32,9 @@ namespace RecipeManager
             {
                 doc = StartFile;
             }
-
-            Window_Loaded();
         }
 
-        private void Window_Loaded()
+        private void AddRecipeWindowLoaded(object sender, RoutedEventArgs e)
         {
             LoadUnits();
             LoadIngredientNames();
@@ -47,7 +45,14 @@ namespace RecipeManager
             List<string> unitList = new List<string>();
             UnitsOfMeasure unitClass = new UnitsOfMeasure();
             unitList = unitClass.GetList();
-            cb_ingredientUnit.ItemsSource = unitList;
+
+            foreach (ComboBox cb in FindVisualChildren<ComboBox>(addRecipeWindow))
+            {
+                if (cb.Name.Contains("cb_ingredientUnit"))
+                {
+                    cb.ItemsSource = unitList;
+                }
+            }
         }
 
         private void LoadIngredientNames()
@@ -62,8 +67,33 @@ namespace RecipeManager
 
             ingredientList.Sort();
 
-            cb_ingredientName.ItemsSource = ingredientList;
+            foreach(ComboBox cb in FindVisualChildren<ComboBox>(addRecipeWindow))
+            {
+                if (cb.Name.Contains("cb_ingredientName"))
+                {
+                    cb.ItemsSource = ingredientList;
+                }
+            }
+        }
 
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
         }
 
         private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
@@ -114,5 +144,6 @@ namespace RecipeManager
 
             throw new FormatException("Not a valid fraction.");
         }
+
     }
 }

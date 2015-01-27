@@ -8,7 +8,7 @@ namespace RecipeManager
 {
     public class UnitsOfMeasure
     {
-        public List<string> units = new List<string> { "Tbsp", "tsp", "oz", "fl oz", "cup", "pint", "qt", "gal", "liter", "ml", "lb", "mg", "gram" };
+        public List<string> units = new List<string> { "Tbsp(s)", "tsp(s)", "oz(s)", "fl oz(s)", "cup(s)", "pint(s)", "qt(s)", "gal(s)", "liter(s)", "ml(s)", "lb(s)", "mg(s)", "gram(s)" };
 
         public List<string> GetList()
         {
