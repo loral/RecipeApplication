@@ -36,27 +36,17 @@ namespace RecipeManager
 
         private void AddRecipeWindowLoaded(object sender, RoutedEventArgs e)
         {
-            LoadUnits();
-            LoadIngredientNames();
+            PopulateComboBoxs();
         }
 
-        private void LoadUnits()
+        private void PopulateComboBoxs()
         {
+            // Get unit list
             List<string> unitList = new List<string>();
             UnitsOfMeasure unitClass = new UnitsOfMeasure();
             unitList = unitClass.GetList();
 
-            foreach (ComboBox cb in FindVisualChildren<ComboBox>(addRecipeWindow))
-            {
-                if (cb.Name.Contains("cb_ingredientUnit"))
-                {
-                    cb.ItemsSource = unitList;
-                }
-            }
-        }
-
-        private void LoadIngredientNames()
-        {
+            // Get ingredient list
             List<string> ingredientList = new List<string>();
             XmlNodeList XMLingredientList = doc.SelectNodes("//Ingredient");
 
@@ -67,9 +57,14 @@ namespace RecipeManager
 
             ingredientList.Sort();
 
-            foreach(ComboBox cb in FindVisualChildren<ComboBox>(addRecipeWindow))
+            // Populate combo boxs
+            foreach (ComboBox cb in FindVisualChildren<ComboBox>(addRecipeWindow))
             {
-                if (cb.Name.Contains("cb_ingredientName"))
+                if (cb.Name.Contains("cb_ingredientUnit"))
+                {
+                    cb.ItemsSource = unitList;
+                }
+                else if (cb.Name.Contains("cb_ingredientName"))
                 {
                     cb.ItemsSource = ingredientList;
                 }

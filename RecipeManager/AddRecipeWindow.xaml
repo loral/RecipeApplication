@@ -59,6 +59,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,0,0,0" BorderBrush="Black"/>
+
             <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,3,0,0" Name="lbl_mealTypes" Content="Meal Type" FontWeight="Bold"/>
             <CheckBox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,3,0,0" Name="ckbx_breakfast" Content="Breakfast"/>
             <CheckBox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80,3,0,0" Name="ckbx_lunch" Content="Lunch"/>
@@ -77,6 +79,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,0,0,1" BorderBrush="Black"/>
+
             <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,3" Name="lbl_recipeTypes" Content="Recipe Type" FontWeight="Bold"/>
             <CheckBox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,3" Name="ckbx_mainDish" Content="Main Dish"/>
             <CheckBox Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="80,0,0,3" Name="ckbx_side" Content="Side"/>
@@ -94,6 +98,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,0,0,0" BorderBrush="Black"/>
+
             <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_ingredients" Content="Ingredients" FontWeight="Bold"/>
 
             <ScrollViewer Grid.Column="1">
@@ -104,7 +110,7 @@
                     </Style>
                 </ScrollViewer.Resources>
 
-                <Grid >
+                <Grid> <!--Margin="0,2,0,0"-->
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
@@ -445,6 +451,8 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,1,0,0" BorderBrush="Black"/>
+
             <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_directions" Content="Directions" FontWeight="Bold"/>
 
             <ScrollViewer Grid.Column="1">
@@ -490,65 +498,65 @@
                         <RowDefinition MinHeight="36"/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Row="0"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="1." />
+                    <Label Grid.Row="0"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="1." />
                     <TextBox Grid.Row="0" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction1" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="1"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="2." />
+                    <Label Grid.Row="1"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="2." />
                     <TextBox Grid.Row="1" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction2" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="2"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="3." />
+                    <Label Grid.Row="2"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="3." />
                     <TextBox Grid.Row="2" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction3" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="3"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="4." />
+                    <Label Grid.Row="3"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="4." />
                     <TextBox Grid.Row="3" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction4" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="4"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="5." />
+                    <Label Grid.Row="4"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="5." />
                     <TextBox Grid.Row="4" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction5" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="5"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="6." />
+                    <Label Grid.Row="5"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="6." />
                     <TextBox Grid.Row="5" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction6" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="6"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="7." />
+                    <Label Grid.Row="6"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="7." />
                     <TextBox Grid.Row="6" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction7" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="7"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="8." />
+                    <Label Grid.Row="7"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="8." />
                     <TextBox Grid.Row="7" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction8" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="8"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="9." />
+                    <Label Grid.Row="8"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="9." />
                     <TextBox Grid.Row="8" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction9" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="9"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="10." />
+                    <Label Grid.Row="9"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="10." />
                     <TextBox Grid.Row="9" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction10" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="10"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="11." />
+                    <Label Grid.Row="10"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="11." />
                     <TextBox Grid.Row="10" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction11" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="11"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="12." />
+                    <Label Grid.Row="11"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="12." />
                     <TextBox Grid.Row="11" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction12" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="12"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="13." />
+                    <Label Grid.Row="12"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="13." />
                     <TextBox Grid.Row="12" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction13" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="13"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="14." />
+                    <Label Grid.Row="13"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="14." />
                     <TextBox Grid.Row="13" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction14" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="14"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="15." />
+                    <Label Grid.Row="14"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="15." />
                     <TextBox Grid.Row="14" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction15" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="15"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="16." />
+                    <Label Grid.Row="15"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="16." />
                     <TextBox Grid.Row="15" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction16" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="16"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="17." />
+                    <Label Grid.Row="16"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="17." />
                     <TextBox Grid.Row="16" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction17" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="17"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="18." />
+                    <Label Grid.Row="17"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="18." />
                     <TextBox Grid.Row="17" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction18" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="18"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="19." />
+                    <Label Grid.Row="18"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="19." />
                     <TextBox Grid.Row="18" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction19" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="19"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="20." />
+                    <Label Grid.Row="19"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="20." />
                     <TextBox Grid.Row="19" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction20" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="20"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="21." />
+                    <Label Grid.Row="20"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="21." />
                     <TextBox Grid.Row="20" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction21" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="21"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="22." />
+                    <Label Grid.Row="21"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="22." />
                     <TextBox Grid.Row="21" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction22" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="22"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="23." />
+                    <Label Grid.Row="22"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="23." />
                     <TextBox Grid.Row="22" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction23" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="23"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="24." />
+                    <Label Grid.Row="23"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="24." />
                     <TextBox Grid.Row="23" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction24" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="24"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="25." />
+                    <Label Grid.Row="24"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="25." />
                     <TextBox Grid.Row="24" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction25" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="25"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="26." />
+                    <Label Grid.Row="25"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="26." />
                     <TextBox Grid.Row="25" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction26" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="26"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="27." />
+                    <Label Grid.Row="26"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="27." />
                     <TextBox Grid.Row="26" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction27" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="27"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="28." />
+                    <Label Grid.Row="27"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="28." />
                     <TextBox Grid.Row="27" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction28" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="28"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="29." />
+                    <Label Grid.Row="28"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="29." />
                     <TextBox Grid.Row="28" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction29" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Row="29"  Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" Content="30." />
+                    <Label Grid.Row="29"  Grid.Column="1" VerticalAlignment="Top" Margin="0,5,0,0" Content="30." />
                     <TextBox Grid.Row="29" Grid.Column="1" Margin="25,5,13,5" Name="tb_direction30" TextWrapping="Wrap" Text=""/>
 
                 </Grid>
@@ -566,6 +574,8 @@
                 <ColumnDefinition Width="86"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,1,0,0" BorderBrush="Black"/>
 
             <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_categoriesTypes" Content="Categorie" FontWeight="Bold"/>
 
