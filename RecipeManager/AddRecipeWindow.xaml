@@ -18,11 +18,19 @@
             <RowDefinition Height="40" Name="ButtonSave"/>
         </Grid.RowDefinitions>
 
-        <!-- Region (Name) -->
+        <!-- Region (Name & Rating) -->
 
         <Grid Grid.Row="0">
             <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0" Name="lbl_name" Content="Name" FontWeight="Bold"/>
             <TextBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Name="tb_name" Height="23" TextWrapping="NoWrap" Text="" Width="225"/>
+            <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="415,0,0,0" Name="lbl_rating" Content="Rating" FontWeight="Bold"/>
+            <ComboBox Grid.Column="0" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="465,0,0,0" Width="40" Height="23" Name="cb_rating" IsEditable="True" Text="">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+            </ComboBox>
         </Grid>
         
         <!-- EndRegion -->
