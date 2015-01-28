@@ -451,7 +451,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,1,0,0" BorderBrush="Black"/>
+            <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,1,0,0" BorderBrush="Black" Panel.ZIndex="2"/>
 
             <Label Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_directions" Content="Directions" FontWeight="Bold"/>
 
