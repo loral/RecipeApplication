@@ -94,6 +94,60 @@ namespace RecipeManager
         private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
             //Save recipe
+            Recipe newRecipe = new Recipe();
+
+            foreach (TextBox tb in FindVisualChildren<TextBox>(addRecipeWindow))
+            {
+                if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Name")
+                {
+                    newRecipe.name = tb.Text;
+                }
+                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "PrepTime")
+                {
+                    newRecipe.prepTime = tb.Text;
+                }
+                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "CookTime")
+                {
+                    newRecipe.cookTime = tb.Text;
+                }
+                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Yeild")
+                {
+                    newRecipe.yeild = tb.Text;
+                }
+                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Direction")
+                {
+                    newRecipe.directions.Add(tb.Text);
+                }
+            }
+
+            foreach (ComboBox comboBox in FindVisualChildren<ComboBox>(addRecipeWindow))
+            {
+                if (comboBox.Text.ToString().Trim() != "" && comboBox.Tag.ToString() == "Ingredient")
+                {
+                    //Save Ingredients
+                }
+                else if (comboBox.Text.ToString().Trim() != "" && comboBox.Tag.ToString() == "Rating")
+                {
+                    newRecipe.rating = Convert.ToDouble(comboBox.SelectedValue);
+                }
+            }
+
+            foreach (CheckBox cb in FindVisualChildren<CheckBox>(addRecipeWindow))
+            {
+                if (cb.IsChecked == true && cb.Tag.ToString() == "MealType")
+                {
+                    newRecipe.mealTypes.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
+                }
+                else if (cb.IsChecked == true && cb.Tag.ToString() == "RecipeType")
+                {
+                    newRecipe.recipeTypes.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
+                }
+                else if (cb.IsChecked == true && cb.Tag.ToString() == "Categorie")
+                {
+                    newRecipe.categories.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
+                }
+            }
+
             // FractionToDouble(tb_ingredientQuantity.Text)
             // Update recipe book
             // Possibly update ingredient list
