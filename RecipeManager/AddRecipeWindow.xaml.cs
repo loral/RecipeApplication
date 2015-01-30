@@ -98,7 +98,12 @@ namespace RecipeManager
 
             foreach (TextBox tb in FindVisualChildren<TextBox>(addRecipeWindow))
             {
-                if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Name")
+                MessageBox.Show("Caught one! " + tb.Name.ToString());
+                if (tb.Name.ToString() == "PART_EditableTextBox")
+                {
+                    MessageBox.Show("Caught one! " + tb.Name.ToString());
+                }
+                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Name")
                 {
                     newRecipe.name = tb.Text;
                 }
@@ -122,13 +127,13 @@ namespace RecipeManager
 
             foreach (ComboBox comboBox in FindVisualChildren<ComboBox>(addRecipeWindow))
             {
-                if (comboBox.Text.ToString().Trim() != "" && comboBox.Tag.ToString() == "Ingredient")
+                if (comboBox.SelectedIndex != -1 && comboBox.Tag.ToString() == "Ingredient")
                 {
                     //Save Ingredients
                 }
-                else if (comboBox.Text.ToString().Trim() != "" && comboBox.Tag.ToString() == "Rating")
+                else if (comboBox.SelectedIndex != -1 && comboBox.Tag.ToString() == "Rating")
                 {
-                    newRecipe.rating = Convert.ToDouble(comboBox.SelectedValue);
+                    newRecipe.rating = Convert.ToDouble(comboBox.Text.ToString());
                 }
             }
 
