@@ -93,69 +93,97 @@ namespace RecipeManager
 
         private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
-            //Save recipe
             Recipe newRecipe = new Recipe();
+            int ingredientCount = 1;
 
             foreach (TextBox tb in FindVisualChildren<TextBox>(addRecipeWindow))
             {
-                MessageBox.Show("Caught one! " + tb.Name.ToString());
-                if (tb.Name.ToString() == "PART_EditableTextBox")
+                if (tb.Text.ToString().Trim() != "" && tb.Tag != null)
                 {
-                    MessageBox.Show("Caught one! " + tb.Name.ToString());
-                }
-                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Name")
-                {
-                    newRecipe.name = tb.Text;
-                }
-                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "PrepTime")
-                {
-                    newRecipe.prepTime = tb.Text;
-                }
-                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "CookTime")
-                {
-                    newRecipe.cookTime = tb.Text;
-                }
-                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Yeild")
-                {
-                    newRecipe.yeild = tb.Text;
-                }
-                else if (tb.Text.ToString().Trim() != "" && tb.Tag.ToString() == "Direction")
-                {
-                    newRecipe.directions.Add(tb.Text);
+                    if (tb.Tag.ToString() == "Name")
+                    {
+                        newRecipe.name = tb.Text;
+                    }
+                    else if (tb.Tag.ToString() == "PrepTime")
+                    {
+                        newRecipe.prepTime = tb.Text;
+                    }
+                    else if (tb.Tag.ToString() == "CookTime")
+                    {
+                        newRecipe.cookTime = tb.Text;
+                    }
+                    else if (tb.Tag.ToString() == "Yeild")
+                    {
+                        newRecipe.yeild = tb.Text;
+                    }
+                    else if (tb.Tag.ToString() == "Direction")
+                    {
+                        newRecipe.directions.Add(tb.Text);
+                    }
                 }
             }
 
             foreach (ComboBox comboBox in FindVisualChildren<ComboBox>(addRecipeWindow))
             {
-                if (comboBox.SelectedIndex != -1 && comboBox.Tag.ToString() == "Ingredient")
+                if (comboBox.Text.ToString().Trim() != "")
                 {
-                    //Save Ingredients
-                }
-                else if (comboBox.SelectedIndex != -1 && comboBox.Tag.ToString() == "Rating")
-                {
-                    newRecipe.rating = Convert.ToDouble(comboBox.Text.ToString());
+                    if (comboBox.Tag.ToString() == "Ingredient" && comboBox.Name.ToString().Contains("cb_ingredientName"))
+                    {
+                        try
+                        {
+                            Ingredient ingredient = new Ingredient();
+                            string name = "cb_ingredientName" + ingredientCount;
+                            string quantity = "tb_ingredientQuantity" + ingredientCount;
+                            string unit = "cb_ingredientUnit" + ingredientCount;
+                            ComboBox nameControl = (ComboBox)addRecipeWindow.FindName(name);
+                            TextBox quantityControl = (TextBox)addRecipeWindow.FindName(quantity);
+                            ComboBox unitControl = (ComboBox)addRecipeWindow.FindName(unit);
+                            
+                            if(comboBox.Name != nameControl.Name)
+                            {
+                                throw new Exception("Mismatch ingredient control error");
+                            }
+
+                            ingredient.Name = nameControl.Text;
+                            ingredient.Quanity = quantityControl.Text;
+                            ingredient.Unit = unitControl.Text;
+                            newRecipe.ingredients.Add(ingredient);
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString());
+                        }
+                        ingredientCount++;
+                    }
+                    else if (comboBox.Tag.ToString() == "Rating")
+                    {
+                        newRecipe.rating = Convert.ToDouble(comboBox.Text.ToString());
+                    }
                 }
             }
 
             foreach (CheckBox cb in FindVisualChildren<CheckBox>(addRecipeWindow))
             {
-                if (cb.IsChecked == true && cb.Tag.ToString() == "MealType")
+                if (cb.IsChecked == true)
                 {
-                    newRecipe.mealTypes.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
-                }
-                else if (cb.IsChecked == true && cb.Tag.ToString() == "RecipeType")
-                {
-                    newRecipe.recipeTypes.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
-                }
-                else if (cb.IsChecked == true && cb.Tag.ToString() == "Categorie")
-                {
-                    newRecipe.categories.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
+                    if (cb.Tag.ToString() == "MealType")
+                    {
+                        newRecipe.mealTypes.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
+                    }
+                    else if (cb.Tag.ToString() == "RecipeType")
+                    {
+                        newRecipe.recipeTypes.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
+                    }
+                    else if (cb.Tag.ToString() == "Categorie")
+                    {
+                        newRecipe.categories.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
+                    }
                 }
             }
 
             // FractionToDouble(tb_ingredientQuantity.Text)
             // Update recipe book
-            // Possibly update ingredient list
+            // Update ingredient list
             MessageBox.Show("You clicked 'Save'");
             this.Close();
         }
