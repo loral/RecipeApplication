@@ -91,6 +91,7 @@ namespace RecipeManager
         private void Save(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked 'Save'");
+            doc.Save(@"C:\RecipeManager.rmn");
         }
 
         private void SaveAs(object sender, RoutedEventArgs e)
