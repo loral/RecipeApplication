@@ -23,11 +23,10 @@ namespace RecipeManager
     public partial class AddRecipeWindow : Window
     {
         public XmlDocument recipeBook = new XmlDocument();
-        XmlDocument xmlDoc = new XmlDocument();
+        public List<string> ingredientList = new List<string>();
         public Recipe newRecipe;
         public string recipeXML;
-        XmlNodeList recipes;
-        XmlNode recipeNode;
+        public XmlNodeList XMLingredientList;
 
         public AddRecipeWindow(XmlDocument StartFile)
         {
@@ -51,9 +50,8 @@ namespace RecipeManager
             UnitsOfMeasure unitClass = new UnitsOfMeasure();
             unitList = unitClass.GetList();
 
-            // Get ingredient list
-            List<string> ingredientList = new List<string>();
-            XmlNodeList XMLingredientList = recipeBook.SelectNodes("//Ingredient");
+            // Get ingredient list     
+            XMLingredientList = recipeBook.SelectNodes("//Ingredient");
 
             foreach (XmlNode ingredient in XMLingredientList)
             {
@@ -84,14 +82,25 @@ namespace RecipeManager
             // Build recipe xml
             recipeXML = GetRecipeXML(newRecipe);
 
-            xmlDoc.LoadXml(recipeXML);
-            recipeNode = xmlDoc.DocumentElement;
-           
-            // Save recipe to doc
-            recipeBook.SelectSingleNode("//RecipeManager/RecipeBook/Recipes").AppendChild(recipeNode);
-            recipes = recipeBook.SelectNodes("//RecipeManager/RecipeBook/Recipes/Recipe");
+            // Add new recipe to the doc
+            XmlDocument recipeDoc = new XmlDocument();
+            recipeDoc.LoadXml(recipeXML);
+            XmlNode recipeNode = recipeDoc.DocumentElement;
+            recipeBook.SelectNodes("//RecipeManager/RecipeBook")[0].AppendChild(recipeBook.ImportNode(recipeNode, true));
 
-            // Update ingredient list
+            // Add new ingredients to the doc
+            foreach(Ingredient ingredient in newRecipe.ingredients)
+            {
+                if(!ingredientList.Contains(ingredient.Name.ToString()))
+                {
+                    XmlDocument ingredientDoc = new XmlDocument();
+                    ingredientDoc.LoadXml("<Ingredient>" + ingredient.Name.ToString() + "</Ingredient>");
+                    XmlNode ingredientNode = ingredientDoc.DocumentElement;
+
+                    recipeBook.SelectNodes("//RecipeManager/IngredientList")[0].AppendChild(recipeBook.ImportNode(ingredientNode, true));
+                }
+            }
+
             // FractionToDouble(tb_ingredientQuantity.Text)
             
             MessageBox.Show("You clicked 'Save'");
