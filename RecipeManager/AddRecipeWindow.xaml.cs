@@ -79,16 +79,16 @@ namespace RecipeManager
             // Get recipe from window
             newRecipe = GetRecipe();
 
-            // Build recipe xml
+            // Get recipe xml
             recipeXML = GetRecipeXML(newRecipe);
 
-            // Add new recipe to the doc
+            // Add new recipe to recipe book
             XmlDocument recipeDoc = new XmlDocument();
             recipeDoc.LoadXml(recipeXML);
             XmlNode recipeNode = recipeDoc.DocumentElement;
             recipeBook.SelectNodes("//RecipeManager/RecipeBook")[0].AppendChild(recipeBook.ImportNode(recipeNode, true));
 
-            // Add new ingredients to the doc
+            // Add new ingredients to recipe book
             foreach(Ingredient ingredient in newRecipe.ingredients)
             {
                 if(!ingredientList.Contains(ingredient.Name.ToString()))
