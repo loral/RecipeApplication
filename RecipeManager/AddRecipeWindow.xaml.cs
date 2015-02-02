@@ -32,7 +32,13 @@ namespace RecipeManager
         {
             InitializeComponent();
 
-            if (StartFile != null)
+            // If not opened from an existing file create one else load the existing one.
+            if (StartFile.InnerXml == "")
+            {
+                string newFile = @"<?xml version=""1.0"" encoding=""utf-8""?><RecipeManager><RecipeBook><Recipes></Recipes></RecipeBook><IngredientList></IngredientList><Menues></Menues><Links></Links></RecipeManager>";
+                recipeBook.LoadXml(newFile);
+            }
+            else if (StartFile != null)
             {
                 recipeBook = StartFile;
             }
@@ -52,12 +58,10 @@ namespace RecipeManager
 
             // Get ingredient list     
             XMLingredientList = recipeBook.SelectNodes("//Ingredient");
-
             foreach (XmlNode ingredient in XMLingredientList)
             {
                 ingredientList.Add(ingredient.InnerXml);
             }
-
             ingredientList.Sort();
 
             // Populate combo boxs
@@ -76,22 +80,22 @@ namespace RecipeManager
 
         private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
-            // Get recipe from window
+            // Get new recipe info from window
             newRecipe = GetRecipe();
 
-            // Get recipe xml
+            // Create new recipe xml
             recipeXML = GetRecipeXML(newRecipe);
 
-            // Add new recipe to recipe book
+            // Add new recipe to recipe book file
             XmlDocument recipeDoc = new XmlDocument();
             recipeDoc.LoadXml(recipeXML);
             XmlNode recipeNode = recipeDoc.DocumentElement;
-            recipeBook.SelectNodes("//RecipeManager/RecipeBook")[0].AppendChild(recipeBook.ImportNode(recipeNode, true));
+            recipeBook.SelectNodes("//RecipeManager/RecipeBook/Recipes")[0].AppendChild(recipeBook.ImportNode(recipeNode, true));
 
-            // Add new ingredients to recipe book
-            foreach(Ingredient ingredient in newRecipe.ingredients)
+            // Add new ingredients to recipe book file
+            foreach (Ingredient ingredient in newRecipe.ingredients)
             {
-                if(!ingredientList.Contains(ingredient.Name.ToString()))
+                if (!ingredientList.Contains(ingredient.Name.ToString()))
                 {
                     XmlDocument ingredientDoc = new XmlDocument();
                     ingredientDoc.LoadXml("<Ingredient>" + ingredient.Name.ToString() + "</Ingredient>");
@@ -101,10 +105,49 @@ namespace RecipeManager
                 }
             }
 
-            // FractionToDouble(tb_ingredientQuantity.Text)
-            
-            MessageBox.Show("You clicked 'Save'");
-            this.Close();
+            // Save updated file to disk
+            try
+            {
+                if (Application.Current.Properties["StartFile"] != null && Application.Current.Properties["StartFile"].ToString() != null && Application.Current.Properties["StartFile"].ToString() != "No filename given")
+                {
+                    string fileName = Application.Current.Properties["StartFile"].ToString();
+                    recipeBook.Save(fileName);
+                }
+                else
+                {
+                    SaveAs(this, null);
+                }
+                MessageBox.Show("Saved", "Saved!");
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            } 
+        }
+
+        private void SaveAs(object sender, RoutedEventArgs e)
+        {
+            // Configure save file dialog box
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = "RecipeManager"; // Default file name
+            dlg.DefaultExt = ".rmn"; // Default file extension
+            dlg.Filter = "Text documents (.rmn)|*.rmn"; // Filter files by extension 
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results 
+            if (result == true)
+            {
+                // Save document 
+                string filename = dlg.FileName;
+                recipeBook.Save(filename);
+            }
+            else
+            {
+                throw new Exception("No file selected to save to.");
+            }
         }
 
         private Recipe GetRecipe()
