@@ -53,7 +53,20 @@ namespace RecipeManager
         private void AddRecipe(object sender, RoutedEventArgs e)
         {
             AddRecipeWindow addRecipeWindow = new AddRecipeWindow(doc);
+            addRecipeWindow.Owner = this;
             addRecipeWindow.Show();
+        }
+
+        public void reLoadFile()
+        {
+            try
+            {
+                doc.Load(Application.Current.Properties["StartFile"].ToString());
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void ViewRecipe(object sender, RoutedEventArgs e)

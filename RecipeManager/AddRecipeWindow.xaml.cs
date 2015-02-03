@@ -108,6 +108,8 @@ namespace RecipeManager
             // Save updated file to disk
             try
             {
+                var myObject = this.Owner as MainWindow;
+
                 if (Application.Current.Properties["StartFile"] != null && Application.Current.Properties["StartFile"].ToString() != null && Application.Current.Properties["StartFile"].ToString() != "No filename given")
                 {
                     string fileName = Application.Current.Properties["StartFile"].ToString();
@@ -118,12 +120,13 @@ namespace RecipeManager
                     SaveAs(this, null);
                 }
                 MessageBox.Show("Saved", "Saved!");
+                myObject.reLoadFile();
                 this.Close();
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
-            } 
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         private void SaveAs(object sender, RoutedEventArgs e)
@@ -143,10 +146,11 @@ namespace RecipeManager
                 // Save document 
                 string filename = dlg.FileName;
                 recipeBook.Save(filename);
+                Application.Current.Properties["StartFile"] = filename;
             }
             else
             {
-                throw new Exception("No file selected to save to.");
+                throw new Exception("No save file path selected!");
             }
         }
 
