@@ -23,13 +23,14 @@ namespace RecipeManager
     public partial class MainWindow : Window
     {
         public XmlDocument doc = new XmlDocument();
+        public string fileName = string.Empty;
 
         public MainWindow()
         {
             InitializeComponent();
             if (Application.Current.Properties["StartFile"] != null)
             {
-                var fileName = Application.Current.Properties["StartFile"].ToString();
+                fileName = Application.Current.Properties["StartFile"].ToString();
                 if (fileName != null && fileName != "No filename given")
                 {
                     LoadFileData(fileName);
@@ -42,6 +43,14 @@ namespace RecipeManager
                 RoutedCommand addRecipe = new RoutedCommand();
                 addRecipe.InputGestures.Add(new KeyGesture(Key.A, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(addRecipe, AddRecipe));
+
+                RoutedCommand saveFile = new RoutedCommand();
+                saveFile.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(saveFile, Save));
+
+                RoutedCommand openFile = new RoutedCommand();
+                openFile.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(openFile, Open));
             }
             catch (Exception ex)
             {
@@ -100,6 +109,8 @@ namespace RecipeManager
         {
             // Configure open file dialog box
             Microsoft.Win32.OpenFileDialog dlg = new Microsoft.Win32.OpenFileDialog();
+            //dlg.DefaultExt = ".rmn"; // Default file extension
+            dlg.Filter = "Xml documents (.rmn)|*.rmn"; // Filter files by extension 
 
             // Show open file dialog box
             Nullable<bool> result = dlg.ShowDialog();
@@ -108,15 +119,30 @@ namespace RecipeManager
             if (result == true)
             {
                 // Open document 
-                string filename = dlg.FileName;
-                LoadFileData(filename);
+                fileName = dlg.FileName;
+                LoadFileData(fileName);
             }
         }
 
         private void Save(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You clicked 'Save'");
-            doc.Save(@"C:\RecipeManager.rmn");
+            // Save updated file to disk
+            try
+            {
+                if (Application.Current.Properties["StartFile"] != null && Application.Current.Properties["StartFile"].ToString() != null && Application.Current.Properties["StartFile"].ToString() != "No filename given")
+                {
+                    doc.Save(fileName);
+                    MessageBox.Show("Saved", "Saved!");
+                }
+                else
+                {
+                    SaveAs(this, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         private void SaveAs(object sender, RoutedEventArgs e)
@@ -125,7 +151,7 @@ namespace RecipeManager
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "RecipeManager"; // Default file name
             dlg.DefaultExt = ".rmn"; // Default file extension
-            dlg.Filter = "Text documents (.rmn)|*.rmn"; // Filter files by extension 
+            dlg.Filter = "Xml documents (.rmn)|*.rmn"; // Filter files by extension 
 
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
@@ -134,7 +160,13 @@ namespace RecipeManager
             if (result == true)
             {
                 // Save document 
-                string filename = dlg.FileName;
+                fileName = dlg.FileName;
+                doc.Save(fileName);
+                MessageBox.Show("Saved", "Saved!");
+            }
+            else
+            {
+                MessageBox.Show("No save file path selected!","Error");
             }
         }
 

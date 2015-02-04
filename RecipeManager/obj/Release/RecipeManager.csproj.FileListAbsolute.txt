@@ -26,3 +26,4 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.R
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
+C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
