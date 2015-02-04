@@ -35,6 +35,18 @@ namespace RecipeManager
                     LoadFileData(fileName);
                 }
             }
+
+            // Create hot keys
+            try
+            {
+                RoutedCommand addRecipe = new RoutedCommand();
+                addRecipe.InputGestures.Add(new KeyGesture(Key.A, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(addRecipe, AddRecipe));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         #region Application Logic

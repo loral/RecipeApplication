@@ -42,6 +42,18 @@ namespace RecipeManager
             {
                 recipeBook = StartFile;
             }
+
+            // Create hot keys
+            try
+            {
+                RoutedCommand saveRecipe = new RoutedCommand();
+                saveRecipe.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(saveRecipe, saveRecipe_btn_Click));
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
+            }
         }
 
         private void AddRecipeWindowLoaded(object sender, RoutedEventArgs e)
