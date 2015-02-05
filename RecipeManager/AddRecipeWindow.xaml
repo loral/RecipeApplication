@@ -161,285 +161,285 @@
                         <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
 
-                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName1" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName1" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity1" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity1" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit1" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit1" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity1" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity1" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit1" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit1" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName1" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName1" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName2" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName2" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity2" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity2" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit2" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit2" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity2" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity2" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit2" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit2" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName2" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName2" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName3" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName3" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity3" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity3" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit3" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit3" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity3" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity3" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit3" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit3" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName3" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="2" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName3" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName4" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName4" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity4" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity4" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit4" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit4" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity4" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity4" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit4" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit4" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName4" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName4" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName5" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName5" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity5" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity5" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit5" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit5" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity5" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity5" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit5" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit5" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName5" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName5" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName6" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName6" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity6" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity6" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit6" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit6" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity6" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity6" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit6" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit6" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName6" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName6" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName7" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName7" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity7" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity7" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit7" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit7" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity7" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity7" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit7" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit7" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName7" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="6" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName7" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName8" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName8" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity8" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity8" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit8" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit8" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity8" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity8" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit8" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit8" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName8" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="7" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName8" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName9" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName9" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity9" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity9" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit9" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit9" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity9" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity9" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit9" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit9" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName9" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="8" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName9" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName10" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName10" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity10" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity10" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit10" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit10" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity10" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity10" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit10" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit10" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName10" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="9" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName10" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName11" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName11" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity11" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity11" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit11" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit11" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity11" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity11" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit11" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit11" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName11" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="10" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName11" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName12" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName12" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity12" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity12" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit12" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit12" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity12" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity12" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit12" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit12" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName12" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="11" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName12" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName13" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName13" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity13" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity13" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit13" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit13" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity13" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity13" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit13" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit13" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName13" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="12" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName13" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName14" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName14" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity14" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity14" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit14" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit14" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity14" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity14" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit14" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit14" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName14" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="13" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName14" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName15" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName15" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity15" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity15" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit15" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit15" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity15" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity15" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit15" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit15" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName15" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="14" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName15" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName16" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName16" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity16" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity16" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit16" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit16" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity16" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity16" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit16" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit16" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName16" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="15" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName16" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName17" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName17" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity17" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity17" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit17" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit17" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity17" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity17" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit17" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit17" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName17" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="16" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName17" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName18" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName18" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity18" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity18" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit18" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit18" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity18" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity18" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit18" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit18" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName18" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="17" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName18" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName19" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName19" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity19" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity19" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit19" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit19" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity19" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity19" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit19" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit19" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName19" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="18" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName19" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName20" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName20" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity20" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity20" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit20" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit20" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity20" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity20" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit20" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit20" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName20" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="19" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName20" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName21" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName21" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity21" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity21" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit21" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit21" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity21" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity21" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit21" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit21" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName21" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="20" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName21" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName22" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName22" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity22" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity22" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit22" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit22" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity22" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity22" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit22" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit22" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName22" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="21" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName22" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName23" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName23" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity23" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity23" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit23" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit23" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity23" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity23" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit23" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit23" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName23" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="22" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName23" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName24" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName24" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity24" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity24" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit24" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit24" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity24" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity24" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit24" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit24" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName24" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="23" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName24" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName25" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName25" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity25" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity25" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit25" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit25" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity25" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity25" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit25" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit25" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName25" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="24" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName25" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName26" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName26" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity26" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity26" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit26" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit26" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity26" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity26" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit26" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit26" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName26" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="25" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName26" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName27" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName27" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity27" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity27" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit27" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit27" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity27" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity27" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit27" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit27" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName27" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="26" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName27" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName28" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName28" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity28" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity28" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit28" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit28" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity28" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity28" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit28" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit28" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName28" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="27" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName28" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName29" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName29" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity29" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity29" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit29" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit29" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity29" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity29" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit29" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit29" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName29" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="28" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName29" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName30" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName30" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity30" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity30" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit30" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit30" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity30" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity30" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit30" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit30" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName30" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="29" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName30" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName31" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName31" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity31" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity31" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit31" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit31" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity31" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity31" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit31" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit31" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName31" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="30" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName31" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName32" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName32" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity32" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity32" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit32" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit32" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity32" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity32" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit32" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit32" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName32" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="31" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName32" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName33" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName33" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity33" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity33" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit33" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit33" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity33" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity33" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit33" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit33" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName33" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="32" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName33" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName34" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName34" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity34" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity34" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit34" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit34" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity34" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity34" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit34" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit34" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName34" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="33" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName34" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName35" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName35" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity35" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity35" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit35" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit35" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity35" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity35" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit35" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit35" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName35" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="34" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName35" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName36" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName36" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity36" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity36" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit36" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit36" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity36" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity36" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit36" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit36" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName36" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="35" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName36" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName37" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName37" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity37" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity37" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit37" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit37" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity37" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity37" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit37" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit37" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName37" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="36" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName37" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName38" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName38" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity38" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity38" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit38" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit38" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity38" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity38" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit38" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit38" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName38" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="37" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName38" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName39" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName39" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity39" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity39" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit39" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit39" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity39" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity39" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit39" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit39" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName39" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="38" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName39" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
-                    <Label Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientName40" Content="Name" />
-                    <ComboBox Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="41,0,0,0" Width="180" Height="25" Name="cb_ingredientName40" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="227,0,0,0" Name="lbl_ingredientQuantity40" Content="Quantity" />
-                    <TextBox Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="285,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity40" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
-                    <Label Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="332,0,0,0" Name="lbl_ingredientUnit40" Content="Units" />
-                    <ComboBox Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="370,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit40" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="lbl_ingredientQuantity40" Content="Quantity" />
+                    <TextBox Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="58,0,0,0" Width="40" Height="25" Name="tb_ingredientQuantity40" Tag="Ingredient" TextWrapping="Wrap" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="102,0,0,0" Name="lbl_ingredientUnit40" Content="Units" />
+                    <ComboBox Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="140,0,0,0" Width="75" Height="25" IsEditable="True" Name="cb_ingredientUnit40" Tag="Ingredient" Text=""/>
+                    <Label Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="224,0,0,0" Name="lbl_ingredientName40" Content="Name" />
+                    <ComboBox Grid.Column="1" Grid.Row="39" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="265,0,0,0" Width="180" Height="25" Name="cb_ingredientName40" Tag="Ingredient" MaxDropDownHeight="275" IsEditable="True" Text=""/>
 
                 </Grid>
 

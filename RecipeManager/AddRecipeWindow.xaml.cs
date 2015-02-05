@@ -49,6 +49,10 @@ namespace RecipeManager
                 RoutedCommand saveRecipe = new RoutedCommand();
                 saveRecipe.InputGestures.Add(new KeyGesture(Key.S, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(saveRecipe, saveRecipe_btn_Click));
+
+                RoutedCommand cancel = new RoutedCommand();
+                cancel.InputGestures.Add(new KeyGesture(Key.Q, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(cancel, cancelRecipe_btn_Click));
             }
             catch (Exception ex)
             {
@@ -147,7 +151,7 @@ namespace RecipeManager
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "RecipeManager"; // Default file name
             dlg.DefaultExt = ".rmn"; // Default file extension
-            dlg.Filter = "Recipe Manager document (.rmn)|*.rmn"; // Filter files by extension 
+            dlg.Filter = "recipe manager (.rmn)|*.rmn"; // Filter files by extension 
 
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();

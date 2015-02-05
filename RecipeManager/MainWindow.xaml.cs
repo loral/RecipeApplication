@@ -51,6 +51,22 @@ namespace RecipeManager
                 RoutedCommand openFile = new RoutedCommand();
                 openFile.InputGestures.Add(new KeyGesture(Key.O, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(openFile, Open));
+
+                RoutedCommand print = new RoutedCommand();
+                print.InputGestures.Add(new KeyGesture(Key.P, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(print, Print));
+
+                RoutedCommand edit = new RoutedCommand();
+                edit.InputGestures.Add(new KeyGesture(Key.E, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(edit, EditRecipe));
+
+                RoutedCommand menu = new RoutedCommand();
+                menu.InputGestures.Add(new KeyGesture(Key.M, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(menu, CreateMenu));
+
+                RoutedCommand exit = new RoutedCommand();
+                exit.InputGestures.Add(new KeyGesture(Key.Q, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(exit, Exit));
             }
             catch (Exception ex)
             {
@@ -61,7 +77,7 @@ namespace RecipeManager
         #region Application Logic
 
         private void LoadFileData(string filePath)
-        {  
+        {
             doc.Load(filePath);
             MessageBox.Show(doc.InnerXml);
         }
@@ -82,9 +98,10 @@ namespace RecipeManager
         {
             try
             {
-                doc.Load(Application.Current.Properties["StartFile"].ToString());
+                fileName = Application.Current.Properties["StartFile"].ToString();
+                doc.Load(fileName);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
@@ -120,6 +137,7 @@ namespace RecipeManager
             {
                 // Open document 
                 fileName = dlg.FileName;
+                Application.Current.Properties["StartFile"] = fileName;
                 LoadFileData(fileName);
             }
         }
@@ -131,7 +149,7 @@ namespace RecipeManager
             {
                 if (Application.Current.Properties["StartFile"] != null && Application.Current.Properties["StartFile"].ToString() != null && Application.Current.Properties["StartFile"].ToString() != "No filename given")
                 {
-                    doc.Save(fileName);
+                    doc.Save(Application.Current.Properties["StartFile"].ToString());
                     MessageBox.Show("Saved", "Saved!");
                 }
                 else
@@ -151,7 +169,7 @@ namespace RecipeManager
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "RecipeManager"; // Default file name
             dlg.DefaultExt = ".rmn"; // Default file extension
-            dlg.Filter = "Xml documents (.rmn)|*.rmn"; // Filter files by extension 
+            dlg.Filter = "recipe manager (.rmn)|*.rmn"; // Filter files by extension 
 
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();
@@ -161,12 +179,13 @@ namespace RecipeManager
             {
                 // Save document 
                 fileName = dlg.FileName;
+                Application.Current.Properties["StartFile"] = fileName;
                 doc.Save(fileName);
                 MessageBox.Show("Saved", "Saved!");
             }
             else
             {
-                MessageBox.Show("No save file path selected!","Error");
+                MessageBox.Show("No save file path selected!", "Error");
             }
         }
 
