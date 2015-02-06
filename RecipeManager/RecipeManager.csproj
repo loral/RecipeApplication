@@ -98,6 +98,7 @@
     </Compile>
     <Compile Include="Ingredient.cs" />
     <Compile Include="Recipe.cs" />
+    <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="UnitOfMeasure.cs" />
     <Page Include="AddRecipeWindow.xaml">
       <SubType>Designer</SubType>

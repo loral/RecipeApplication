@@ -28,6 +28,9 @@ namespace RecipeManager
         public MainWindow()
         {
             InitializeComponent();
+
+            DataContext = new MainWindowViewModel();
+
             if (Application.Current.Properties["StartFile"] != null)
             {
                 fileName = Application.Current.Properties["StartFile"].ToString();
@@ -84,7 +87,7 @@ namespace RecipeManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            //Any stuff that needs to be set or loaded after the window is created needs to go here.
+            CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -92,6 +95,26 @@ namespace RecipeManager
             AddRecipeWindow addRecipeWindow = new AddRecipeWindow(doc);
             addRecipeWindow.Owner = this;
             addRecipeWindow.Show();
+        }
+
+        private void RecipeFilter_OnCriteriaChange(object sender, TextChangedEventArgs e)
+        {
+            CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
+        }
+
+        private void RecipeFilter_OnCriteriaChange(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("You changed something");
+        }
+
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(nameFilter.Text))
+                return true;
+
+            var recipe = (Recipe)item;
+
+            return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
         }
 
         public void reLoadFile()
