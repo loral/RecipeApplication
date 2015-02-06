@@ -29,8 +29,6 @@ namespace RecipeManager
         {
             InitializeComponent();
 
-            DataContext = new MainWindowViewModel();
-
             if (Application.Current.Properties["StartFile"] != null)
             {
                 fileName = Application.Current.Properties["StartFile"].ToString();
@@ -39,6 +37,8 @@ namespace RecipeManager
                     LoadFileData(fileName);
                 }
             }
+
+            DataContext = new MainWindowViewModel(doc);
 
             // Create hot keys
             try
@@ -104,7 +104,7 @@ namespace RecipeManager
 
         private void RecipeFilter_OnCriteriaChange(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You changed something");
+            CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
         private bool UserFilter(object item)

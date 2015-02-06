@@ -3,37 +3,84 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Xml;
 
 namespace RecipeManager
 {
     public class MainWindowViewModel
     {
-        public MainWindowViewModel()
-        {
-            Recipes = new List<Recipe>
-            {
-                new Recipe(){name = "apple"},
-                new Recipe(){name = "bannana"},
-                new Recipe(){name = "carrot"},
-                new Recipe(){name = "delicious"},
-                new Recipe(){name = "edible"},
-                new Recipe(){name = "fanciful"},
-                new Recipe(){name = "grape"},
-                new Recipe(){name = "hidalgo"},
-                new Recipe(){name = "igloo"},
-                new Recipe(){name = "jasmin"},
-                new Recipe(){name = "kangaroo"},
-                new Recipe(){name = "kit"},
-                new Recipe(){name = "lemon"},
-                new Recipe(){name = "lemur"},
-                new Recipe(){name = "loral"},
-                //https://github.com/grantwinney/BlogCodeSamples/tree/master/CollectionViewSourceSample/CollectionViewSourceSample
-                //http://grantwinney.com/using-a-textbox-and-collectionviewsource-to-filter-a-listview-in-wpf/
-            };
-        }
-
         public List<Recipe> Recipes { get; set; }
 
         public Recipe SelectedRecipe { get; set; }
+
+        public MainWindowViewModel(XmlDocument doc)
+        {
+
+            XmlNodeList _recipes = doc.SelectNodes("//RecipeManager/RecipeBook/Recipes/Recipe");
+
+            Recipes = new List<Recipe>();
+
+            foreach (XmlNode _recipe in _recipes)
+            {
+                List<MealType> _mealList = new List<MealType>();
+                List<RecipeType> _recipeList = new List<RecipeType>();
+                List<Ingredient> _ingredientList = new List<Ingredient>();
+                List<String> _directionsList = new List<string>();
+                List<Category> _categoryList = new List<Category>();
+
+                var _name = _recipe["Name"].InnerText;
+                var _rating = _recipe["Rating"].InnerText;
+                var _prep = _recipe["PrepTime"].InnerText;
+                var _cook = _recipe["CookTime"].InnerText;
+                var _yeild = _recipe["Yeild"].InnerText;
+
+                var _meal = _recipe["MealTypes"].ChildNodes;
+                var _recipeTypes = _recipe["RecipeTypes"].ChildNodes;
+                var _ingredients = _recipe["RecipeIngredients"].ChildNodes;
+                var _directions = _recipe["Directions"].ChildNodes;
+                var _categories = _recipe["Categories"].ChildNodes;
+
+                foreach (XmlNode _mealType in _meal)
+                {
+                    _mealList.Add((MealType)Enum.Parse(typeof(MealType), _mealType.InnerText));
+                }
+                foreach(XmlNode _recipeType in _recipeTypes)
+                {
+                    _recipeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), _recipeType.InnerText));
+                }
+                foreach(XmlNode _ingredient in _ingredients)
+                {
+                    var _ingName = _ingredient["IngredientName"].InnerText;
+                    var _ingQuantity = _ingredient["IngredientQuantity"].InnerText;
+                    var _ingUnit = _ingredient["IngredientUnit"].InnerText;
+
+                    Ingredient newIngredient = new Ingredient();
+                    newIngredient.Name = _ingName;
+                    newIngredient.Quanity = _ingQuantity;
+                    newIngredient.Unit = _ingUnit;
+
+                    _ingredientList.Add(newIngredient);
+                }
+                foreach(XmlNode _direction in _directions)
+                {
+                    _directionsList.Add(_direction.InnerText);
+                }
+                foreach(XmlNode _category in _categories)
+                {
+                    _categoryList.Add((Category)Enum.Parse(typeof(Category), _category.InnerText));
+                }
+
+                Recipe newRecipe = new Recipe { name = _name, rating = Convert.ToDouble(_rating), prepTime = _prep, cookTime = _cook, yeild = _yeild, mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
+                Recipes.Add(newRecipe); 
+            }
+
+            Recipes = Recipes.OrderBy(x => x.name).ToList();
+
+            //https://github.com/grantwinney/BlogCodeSamples/tree/master/CollectionViewSourceSample/CollectionViewSourceSample
+            //http://grantwinney.com/using-a-textbox-and-collectionviewsource-to-filter-a-listview-in-wpf/
+
+        }
+  
     }
 }

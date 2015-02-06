@@ -38,7 +38,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240" Name="LeftColumn"/>
-                <ColumnDefinition Width="200" Name="MiddleColumn"/>
+                <ColumnDefinition Width="165" Name="MiddleColumn"/>
                 <ColumnDefinition Width="*" Name="RightColumn"/>
             </Grid.ColumnDefinitions>
 
@@ -154,12 +154,11 @@
 
             <Grid Grid.Column="1">
                 <Border BorderThickness="1,0,1,0" BorderBrush="Black"/>
-                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" BorderBrush="LightGray" Margin="5"/>
+                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" BorderBrush="LightGray" Margin="3"/>
             </Grid>
 
             <Grid Grid.Column="2">
             </Grid>
-
 
         </Grid>
 

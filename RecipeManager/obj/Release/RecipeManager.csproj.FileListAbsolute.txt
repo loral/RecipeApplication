@@ -12,7 +12,6 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.R
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
-C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.config
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.pdb
@@ -28,3 +27,4 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\Reci
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
+C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
