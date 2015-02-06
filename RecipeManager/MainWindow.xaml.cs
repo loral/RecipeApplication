@@ -109,12 +109,17 @@ namespace RecipeManager
 
         private bool UserFilter(object item)
         {
-            if (String.IsNullOrEmpty(nameFilter.Text))
+            //if (String.IsNullOrEmpty(nameFilter.Text))
+            //    return true;
+
+            if (String.IsNullOrEmpty(ingredientFilter.Text))
                 return true;
 
             var recipe = (Recipe)item;
 
-            return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+            return (recipe.ingredients.Exists(junk => junk.Name.Contains(ingredientFilter.Text)));
+
+            //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
         }
 
         public void reLoadFile()
