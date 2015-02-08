@@ -107,19 +107,81 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(nameFilter.Text))
-                return true;
+        //// Filters by recipe name
+        //private bool UserFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(nameFilter.Text))
+        //        return true;
 
-            //if (String.IsNullOrEmpty(ingredientFilter.Text))
-            //    return true;
+        //    var recipe = (Recipe)item;
+
+        //    return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+        //}
+
+        //// Filters by recipe ingredients
+        //private bool UserFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(ingredientFilter.Text))
+        //        return true;
+
+        //    var recipe = (Recipe)item;
+
+        //    //Need to figure out how to make case insensitive
+        //    return (recipe.ingredients.Exists(junk => junk.Name.Contains(ingredientFilter.Text)));
+        //}
+
+        // Filters by recipe category, mealType, and recipeType
+        private bool UserFilter(object item)
+        {  
+            List<Category> _categoryList = new List<Category>();
+            List<MealType> _mealTypeList = new List<MealType>();
+            List<RecipeType> _recipeTypeList = new List<RecipeType>();
+
+            foreach (CheckBox cb in FindVisualChildren<CheckBox>(RecipeManager))
+            {
+                if (cb.IsChecked == true && cb.Tag != null)
+                {
+                    if (cb.Tag.ToString() == "Categorie")
+                    {
+                        _categoryList.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
+                    }
+                    else if (cb.Tag.ToString() == "MealType")
+                    {
+                        _mealTypeList.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
+                    }
+                    else if (cb.Tag.ToString() == "RecipeType")
+                    {
+                        _recipeTypeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
+                    }
+                }
+            }
+
+            if (_categoryList.Count < 1 && _mealTypeList.Count < 1 && _recipeTypeList.Count < 1)
+                return true;
 
             var recipe = (Recipe)item;
 
-            //return (recipe.ingredients.Exists(junk => junk.Name.Contains(ingredientFilter.Text)));
+            return ((ListContainsAll.ContainsAllItems(recipe.categories, _categoryList)) && (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList)) && (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList)));
+        }
 
-            return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+        public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        {
+            if (depObj != null)
+            {
+                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
+                {
+                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
+                    if (child != null && child is T)
+                    {
+                        yield return (T)child;
+                    }
+
+                    foreach (T childOfChild in FindVisualChildren<T>(child))
+                    {
+                        yield return childOfChild;
+                    }
+                }
+            }
         }
 
         public void reLoadFile()
@@ -128,6 +190,7 @@ namespace RecipeManager
             {
                 fileName = Application.Current.Properties["StartFile"].ToString();
                 doc.Load(fileName);
+                DataContext = new MainWindowViewModel(doc);
             }
             catch (Exception ex)
             {
