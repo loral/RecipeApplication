@@ -107,16 +107,20 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
-        //// Filters by recipe name
-        //private bool UserFilter(object item)
-        //{
-        //    if (String.IsNullOrEmpty(nameFilter.Text))
-        //        return true;
+        // Filters by recipe name
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(nameFilter.Text))
+                return true;
 
-        //    var recipe = (Recipe)item;
+            var recipe = (Recipe)item;
 
-        //    return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
-        //}
+            // Case insensitive but has to "start with"
+            //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+
+            // Case sensitive but only has to "contain"
+            return (recipe.name.Contains(nameFilter.Text));
+        }
 
         //// Filters by recipe ingredients
         //private bool UserFilter(object item)
@@ -130,39 +134,39 @@ namespace RecipeManager
         //    return (recipe.ingredients.Exists(junk => junk.Name.Contains(ingredientFilter.Text)));
         //}
 
-        // Filters by recipe category, mealType, and recipeType
-        private bool UserFilter(object item)
-        {  
-            List<Category> _categoryList = new List<Category>();
-            List<MealType> _mealTypeList = new List<MealType>();
-            List<RecipeType> _recipeTypeList = new List<RecipeType>();
+        //// Filters by recipe category, mealType, and recipeType
+        //private bool UserFilter(object item)
+        //{  
+        //    List<Category> _categoryList = new List<Category>();
+        //    List<MealType> _mealTypeList = new List<MealType>();
+        //    List<RecipeType> _recipeTypeList = new List<RecipeType>();
 
-            foreach (CheckBox cb in FindVisualChildren<CheckBox>(RecipeManager))
-            {
-                if (cb.IsChecked == true && cb.Tag != null)
-                {
-                    if (cb.Tag.ToString() == "Categorie")
-                    {
-                        _categoryList.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
-                    }
-                    else if (cb.Tag.ToString() == "MealType")
-                    {
-                        _mealTypeList.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
-                    }
-                    else if (cb.Tag.ToString() == "RecipeType")
-                    {
-                        _recipeTypeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
-                    }
-                }
-            }
+        //    foreach (CheckBox cb in FindVisualChildren<CheckBox>(RecipeManager))
+        //    {
+        //        if (cb.IsChecked == true && cb.Tag != null)
+        //        {
+        //            if (cb.Tag.ToString() == "Categorie")
+        //            {
+        //                _categoryList.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
+        //            }
+        //            else if (cb.Tag.ToString() == "MealType")
+        //            {
+        //                _mealTypeList.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
+        //            }
+        //            else if (cb.Tag.ToString() == "RecipeType")
+        //            {
+        //                _recipeTypeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
+        //            }
+        //        }
+        //    }
 
-            if (_categoryList.Count < 1 && _mealTypeList.Count < 1 && _recipeTypeList.Count < 1)
-                return true;
+        //    if (_categoryList.Count < 1 && _mealTypeList.Count < 1 && _recipeTypeList.Count < 1)
+        //        return true;
 
-            var recipe = (Recipe)item;
+        //    var recipe = (Recipe)item;
 
-            return ((ListContainsAll.ContainsAllItems(recipe.categories, _categoryList)) && (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList)) && (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList)));
-        }
+        //    return ((ListContainsAll.ContainsAllItems(recipe.categories, _categoryList)) && (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList)) && (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList)));
+        //}
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
