@@ -57,7 +57,7 @@
                 
                 <Grid Grid.Row="0">
                     <Label HorizontalAlignment="Left" VerticalAlignment="Center" Content="Name" FontWeight="SemiBold" />
-                    <TextBox Name="nameFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="160"/>
+                    <TextBox Name="nameFilter" Focusable="True" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="160"/>
                 </Grid>
 
                 <Grid Grid.Row="1">

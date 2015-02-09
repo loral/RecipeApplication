@@ -107,32 +107,31 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
-        // Filters by recipe name
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(nameFilter.Text))
-                return true;
+        #region recipe filter
 
-            var recipe = (Recipe)item;
-
-            // Case insensitive but has to "start with"
-            //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
-
-            // Case sensitive but only has to "contain"
-            return (recipe.name.Contains(nameFilter.Text));
-        }
-
-        //// Filters by recipe ingredients
+        //// Filters by recipe name
         //private bool UserFilter(object item)
         //{
-        //    if (String.IsNullOrEmpty(ingredientFilter.Text))
+        //    if (String.IsNullOrEmpty(nameFilter.Text))
         //        return true;
 
         //    var recipe = (Recipe)item;
 
-        //    //Need to figure out how to make case insensitive
-        //    return (recipe.ingredients.Exists(junk => junk.Name.Contains(ingredientFilter.Text)));
+        //    // Case insensitive but has to "start with"
+        //    return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
         //}
+
+        // Filters by recipe ingredients
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(ingredientFilter.Text))
+                return true;
+
+            var recipe = (Recipe)item;
+
+            //Need to figure out how to make case insensitive
+            return (recipe.ingredients.Exists(junk => junk.Name.IndexOf(ingredientFilter.Text, StringComparison.OrdinalIgnoreCase) > -1));
+        }
 
         //// Filters by recipe category, mealType, and recipeType
         //private bool UserFilter(object item)
@@ -190,6 +189,8 @@ namespace RecipeManager
         //    }     
         //}
 
+        #endregion
+
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
             if (depObj != null)
@@ -217,7 +218,8 @@ namespace RecipeManager
                 fileName = Application.Current.Properties["StartFile"].ToString();
                 doc.Load(fileName);
                 //Is there a way to re load the DataContext info?
-                //DataContext = new MainWindowViewModel(doc);
+                DataContext = new MainWindowViewModel(doc);
+                CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
             }
             catch (Exception ex)
             {

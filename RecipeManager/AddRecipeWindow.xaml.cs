@@ -145,6 +145,9 @@ namespace RecipeManager
                 }
                 MessageBox.Show("Saved", "Saved!");
                 myObject.reLoadFile();
+                myObject.Focus();
+                //myObject.nameFilter.Focus();
+                //FocusManager.SetFocusedElement(myObject, myObject.nameFilter);
                 this.Close();
             }
             catch (Exception ex)
