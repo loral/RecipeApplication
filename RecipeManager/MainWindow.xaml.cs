@@ -107,20 +107,20 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
-        //// Filters by recipe name
-        //private bool UserFilter(object item)
-        //{
-        //    if (String.IsNullOrEmpty(nameFilter.Text))
-        //        return true;
+        // Filters by recipe name
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(nameFilter.Text))
+                return true;
 
-        //    var recipe = (Recipe)item;
+            var recipe = (Recipe)item;
 
-        //    // Case insensitive but has to "start with"
-        //    //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+            // Case insensitive but has to "start with"
+            //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
 
-        //    // Case sensitive but only has to "contain"
-        //    return (recipe.name.Contains(nameFilter.Text));
-        //}
+            // Case sensitive but only has to "contain"
+            return (recipe.name.Contains(nameFilter.Text));
+        }
 
         //// Filters by recipe ingredients
         //private bool UserFilter(object item)
@@ -169,26 +169,26 @@ namespace RecipeManager
         //}
 
         // Filters by recipe rating
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(ratingLowFilter.Text) && String.IsNullOrEmpty(ratingHighFilter.Text))
-                return true;
-            else if (String.IsNullOrEmpty(ratingHighFilter.Text))
-            {
-                var recipe = (Recipe)item;
-                return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text));
-            }
-            else if(String.IsNullOrEmpty(ratingLowFilter.Text))
-            {
-                var recipe = (Recipe)item;
-                return (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || recipe.rating == null);
-            }
-            else
-            {
-                var recipe = (Recipe)item;
-                return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text) && recipe.rating <= Convert.ToDouble(ratingHighFilter.Text));
-            }     
-        }
+        //private bool UserFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(ratingLowFilter.Text) && String.IsNullOrEmpty(ratingHighFilter.Text))
+        //        return true;
+        //    else if (String.IsNullOrEmpty(ratingHighFilter.Text))
+        //    {
+        //        var recipe = (Recipe)item;
+        //        return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text));
+        //    }
+        //    else if(String.IsNullOrEmpty(ratingLowFilter.Text))
+        //    {
+        //        var recipe = (Recipe)item;
+        //        return (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || recipe.rating == null);
+        //    }
+        //    else
+        //    {
+        //        var recipe = (Recipe)item;
+        //        return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text) && recipe.rating <= Convert.ToDouble(ratingHighFilter.Text));
+        //    }     
+        //}
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
@@ -216,7 +216,8 @@ namespace RecipeManager
             {
                 fileName = Application.Current.Properties["StartFile"].ToString();
                 doc.Load(fileName);
-                DataContext = new MainWindowViewModel(doc);
+                //Is there a way to re load the DataContext info?
+                //DataContext = new MainWindowViewModel(doc);
             }
             catch (Exception ex)
             {
