@@ -13,7 +13,7 @@
         <Grid Grid.Row="0">
 
             <Menu IsMainMenu="True">
-                <MenuItem Header="_File">
+                <MenuItem Header="_File" FontWeight="Bold">
                     <MenuItem Header="_Add Recipe..." Click="AddRecipe"/>
                     <MenuItem Header="_View Recipe..." Click="ViewRecipe"/>
                     <MenuItem Header="_Edit Recipe..." Click="EditRecipe"/>
@@ -28,8 +28,8 @@
                     <Separator />
                     <MenuItem Header="_Exit" Click="Exit"/>
                 </MenuItem>
-                <MenuItem Header="_Tools" Click="Tools"/>
-                <MenuItem Header="_Help" Click="Help"/>
+                <MenuItem Header="_Tools" Click="Tools" FontWeight="Bold"/>
+                <MenuItem Header="_Help" Click="Help" FontWeight="Bold"/>
             </Menu>
 
         </Grid>
@@ -56,39 +56,39 @@
                 </Grid.RowDefinitions>
                 
                 <Grid Grid.Row="0">
-                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Content="Name"/>
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Content="Name" FontWeight="SemiBold" />
                     <TextBox Name="nameFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="160"/>
                 </Grid>
 
                 <Grid Grid.Row="1">
-                    <Label Content="Rating" VerticalAlignment="Center"/>
+                    <Label Content="Rating" VerticalAlignment="Center" FontWeight="SemiBold" />
                     <TextBox Name="ratingLowFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="50"/>
                     <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to"/>
                     <TextBox Name="ratingHighFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="147,0,0,0" Height="20" Width="50"/>
                 </Grid>
 
                 <Grid Grid.Row="2">
-                    <Label VerticalAlignment="Center" Content="Prep Time"/>
+                    <Label VerticalAlignment="Center" Content="Prep Time" FontWeight="SemiBold" />
                     <TextBox Name="prepLowFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="50"/>
                     <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to"/>
                     <TextBox Name="prepHighFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="147,0,0,0" Height="20" Width="50"/>
                 </Grid>
 
                 <Grid Grid.Row="3">
-                    <Label VerticalAlignment="Center" Content="Cook Time"/>
+                    <Label VerticalAlignment="Center" Content="Cook Time" FontWeight="SemiBold" />
                     <TextBox Name="cookLowFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="50"/>
                     <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to"/>
                     <TextBox Name="cookHighFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="147,0,0,0" Height="20" Width="50"/>
                 </Grid>
 
                 <Grid Grid.Row="4">
-                    <Label VerticalAlignment="Center" Content="Ingredient"/>
+                    <Label VerticalAlignment="Center" Content="Ingredient" FontWeight="SemiBold" />
                     <TextBox Name="ingredientFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="160"/>
                 </Grid>
 
                 <Grid Grid.Row="5">
                     <Border BorderThickness="0,1,0,0" BorderBrush="Black"/>
-                    <Label VerticalAlignment="Center" Content="Type"/>
+                    <Label VerticalAlignment="Center" Content="Type" FontWeight="SemiBold" />
                     <CheckBox Name="MainDish" Content="Main" Tag="RecipeType" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="70,0,0,0"/>
                     <CheckBox Name="Side" Content="Side" Tag="RecipeType" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="130,0,0,0"/>
                 </Grid>
@@ -101,7 +101,7 @@
                     </Grid.RowDefinitions>
 
                     <Border BorderThickness="0,1,0,0" BorderBrush="Black"/>
-                    <Label Grid.Row="0" VerticalAlignment="Center" Content="Meal"/>
+                    <Label Grid.Row="0" VerticalAlignment="Center" Content="Meal" FontWeight="SemiBold" />
                     <CheckBox Name="Breakfast" Grid.Row="1" Content="Breakfast" Tag="MealType" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="15,0,0,0"/>
                     <CheckBox Name="Lunch" Grid.Row="1" Content="Lunch" Tag="MealType" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="90,0,0,0"/>
                     <CheckBox Name="Dinner" Grid.Row="1" Content="Dinner" Tag="MealType" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="150,0,0,0"/>
@@ -126,7 +126,7 @@
                     </Grid.RowDefinitions>
 
                     <Border BorderThickness="0,1,0,0" BorderBrush="Black"/>
-                    <Label Grid.Row="0" Content="Category" VerticalAlignment="Center" Margin="0,-5,0,0"/>
+                    <Label Grid.Row="0" Content="Category" VerticalAlignment="Center" Margin="0,-5,0,0" FontWeight="SemiBold" />
                     <CheckBox Grid.Row="1" Name="AppetizerSnack" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Appetizer/Snack" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     <CheckBox Grid.Row="1" Name="BeanRiceGrain" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Bean/Rice/Grain" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,0"/>
                     <CheckBox Grid.Row="2" Name="Beverage" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Beverage" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>

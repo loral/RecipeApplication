@@ -28,9 +28,28 @@ namespace RecipeManager
                 List<Ingredient> _ingredientList = new List<Ingredient>();
                 List<String> _directionsList = new List<string>();
                 List<Category> _categoryList = new List<Category>();
+                Double? _doubleRating;
 
                 var _name = _recipe["Name"].InnerText;
                 var _rating = _recipe["Rating"].InnerText;
+
+                if (_rating != null && _rating != "")
+                {
+                    try
+                    {
+                        _doubleRating = Convert.ToDouble(_rating);
+                    }
+                    catch (Exception ex)
+                    {
+                        _doubleRating = null;
+                        MessageBox.Show("Non null on convertable rating encountered.");
+                    }
+                }
+                else
+                {
+                    _doubleRating = null;
+                }
+
                 var _prep = _recipe["PrepTime"].InnerText;
                 var _cook = _recipe["CookTime"].InnerText;
                 var _yeild = _recipe["Yeild"].InnerText;
@@ -45,11 +64,11 @@ namespace RecipeManager
                 {
                     _mealList.Add((MealType)Enum.Parse(typeof(MealType), _mealType.InnerText));
                 }
-                foreach(XmlNode _recipeType in _recipeTypes)
+                foreach (XmlNode _recipeType in _recipeTypes)
                 {
                     _recipeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), _recipeType.InnerText));
                 }
-                foreach(XmlNode _ingredient in _ingredients)
+                foreach (XmlNode _ingredient in _ingredients)
                 {
                     var _ingName = _ingredient["IngredientName"].InnerText;
                     var _ingQuantity = _ingredient["IngredientQuantity"].InnerText;
@@ -62,17 +81,26 @@ namespace RecipeManager
 
                     _ingredientList.Add(newIngredient);
                 }
-                foreach(XmlNode _direction in _directions)
+                foreach (XmlNode _direction in _directions)
                 {
                     _directionsList.Add(_direction.InnerText);
                 }
-                foreach(XmlNode _category in _categories)
+                foreach (XmlNode _category in _categories)
                 {
                     _categoryList.Add((Category)Enum.Parse(typeof(Category), _category.InnerText));
                 }
 
-                Recipe newRecipe = new Recipe { name = _name, rating = Convert.ToDouble(_rating), prepTime = _prep, cookTime = _cook, yeild = _yeild, mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
-                Recipes.Add(newRecipe); 
+                try
+                {
+                    Recipe newRecipe = new Recipe { name = _name, rating = _doubleRating, prepTime = _prep, cookTime = _cook, yeild = _yeild, mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
+                    Recipes.Add(newRecipe);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                    return;
+                }
+
             }
 
             Recipes = Recipes.OrderBy(x => x.name).ToList();
@@ -81,6 +109,6 @@ namespace RecipeManager
             //http://grantwinney.com/using-a-textbox-and-collectionviewsource-to-filter-a-listview-in-wpf/
 
         }
-  
+
     }
 }

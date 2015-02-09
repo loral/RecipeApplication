@@ -44,7 +44,7 @@ namespace RecipeManager
             try
             {
                 RoutedCommand addRecipe = new RoutedCommand();
-                addRecipe.InputGestures.Add(new KeyGesture(Key.A, ModifierKeys.Control));
+                addRecipe.InputGestures.Add(new KeyGesture(Key.N, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(addRecipe, AddRecipe));
 
                 RoutedCommand saveFile = new RoutedCommand();
@@ -107,20 +107,20 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
-        // Filters by recipe name
-        private bool UserFilter(object item)
-        {
-            if (String.IsNullOrEmpty(nameFilter.Text))
-                return true;
+        //// Filters by recipe name
+        //private bool UserFilter(object item)
+        //{
+        //    if (String.IsNullOrEmpty(nameFilter.Text))
+        //        return true;
 
-            var recipe = (Recipe)item;
+        //    var recipe = (Recipe)item;
 
-            // Case insensitive but has to "start with"
-            //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+        //    // Case insensitive but has to "start with"
+        //    //return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
 
-            // Case sensitive but only has to "contain"
-            return (recipe.name.Contains(nameFilter.Text));
-        }
+        //    // Case sensitive but only has to "contain"
+        //    return (recipe.name.Contains(nameFilter.Text));
+        //}
 
         //// Filters by recipe ingredients
         //private bool UserFilter(object item)
@@ -136,7 +136,7 @@ namespace RecipeManager
 
         //// Filters by recipe category, mealType, and recipeType
         //private bool UserFilter(object item)
-        //{  
+        //{
         //    List<Category> _categoryList = new List<Category>();
         //    List<MealType> _mealTypeList = new List<MealType>();
         //    List<RecipeType> _recipeTypeList = new List<RecipeType>();
@@ -167,6 +167,28 @@ namespace RecipeManager
 
         //    return ((ListContainsAll.ContainsAllItems(recipe.categories, _categoryList)) && (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList)) && (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList)));
         //}
+
+        // Filters by recipe rating
+        private bool UserFilter(object item)
+        {
+            if (String.IsNullOrEmpty(ratingLowFilter.Text) && String.IsNullOrEmpty(ratingHighFilter.Text))
+                return true;
+            else if (String.IsNullOrEmpty(ratingHighFilter.Text))
+            {
+                var recipe = (Recipe)item;
+                return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text));
+            }
+            else if(String.IsNullOrEmpty(ratingLowFilter.Text))
+            {
+                var recipe = (Recipe)item;
+                return (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || recipe.rating == null);
+            }
+            else
+            {
+                var recipe = (Recipe)item;
+                return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text) && recipe.rating <= Convert.ToDouble(ratingHighFilter.Text));
+            }     
+        }
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {

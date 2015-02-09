@@ -97,8 +97,16 @@ namespace RecipeManager
         private void saveRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
             // Get new recipe info from window
-            newRecipe = GetRecipe();
-
+            try
+            {
+                newRecipe = GetRecipe();
+            }
+            catch
+            {
+                MessageBox.Show("Save canceled. Please enter a valid rating value");
+                return;
+            }
+            
             // Create new recipe xml
             recipeXML = GetRecipeXML(newRecipe);
 
@@ -237,7 +245,16 @@ namespace RecipeManager
                     }
                     else if (comboBox.Tag.ToString() == "Rating")
                     {
-                        newRecipe.rating = Convert.ToDouble(comboBox.Text.ToString());
+                        try
+                        {
+                            newRecipe.rating = Convert.ToDouble(comboBox.Text.ToString());
+                        }
+                        catch(Exception ex)
+                        {
+                            MessageBox.Show("Pleae enter a valid numerical number for a rating." + System.Environment.NewLine + ex.ToString());
+                            throw new Exception("Invalid rating");
+                        }
+                        
                     }
                 }
             }

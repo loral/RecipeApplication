@@ -12,7 +12,7 @@ namespace RecipeManager
         public string prepTime { get; set; }
         public string cookTime { get; set; }
         public string yeild { get; set; }
-        public double rating { get; set; }
+        public double? rating { get; set; }
 
         public List<Ingredient> ingredients = new List<Ingredient>();
 
