@@ -107,89 +107,62 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
         }
 
-        #region recipe filter
-
-        //// Filters by recipe name
-        //private bool UserFilter(object item)
-        //{
-        //    if (String.IsNullOrEmpty(nameFilter.Text))
-        //        return true;
-
-        //    var recipe = (Recipe)item;
-
-        //    // Case insensitive but has to "start with"
-        //    return (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
-        //}
-
-        // Filters by recipe ingredients
         private bool UserFilter(object item)
         {
-            if (String.IsNullOrEmpty(ingredientFilter.Text))
-                return true;
-
+            // Create variables
             var recipe = (Recipe)item;
 
-            //Need to figure out how to make case insensitive
-            return (recipe.ingredients.Exists(junk => junk.Name.IndexOf(ingredientFilter.Text, StringComparison.OrdinalIgnoreCase) > -1));
+            List<Category> _categoryList = new List<Category>();
+            List<MealType> _mealTypeList = new List<MealType>();
+            List<RecipeType> _recipeTypeList = new List<RecipeType>();
+
+            bool ratingGreaterThan, ratingLessThan, ingred, name, categories, meal, recipeType;
+
+            // Get checkbox filds
+            foreach (CheckBox cb in FindVisualChildren<CheckBox>(RecipeManager))
+            {
+                if (cb.IsChecked == true && cb.Tag != null)
+                {
+                    if (cb.Tag.ToString() == "Categorie")
+                    {
+                        _categoryList.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
+                    }
+                    else if (cb.Tag.ToString() == "MealType")
+                    {
+                        _mealTypeList.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
+                    }
+                    else if (cb.Tag.ToString() == "RecipeType")
+                    {
+                        _recipeTypeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
+                    }
+                }
+            }
+
+            // Run filter tests
+            if (String.IsNullOrEmpty(ratingLowFilter.Text))
+                ratingGreaterThan = true;
+            else
+                ratingGreaterThan = (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text));
+            if (String.IsNullOrEmpty(ratingHighFilter.Text))
+                ratingLessThan = true;
+            else
+                ratingLessThan = (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || String.IsNullOrEmpty(recipe.rating.ToString()));
+            if (String.IsNullOrEmpty(ingredientFilter.Text))
+                ingred = true;
+            else
+                ingred = (recipe.ingredients.Exists(junk => junk.Name.IndexOf(ingredientFilter.Text, StringComparison.OrdinalIgnoreCase) > -1));
+            if (String.IsNullOrEmpty(nameFilter.Text))
+                name = true;
+            else
+                name = (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
+
+            categories = (ListContainsAll.ContainsAllItems(recipe.categories, _categoryList));
+            meal = (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList));
+            recipeType = (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList));
+
+            // Return results
+            return (ratingGreaterThan && ratingLessThan && ingred && name && categories && meal && recipeType);
         }
-
-        //// Filters by recipe category, mealType, and recipeType
-        //private bool UserFilter(object item)
-        //{
-        //    List<Category> _categoryList = new List<Category>();
-        //    List<MealType> _mealTypeList = new List<MealType>();
-        //    List<RecipeType> _recipeTypeList = new List<RecipeType>();
-
-        //    foreach (CheckBox cb in FindVisualChildren<CheckBox>(RecipeManager))
-        //    {
-        //        if (cb.IsChecked == true && cb.Tag != null)
-        //        {
-        //            if (cb.Tag.ToString() == "Categorie")
-        //            {
-        //                _categoryList.Add((Category)Enum.Parse(typeof(Category), cb.Name.ToString()));
-        //            }
-        //            else if (cb.Tag.ToString() == "MealType")
-        //            {
-        //                _mealTypeList.Add((MealType)Enum.Parse(typeof(MealType), cb.Name.ToString()));
-        //            }
-        //            else if (cb.Tag.ToString() == "RecipeType")
-        //            {
-        //                _recipeTypeList.Add((RecipeType)Enum.Parse(typeof(RecipeType), cb.Name.ToString()));
-        //            }
-        //        }
-        //    }
-
-        //    if (_categoryList.Count < 1 && _mealTypeList.Count < 1 && _recipeTypeList.Count < 1)
-        //        return true;
-
-        //    var recipe = (Recipe)item;
-
-        //    return ((ListContainsAll.ContainsAllItems(recipe.categories, _categoryList)) && (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList)) && (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList)));
-        //}
-
-        // Filters by recipe rating
-        //private bool UserFilter(object item)
-        //{
-        //    if (String.IsNullOrEmpty(ratingLowFilter.Text) && String.IsNullOrEmpty(ratingHighFilter.Text))
-        //        return true;
-        //    else if (String.IsNullOrEmpty(ratingHighFilter.Text))
-        //    {
-        //        var recipe = (Recipe)item;
-        //        return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text));
-        //    }
-        //    else if(String.IsNullOrEmpty(ratingLowFilter.Text))
-        //    {
-        //        var recipe = (Recipe)item;
-        //        return (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || recipe.rating == null);
-        //    }
-        //    else
-        //    {
-        //        var recipe = (Recipe)item;
-        //        return (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text) && recipe.rating <= Convert.ToDouble(ratingHighFilter.Text));
-        //    }     
-        //}
-
-        #endregion
 
         public static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
         {
