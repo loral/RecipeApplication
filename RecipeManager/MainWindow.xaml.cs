@@ -292,7 +292,7 @@ namespace RecipeManager
                 // Open document 
                 fileName = dlg.FileName;
                 Application.Current.Properties["StartFile"] = fileName;
-                LoadFileData(fileName);
+                reLoadFile();
             }
         }
 
