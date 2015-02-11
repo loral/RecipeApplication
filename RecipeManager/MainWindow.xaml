@@ -83,7 +83,7 @@
 
                 <Grid Grid.Row="4">
                     <Label VerticalAlignment="Center" Content="Ingredient" FontWeight="SemiBold" />
-                    <TextBox Name="ingredientFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="160"/>
+                    <ComboBox Name="ingredientFilter" HorizontalAlignment="Left" VerticalAlignment="Center" IsEditable="True" TextBoxBase.TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" MaxDropDownHeight="275" Height="20" Width="160"/>
                 </Grid>
 
                 <Grid Grid.Row="5">

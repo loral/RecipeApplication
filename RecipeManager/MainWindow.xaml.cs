@@ -22,6 +22,8 @@ namespace RecipeManager
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<string> ingredientList = new List<string>();
+        public XmlNodeList XMLingredientList;
         public XmlDocument doc = new XmlDocument();
         public string fileName = string.Empty;
 
@@ -89,6 +91,23 @@ namespace RecipeManager
         {
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
             Keyboard.Focus(nameFilter);
+
+            // Get ingredient list     
+            XMLingredientList = doc.SelectNodes("//Ingredient");
+            foreach (XmlNode ingredient in XMLingredientList)
+            {
+                ingredientList.Add(ingredient.InnerXml);
+            }
+            ingredientList.Sort();
+
+            // Populate combo boxs
+            foreach (ComboBox cb in FindVisualChildren<ComboBox>(RecipeManager))
+            {
+                if (cb.Name.Contains("ingredientFilter"))
+                {
+                    cb.ItemsSource = ingredientList;
+                }
+            }
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -140,6 +159,7 @@ namespace RecipeManager
             }
 
             // Run filter tests
+            // Rating
             if (String.IsNullOrEmpty(ratingLowFilter.Text))
                 ratingGreaterThan = true;
             else
@@ -148,10 +168,12 @@ namespace RecipeManager
                 ratingLessThan = true;
             else
                 ratingLessThan = (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || String.IsNullOrEmpty(recipe.rating.ToString()));
+            // Ingredient
             if (String.IsNullOrEmpty(ingredientFilter.Text))
                 ingred = true;
             else
                 ingred = (recipe.ingredients.Exists(junk => junk.Name.IndexOf(ingredientFilter.Text, StringComparison.OrdinalIgnoreCase) > -1));
+            // Name
             if (String.IsNullOrEmpty(nameFilter.Text))
                 name = true;
             else
