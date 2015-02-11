@@ -101,12 +101,12 @@ namespace RecipeManager
             {
                 newRecipe = GetRecipe();
             }
-            catch
+            catch (Exception ex)
             {
-                MessageBox.Show("Save canceled. Please enter a valid rating value");
+                MessageBox.Show("Save canceled." + System.Environment.NewLine + ex.ToString());
                 return;
             }
-            
+
             // Create new recipe xml
             recipeXML = GetRecipeXML(newRecipe);
 
@@ -213,6 +213,12 @@ namespace RecipeManager
                 }
             }
 
+            if (String.IsNullOrEmpty(newRecipe.name))
+            {
+                MessageBox.Show("Pleae enter a recipe name.");
+                throw new Exception("Invalid recipe name.");
+            }
+
             foreach (ComboBox comboBox in FindVisualChildren<ComboBox>(addRecipeWindow))
             {
                 if (comboBox.Text.ToString().Trim() != "")
@@ -252,12 +258,12 @@ namespace RecipeManager
                         {
                             newRecipe.rating = Convert.ToDouble(comboBox.Text.ToString());
                         }
-                        catch(Exception ex)
+                        catch (Exception ex)
                         {
                             MessageBox.Show("Pleae enter a valid numerical number for a rating." + System.Environment.NewLine + ex.ToString());
                             throw new Exception("Invalid rating");
                         }
-                        
+
                     }
                 }
             }
