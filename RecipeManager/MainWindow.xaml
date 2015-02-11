@@ -13,23 +13,23 @@
         <Grid Grid.Row="0">
 
             <Menu IsMainMenu="True">
-                <MenuItem Header="_File" FontWeight="Bold">
-                    <MenuItem Header="_Add Recipe..." Click="AddRecipe"/>
-                    <MenuItem Header="_View Recipe..." Click="ViewRecipe"/>
-                    <MenuItem Header="_Edit Recipe..." Click="EditRecipe"/>
-                    <MenuItem Header="_Create Menu..." Click="CreateMenu"/>
+                <MenuItem Header="_File" FontWeight="SemiBold">
+                    <MenuItem Header="_Add Recipe..." Click="AddRecipe" FontWeight="Normal"/>
+                    <!--<MenuItem Header="_View Recipe..." Click="ViewRecipe" FontWeight="Normal"/>-->
+                    <MenuItem Header="_Edit Recipe..." Click="EditRecipe" FontWeight="Normal"/>
+                    <MenuItem Header="_Create Menu..." Click="CreateMenu" FontWeight="Normal"/>
                     <Separator />
-                    <MenuItem Header="_Open..." Click="Open"/>
+                    <MenuItem Header="_Open..." Click="Open" FontWeight="Normal"/>
                     <Separator />
-                    <MenuItem Header="_Save" Click="Save"/>
-                    <MenuItem Header="_Save As..." Click="SaveAs"/>
+                    <MenuItem Header="_Save" Click="Save" FontWeight="Normal"/>
+                    <MenuItem Header="_Save As..." Click="SaveAs" FontWeight="Normal"/>
                     <Separator />
-                    <MenuItem Header="Print" Click="Print"/>
+                    <MenuItem Header="Print" Click="Print" FontWeight="Normal"/>
                     <Separator />
-                    <MenuItem Header="_Exit" Click="Exit"/>
+                    <MenuItem Header="_Exit" Click="Exit" FontWeight="Normal"/>
                 </MenuItem>
-                <MenuItem Header="_Tools" Click="Tools" FontWeight="Bold"/>
-                <MenuItem Header="_Help" Click="Help" FontWeight="Bold"/>
+                <MenuItem Header="_Tools" Click="Tools" FontWeight="SemiBold"/>
+                <MenuItem Header="_Help" Click="Help" FontWeight="SemiBold"/>
             </Menu>
 
         </Grid>
@@ -154,10 +154,11 @@
 
             <Grid Grid.Column="1">
                 <Border BorderThickness="1,0,1,0" BorderBrush="Black"/>
-                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" BorderBrush="LightGray" Margin="3"/>
+                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange"/>
             </Grid>
 
             <Grid Grid.Column="2">
+                <TextBox Name="SelectedRevipeView" />
             </Grid>
 
         </Grid>

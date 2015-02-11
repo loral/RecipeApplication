@@ -88,6 +88,7 @@ namespace RecipeManager
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
+            Keyboard.Focus(nameFilter);
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -198,6 +199,66 @@ namespace RecipeManager
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void OnSelectedRecipeChange(object sender, SelectionChangedEventArgs e)
+        {
+            if (RecipeListView.SelectedValue == null)
+            {
+                SelectedRevipeView.Text = "";
+                return;
+            }
+                
+            Recipe _selectedRecipe = (Recipe)RecipeListView.SelectedValue;
+            PopulateSelectedRecipeDisplayed(_selectedRecipe);
+        }
+
+        private void PopulateSelectedRecipeDisplayed(Recipe _selectedRecipe)
+        {
+            SelectedRevipeView.Text = "";
+
+            string _recipeToDisplay = "Name: " + _selectedRecipe.name;
+            _recipeToDisplay += System.Environment.NewLine + "Rating: " + _selectedRecipe.rating;
+            _recipeToDisplay += System.Environment.NewLine + "Prep Time: " + _selectedRecipe.prepTime;
+            _recipeToDisplay += System.Environment.NewLine + "Cook Time: " + _selectedRecipe.cookTime;
+            _recipeToDisplay += System.Environment.NewLine + "Yeild: " + _selectedRecipe.yeild;
+
+            _recipeToDisplay += System.Environment.NewLine + "Meal Types: ";
+
+            foreach(MealType mealType in _selectedRecipe.mealTypes)
+            {
+                _recipeToDisplay += mealType + ", ";
+            }
+
+            _recipeToDisplay += System.Environment.NewLine + "Recipe Types: ";
+
+            foreach (RecipeType recipeType in _selectedRecipe.recipeTypes)
+            {
+                _recipeToDisplay += recipeType + ", ";
+            }
+
+            _recipeToDisplay += System.Environment.NewLine + "Categories: ";
+
+            foreach (Category category in _selectedRecipe.categories)
+            {
+                _recipeToDisplay += category + ", ";
+            }
+
+            _recipeToDisplay += System.Environment.NewLine + System.Environment.NewLine + "Ingredients: ";
+
+            foreach(Ingredient ingredient in _selectedRecipe.ingredients)
+            {
+                _recipeToDisplay += System.Environment.NewLine + "• " + ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name;
+            }
+
+            _recipeToDisplay += System.Environment.NewLine + System.Environment.NewLine + "Directions: ";
+
+            foreach (string direction in _selectedRecipe.directions)
+            {
+                _recipeToDisplay += System.Environment.NewLine + "• " + direction;
+            }
+
+            SelectedRevipeView.Text = _recipeToDisplay;
         }
 
         private void ViewRecipe(object sender, RoutedEventArgs e)

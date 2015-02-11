@@ -63,6 +63,8 @@ namespace RecipeManager
         private void AddRecipeWindowLoaded(object sender, RoutedEventArgs e)
         {
             PopulateComboBoxs();
+            tb_name.Focusable = true;
+            Keyboard.Focus(tb_name);
         }
 
         private void PopulateComboBoxs()
@@ -186,12 +188,22 @@ namespace RecipeManager
             Recipe newRecipe = new Recipe();
             int ingredientCount = 1;
 
+            XmlNodeList _recipeNames = recipeBook.SelectNodes("//RecipeManager/RecipeBook/Recipes/Recipe");
+
             foreach (TextBox tb in FindVisualChildren<TextBox>(addRecipeWindow))
             {
                 if (tb.Text.ToString().Trim() != "" && tb.Tag != null)
                 {
                     if (tb.Tag.ToString() == "Name")
                     {
+                        // Duplicate name check
+                        foreach (XmlNode _recipe in _recipeNames)
+                        {
+                            if(tb.Text == _recipe["Name"].InnerText)
+                            {
+                                throw new Exception("Please select a unique recipe name.");
+                            }
+                        }
                         newRecipe.name = tb.Text;
                     }
                     else if (tb.Tag.ToString() == "PrepTime")

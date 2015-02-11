@@ -33,8 +33,7 @@
             </ComboBox>
         </Grid>
         
-        <!-- EndRegion -->
-        
+        <!-- EndRegion -->     
         <!-- Region (PrepTime) -->
 
         <Grid Grid.Row="1">
@@ -584,7 +583,7 @@
 
             <Border Grid.Column="0" Grid.ColumnSpan="2" BorderThickness="0,1,0,0" BorderBrush="Black"/>
 
-            <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_categoriesTypes" Content="Categorie" FontWeight="Bold"/>
+            <Label Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="7,0,0,0" Name="lbl_categoriesTypes" Content="Categories" FontWeight="Bold"/>
 
             <Grid Grid.Column="1">
 
