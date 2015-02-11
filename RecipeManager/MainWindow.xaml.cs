@@ -92,15 +92,9 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
             Keyboard.Focus(nameFilter);
 
-            // Get ingredient list     
-            XMLingredientList = doc.SelectNodes("//Ingredient");
-            foreach (XmlNode ingredient in XMLingredientList)
-            {
-                ingredientList.Add(ingredient.InnerXml);
-            }
-            ingredientList.Sort();
+            GetIngredientList();
 
-            // Populate combo boxs
+            // Populate ingredient combo box
             foreach (ComboBox cb in FindVisualChildren<ComboBox>(RecipeManager))
             {
                 if (cb.Name.Contains("ingredientFilter"))
@@ -108,6 +102,17 @@ namespace RecipeManager
                     cb.ItemsSource = ingredientList;
                 }
             }
+        }
+
+        private void GetIngredientList()
+        {
+            // Get ingredient list     
+            XMLingredientList = doc.SelectNodes("//Ingredient");
+            foreach (XmlNode ingredient in XMLingredientList)
+            {
+                ingredientList.Add(ingredient.InnerXml);
+            }
+            ingredientList.Sort();
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -213,9 +218,19 @@ namespace RecipeManager
             {
                 fileName = Application.Current.Properties["StartFile"].ToString();
                 doc.Load(fileName);
-                //Is there a way to re load the DataContext info?
                 DataContext = new MainWindowViewModel(doc);
                 CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
+                GetIngredientList();
+
+                // Populate ingredient combo box
+                foreach (ComboBox cb in FindVisualChildren<ComboBox>(RecipeManager))
+                {
+                    if (cb.Name.Contains("ingredientFilter"))
+                    {
+                        cb.ItemsSource = ingredientList;
+                    }
+                }
+
             }
             catch (Exception ex)
             {
