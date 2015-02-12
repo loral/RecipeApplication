@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Xml;
 using System.IO;
+using System.Globalization;
 
 namespace RecipeManager
 {
@@ -22,10 +23,11 @@ namespace RecipeManager
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<string> ingredientList = new List<string>();
         public XmlNodeList XMLingredientList;
         public XmlDocument doc = new XmlDocument();
         public string fileName = string.Empty;
+        CultureInfo culture = new CultureInfo("en-US");
+        public IngredientView ingredientView;
 
         public MainWindow()
         {
@@ -41,6 +43,7 @@ namespace RecipeManager
             }
 
             DataContext = new MainWindowViewModel(doc);
+            ingredientView = new IngredientView(doc);
 
             // Create hot keys
             try
@@ -92,28 +95,14 @@ namespace RecipeManager
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
             Keyboard.Focus(nameFilter);
 
-            GetIngredientList();
-
             // Populate ingredient combo box
             foreach (ComboBox cb in FindVisualChildren<ComboBox>(RecipeManager))
             {
                 if (cb.Name.Contains("ingredientFilter"))
                 {
-                    cb.ItemsSource = ingredientList;
+                    cb.ItemsSource = ingredientView.Ingredients;
                 }
             }
-        }
-
-        private void GetIngredientList()
-        {
-            // Get ingredient list     
-            XMLingredientList = doc.SelectNodes("//Ingredient");
-            ingredientList.Clear();
-            foreach (XmlNode ingredient in XMLingredientList)
-            {
-                ingredientList.Add(ingredient.InnerXml);
-            }
-            ingredientList.Sort();
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -183,8 +172,11 @@ namespace RecipeManager
             if (String.IsNullOrEmpty(nameFilter.Text))
                 name = true;
             else
-                name = (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase));
-
+            {
+                //name = (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase)); // Starts with 
+                name = (culture.CompareInfo.IndexOf(recipe.name, nameFilter.Text, CompareOptions.IgnoreCase) > -1); // Contains
+            }
+                
             categories = (ListContainsAll.ContainsAllItems(recipe.categories, _categoryList));
             meal = (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList));
             recipeType = (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList));
@@ -221,14 +213,14 @@ namespace RecipeManager
                 doc.Load(fileName);
                 DataContext = new MainWindowViewModel(doc);
                 CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
-                GetIngredientList();
+                ingredientView = new IngredientView(doc);
 
                 // Populate ingredient combo box
                 foreach (ComboBox cb in FindVisualChildren<ComboBox>(RecipeManager))
                 {
                     if (cb.Name.Contains("ingredientFilter"))
                     {
-                        cb.ItemsSource = ingredientList;
+                        cb.ItemsSource = ingredientView.Ingredients;
                     }
                 }
 

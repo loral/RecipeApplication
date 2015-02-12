@@ -97,6 +97,7 @@
       <DependentUpon>AddRecipeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Ingredient.cs" />
+    <Compile Include="IngredientView.cs" />
     <Compile Include="ListContainsAll.cs" />
     <Compile Include="Recipe.cs" />
     <Compile Include="MainWindowViewModel.cs" />

@@ -158,7 +158,7 @@
             </Grid>
 
             <Grid Grid.Column="2">
-                <TextBox Name="SelectedRevipeView" TextWrapping="Wrap"/>
+                <TextBox Name="SelectedRevipeView" TextWrapping="Wrap" IsReadOnly="True"/>
             </Grid>
 
         </Grid>
