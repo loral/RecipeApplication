@@ -108,6 +108,7 @@ namespace RecipeManager
         {
             // Get ingredient list     
             XMLingredientList = doc.SelectNodes("//Ingredient");
+            ingredientList.Clear();
             foreach (XmlNode ingredient in XMLingredientList)
             {
                 ingredientList.Add(ingredient.InnerXml);

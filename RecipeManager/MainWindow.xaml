@@ -143,7 +143,7 @@
                     <CheckBox Grid.Row="7" Name="Pasta" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Pasta" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,0"/>
                     <CheckBox Grid.Row="8" Name="PieTart" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Pie/Tart" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     <CheckBox Grid.Row="8" Name="Poultry" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Poultry" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,0"/>
-                    <CheckBox Grid.Row="9" Name="SalladDressing" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Sallad/Dressing" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                    <CheckBox Grid.Row="9" Name="SaladDressing" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Salad/Dressing" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     <CheckBox Grid.Row="9" Name="SauceRelish" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Sauce/Relish" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,0"/>
                     <CheckBox Grid.Row="10" Name="SlowCooker" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Slow Cooker" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
                     <CheckBox Grid.Row="10" Name="SoupStew" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Soup/Stew" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,0"/>
@@ -158,7 +158,7 @@
             </Grid>
 
             <Grid Grid.Column="2">
-                <TextBox Name="SelectedRevipeView" />
+                <TextBox Name="SelectedRevipeView" TextWrapping="Wrap"/>
             </Grid>
 
         </Grid>

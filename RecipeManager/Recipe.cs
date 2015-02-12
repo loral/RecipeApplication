@@ -2,7 +2,7 @@
 
 namespace RecipeManager
 {
-    public enum Category { AppetizerSnack, BeanRiceGrain, Beverage, Bread, CakeFrosting, Candy, CanningFreezing, CheeseEgg, CookieBar, Dessert, Fish, Grill, Meat, Pasta, PieTart, Poultry, SalladDressing, SauceRelish, SlowCooker, SoupStew, VegetablesFruit };
+    public enum Category { AppetizerSnack, BeanRiceGrain, Beverage, Bread, CakeFrosting, Candy, CanningFreezing, CheeseEgg, CookieBar, Dessert, Fish, Grill, Meat, Pasta, PieTart, Poultry, SaladDressing, SauceRelish, SlowCooker, SoupStew, VegetablesFruit };
     public enum MealType { Breakfast, Lunch, Dinner };
     public enum RecipeType { MainDish, Side };
 

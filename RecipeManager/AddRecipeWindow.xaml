@@ -612,7 +612,7 @@
                 <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="116,0,0,0" Name="Pasta" Tag="Categorie" Content="Pasta"/>
                 <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="230,0,0,0" Name="PieTart" Tag="Categorie" Content="Pie/Tart"/>
                 <CheckBox Grid.Column="0" Grid.Row="3" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="350,0,0,0" Name="Poultry" Tag="Categorie" Content="Poultry"/>
-                <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="SalladDressing" Tag="Categorie" Content="Sallad/Dressing"/>
+                <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="SaladDressing" Tag="Categorie" Content="Salad/Dressing"/>
                 <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="116,0,0,0" Name="SauceRelish" Tag="Categorie" Content="Sauce/Relish"/>
                 <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="230,0,0,0" Name="SlowCooker" Tag="Categorie" Content="Slow Cooker"/>
                 <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="350,0,0,0" Name="SoupStew" Tag="Categorie" Content="Soup/Stew"/>
