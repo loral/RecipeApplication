@@ -291,11 +291,6 @@ namespace RecipeManager
             SelectedRevipeView.Text = _recipeToDisplay;
         }
 
-        private void ViewRecipe(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You clicked 'View Recipe'");
-        }
-
         private void EditRecipe(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked 'Edit Recipe'");

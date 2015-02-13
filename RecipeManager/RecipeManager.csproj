@@ -70,7 +70,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>hat.ico</ApplicationIcon>
+    <ApplicationIcon>hat4.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -166,7 +166,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="hat1.ico" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="hat.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hat3.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="hat4.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
