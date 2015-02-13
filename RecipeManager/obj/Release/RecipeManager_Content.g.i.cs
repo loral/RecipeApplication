@@ -8,6 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hat4.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("hat5.ico")]
 
 
