@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Xml;
 using System.IO;
 using System.Globalization;
+using System.Diagnostics;
 
 namespace RecipeManager
 {
@@ -432,6 +433,8 @@ namespace RecipeManager
             if (result == true)
             {
                 // Print document
+                //http://programming-pages.com/2012/06/12/printing-in-wpf/
+                MessageBox.Show("You clicked print");
             }
         }
 

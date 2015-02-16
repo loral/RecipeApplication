@@ -27,4 +27,3 @@ C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.pdb
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
-C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache

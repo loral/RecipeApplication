@@ -166,15 +166,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="hat1.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="hat.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="hat3.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="hat4.ico" />
   </ItemGroup>
   <ItemGroup>
