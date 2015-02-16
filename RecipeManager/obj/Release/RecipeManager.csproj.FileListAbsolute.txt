@@ -12,9 +12,7 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\Reci
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
-C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.config
-C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe
-C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.pdb
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\MainWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.g.cs
@@ -24,6 +22,8 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager_MarkupCompil
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.g.resources
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.Resources.resources
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
+C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.config
+C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe
+C:\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.pdb
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
-C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache

@@ -246,6 +246,7 @@ namespace RecipeManager
         private void PopulateSelectedRecipeDisplayed(Recipe _selectedRecipe)
         {
             SelectedRevipeView.Text = "";
+            int directionNum = 1;
 
             string _recipeToDisplay = "Name: " + _selectedRecipe.name;
             _recipeToDisplay += System.Environment.NewLine + "Rating: " + _selectedRecipe.rating;
@@ -264,14 +265,63 @@ namespace RecipeManager
 
             foreach (RecipeType recipeType in _selectedRecipe.recipeTypes)
             {
-                _recipeToDisplay += recipeType + ", ";
+                switch(recipeType)
+                {
+                    case RecipeType.MainDish:
+                        _recipeToDisplay += "Main Dish, ";
+                        break;
+                    default:
+                        _recipeToDisplay += recipeType + ", ";
+                        break;
+                }
             }
 
             _recipeToDisplay += System.Environment.NewLine + "Categories: ";
 
             foreach (Category category in _selectedRecipe.categories)
             {
-                _recipeToDisplay += category + ", ";
+                switch(category)
+                {
+                    case Category.AppetizerSnack:
+                        _recipeToDisplay += "Appetizer/Snack, ";
+                        break;
+                    case Category.BeanRiceGrain:
+                        _recipeToDisplay += "Bean/Rice/Grain, ";
+                        break;
+                    case Category.CakeFrosting:
+                        _recipeToDisplay += "Cake/Frosting, ";
+                        break;
+                    case Category.CanningFreezing:
+                        _recipeToDisplay += "Canning/Freezing, ";
+                        break;
+                    case Category.CheeseEgg:
+                        _recipeToDisplay += "Cheese/Egg, ";
+                        break;
+                    case Category.CookieBar:
+                        _recipeToDisplay += "Cookie/Bar, ";
+                        break;
+                    case Category.PieTart:
+                        _recipeToDisplay += "Pie/Tart, ";
+                        break;
+                    case Category.SaladDressing:
+                        _recipeToDisplay += "Salad/Dressing, ";
+                        break;
+                    case Category.SauceRelish:
+                        _recipeToDisplay += "Sauce/Relish, ";
+                        break;
+                    case Category.SlowCooker:
+                        _recipeToDisplay += "Slow Cooker, ";
+                        break;
+                    case Category.SoupStew:
+                        _recipeToDisplay += "Soup/Stew, ";
+                        break;
+                    case Category.VegetablesFruit:
+                        _recipeToDisplay += "Vegetables/Fruit, ";
+                        break;
+                    default:
+                        _recipeToDisplay += category + ", ";
+                        break;
+                }   
             }
 
             _recipeToDisplay += System.Environment.NewLine + System.Environment.NewLine + "Ingredients: ";
@@ -285,7 +335,7 @@ namespace RecipeManager
 
             foreach (string direction in _selectedRecipe.directions)
             {
-                _recipeToDisplay += System.Environment.NewLine + "• " + direction;
+                _recipeToDisplay += System.Environment.NewLine + directionNum++ + ". " + direction;
             }
 
             SelectedRevipeView.Text = _recipeToDisplay;
