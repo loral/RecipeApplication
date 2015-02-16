@@ -176,7 +176,7 @@ namespace RecipeManager
                 //name = (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase)); // Starts with 
                 name = (culture.CompareInfo.IndexOf(recipe.name, nameFilter.Text, CompareOptions.IgnoreCase) > -1); // Contains
             }
-                
+
             categories = (ListContainsAll.ContainsAllItems(recipe.categories, _categoryList));
             meal = (ListContainsAll.ContainsAllItems(recipe.mealTypes, _mealTypeList));
             recipeType = (ListContainsAll.ContainsAllItems(recipe.recipeTypes, _recipeTypeList));
@@ -238,7 +238,7 @@ namespace RecipeManager
                 SelectedRevipeView.Text = "";
                 return;
             }
-                
+
             Recipe _selectedRecipe = (Recipe)RecipeListView.SelectedValue;
             PopulateSelectedRecipeDisplayed(_selectedRecipe);
         }
@@ -256,7 +256,7 @@ namespace RecipeManager
 
             _recipeToDisplay += System.Environment.NewLine + "Meal Types: ";
 
-            foreach(MealType mealType in _selectedRecipe.mealTypes)
+            foreach (MealType mealType in _selectedRecipe.mealTypes)
             {
                 _recipeToDisplay += mealType + ", ";
             }
@@ -265,7 +265,7 @@ namespace RecipeManager
 
             foreach (RecipeType recipeType in _selectedRecipe.recipeTypes)
             {
-                switch(recipeType)
+                switch (recipeType)
                 {
                     case RecipeType.MainDish:
                         _recipeToDisplay += "Main Dish, ";
@@ -280,7 +280,7 @@ namespace RecipeManager
 
             foreach (Category category in _selectedRecipe.categories)
             {
-                switch(category)
+                switch (category)
                 {
                     case Category.AppetizerSnack:
                         _recipeToDisplay += "Appetizer/Snack, ";
@@ -321,12 +321,12 @@ namespace RecipeManager
                     default:
                         _recipeToDisplay += category + ", ";
                         break;
-                }   
+                }
             }
 
             _recipeToDisplay += System.Environment.NewLine + System.Environment.NewLine + "Ingredients: ";
 
-            foreach(Ingredient ingredient in _selectedRecipe.ingredients)
+            foreach (Ingredient ingredient in _selectedRecipe.ingredients)
             {
                 _recipeToDisplay += System.Environment.NewLine + "• " + ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name;
             }
