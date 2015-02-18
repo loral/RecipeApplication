@@ -104,6 +104,11 @@ namespace RecipeManager
                     cb.ItemsSource = ingredientView.Ingredients;
                 }
             }
+
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0) 
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -116,11 +121,19 @@ namespace RecipeManager
         private void RecipeFilter_OnCriteriaChange(object sender, TextChangedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
         }
 
         private void RecipeFilter_OnCriteriaChange(object sender, RoutedEventArgs e)
         {
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Refresh();
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
         }
 
         private bool UserFilter(object item)
@@ -223,6 +236,11 @@ namespace RecipeManager
                     {
                         cb.ItemsSource = ingredientView.Ingredients;
                     }
+                }
+
+                if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+                {
+                    RecipeListView.SelectedItem = RecipeListView.Items[0];
                 }
 
             }
