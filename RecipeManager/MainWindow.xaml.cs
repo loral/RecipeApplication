@@ -88,7 +88,7 @@ namespace RecipeManager
         private void LoadFileData(string filePath)
         {
             doc.Load(filePath);
-            MessageBox.Show(doc.InnerXml);
+            //MessageBox.Show(doc.InnerXml);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
