@@ -1,7 +1,7 @@
 ﻿<Window x:Class="RecipeManager.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Name="RecipeManager" Title="Recipe Mangager" Height="600" Width="900" MinHeight="600" MinWidth="900" Loaded="Window_Loaded">
+        Name="RecipeManager" Title="Recipe Mangager" Height="600" Width="1000" MinHeight="600" MinWidth="1000" Loaded="Window_Loaded">
 
     <Grid>
 
@@ -38,7 +38,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240" Name="LeftColumn"/>
-                <ColumnDefinition Width="165" Name="MiddleColumn"/>
+                <ColumnDefinition Width="200" Name="MiddleColumn"/>
                 <ColumnDefinition Width="*" Name="RightColumn"/>
             </Grid.ColumnDefinitions>
 
