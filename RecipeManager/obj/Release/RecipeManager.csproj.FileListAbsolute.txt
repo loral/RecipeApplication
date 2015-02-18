@@ -12,7 +12,6 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\Reci
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
-C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\MainWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.g.cs

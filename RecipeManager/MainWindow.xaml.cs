@@ -384,7 +384,8 @@ namespace RecipeManager
                 }
                 else
                 {
-                    SaveAs(this, null);
+                    MessageBox.Show("No file to save. Please add a recipe to save first");
+                    return;
                 }
             }
             catch (Exception ex)
@@ -395,6 +396,11 @@ namespace RecipeManager
 
         private void SaveAs(object sender, RoutedEventArgs e)
         {
+            if (Application.Current.Properties["StartFile"] == null)
+            {
+                MessageBox.Show("No file to save. Please add a recipe to save first");
+                return;
+            }
             // Configure save file dialog box
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
             dlg.FileName = "RecipeManager"; // Default file name
