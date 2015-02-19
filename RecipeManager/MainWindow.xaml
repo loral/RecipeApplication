@@ -28,8 +28,8 @@
                     <Separator />
                     <MenuItem Header="_Exit" Click="Exit" FontWeight="Normal"/>
                 </MenuItem>
-                <MenuItem Header="_Tools" Click="Tools" FontWeight="SemiBold"/>
-                <MenuItem Header="_Help" Click="Help" FontWeight="SemiBold"/>
+                <!--<MenuItem Header="_Tools" Click="Tools" FontWeight="SemiBold"/>-->
+                <!--<MenuItem Header="_Help" Click="Help" FontWeight="SemiBold"/>-->
             </Menu>
 
         </Grid>
