@@ -76,6 +76,30 @@ namespace RecipeManager
                 RoutedCommand exit = new RoutedCommand();
                 exit.InputGestures.Add(new KeyGesture(Key.Q, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(exit, Exit));
+
+                RoutedCommand zoomIn = new RoutedCommand();
+                zoomIn.InputGestures.Add(new KeyGesture(Key.NumPad1, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(zoomIn, ZoomIn));
+
+                RoutedCommand zoomInNum = new RoutedCommand();
+                zoomInNum.InputGestures.Add(new KeyGesture(Key.D1, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(zoomInNum, ZoomIn));
+
+                RoutedCommand zoomOut = new RoutedCommand();
+                zoomOut.InputGestures.Add(new KeyGesture(Key.NumPad2, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(zoomOut, ZoomOut));
+
+                RoutedCommand zoomOutNum = new RoutedCommand();
+                zoomOutNum.InputGestures.Add(new KeyGesture(Key.D2, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(zoomOutNum, ZoomOut));
+
+                RoutedCommand zoomNormal = new RoutedCommand();
+                zoomNormal.InputGestures.Add(new KeyGesture(Key.NumPad0, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(zoomNormal, ZoomNormal));
+
+                RoutedCommand zoomNormalNum = new RoutedCommand();
+                zoomNormalNum.InputGestures.Add(new KeyGesture(Key.D0, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(zoomNormalNum, ZoomNormal));
             }
             catch (Exception ex)
             {
@@ -266,103 +290,137 @@ namespace RecipeManager
         {
             SelectedRevipeView.Text = "";
             int directionNum = 1;
+            
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Name: ")));
+            SelectedRevipeView.Inlines.Add(_selectedRecipe.name + System.Environment.NewLine);
 
-            string _recipeToDisplay = "Name: " + _selectedRecipe.name;
-            _recipeToDisplay += System.Environment.NewLine + "Rating: " + _selectedRecipe.rating;
-            _recipeToDisplay += System.Environment.NewLine + "Prep Time: " + _selectedRecipe.prepTime;
-            _recipeToDisplay += System.Environment.NewLine + "Cook Time: " + _selectedRecipe.cookTime;
-            _recipeToDisplay += System.Environment.NewLine + "Yeild: " + _selectedRecipe.yeild;
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Rating: ")));
+            SelectedRevipeView.Inlines.Add(_selectedRecipe.rating.ToString() + System.Environment.NewLine);
 
-            _recipeToDisplay += System.Environment.NewLine + "Meal Types: ";
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Prep Time: ")));
+            SelectedRevipeView.Inlines.Add(_selectedRecipe.prepTime + System.Environment.NewLine);
+
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Cook Time: ")));
+            SelectedRevipeView.Inlines.Add(_selectedRecipe.cookTime + System.Environment.NewLine);
+
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Yeild: ")));
+            SelectedRevipeView.Inlines.Add(_selectedRecipe.yeild + System.Environment.NewLine);
+
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Meal Types: ")));
 
             foreach (MealType mealType in _selectedRecipe.mealTypes)
             {
-                _recipeToDisplay += mealType + ", ";
+                SelectedRevipeView.Inlines.Add(mealType + ", ");
             }
 
-            _recipeToDisplay += System.Environment.NewLine + "Recipe Types: ";
+            SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Recipe Types: ")));
 
             foreach (RecipeType recipeType in _selectedRecipe.recipeTypes)
             {
                 switch (recipeType)
                 {
                     case RecipeType.MainDish:
-                        _recipeToDisplay += "Main Dish, ";
+                        SelectedRevipeView.Inlines.Add("Main Dish, ");
                         break;
                     default:
-                        _recipeToDisplay += recipeType + ", ";
+                        SelectedRevipeView.Inlines.Add(recipeType + ", ");
                         break;
                 }
             }
 
-            _recipeToDisplay += System.Environment.NewLine + "Categories: ";
+            SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Categories: ")));
 
             foreach (Category category in _selectedRecipe.categories)
             {
                 switch (category)
                 {
                     case Category.AppetizerSnack:
-                        _recipeToDisplay += "Appetizer/Snack, ";
+                        SelectedRevipeView.Inlines.Add("Appetizer/Snack, ");
                         break;
                     case Category.BeanRiceGrain:
-                        _recipeToDisplay += "Bean/Rice/Grain, ";
+                        SelectedRevipeView.Inlines.Add("Bean/Rice/Grain, ");
                         break;
                     case Category.CakeFrosting:
-                        _recipeToDisplay += "Cake/Frosting, ";
+                        SelectedRevipeView.Inlines.Add("Cake/Frosting, ");
                         break;
                     case Category.CanningFreezing:
-                        _recipeToDisplay += "Canning/Freezing, ";
+                        SelectedRevipeView.Inlines.Add("Canning/Freezing, ");
                         break;
                     case Category.CheeseEgg:
-                        _recipeToDisplay += "Cheese/Egg, ";
+                        SelectedRevipeView.Inlines.Add("Cheese/Egg, ");
                         break;
                     case Category.CookieBar:
-                        _recipeToDisplay += "Cookie/Bar, ";
+                        SelectedRevipeView.Inlines.Add("Cookie/Bar, ");
                         break;
                     case Category.PieTart:
-                        _recipeToDisplay += "Pie/Tart, ";
+                        SelectedRevipeView.Inlines.Add("Pie/Tart, ");
                         break;
                     case Category.SaladDressing:
-                        _recipeToDisplay += "Salad/Dressing, ";
+                        SelectedRevipeView.Inlines.Add("Salad/Dressing, ");
                         break;
                     case Category.SauceRelish:
-                        _recipeToDisplay += "Sauce/Relish, ";
+                        SelectedRevipeView.Inlines.Add("Sauce/Relish, ");
                         break;
                     case Category.SlowCooker:
-                        _recipeToDisplay += "Slow Cooker, ";
+                        SelectedRevipeView.Inlines.Add("Slow Cooker, ");
                         break;
                     case Category.SoupStew:
-                        _recipeToDisplay += "Soup/Stew, ";
+                        SelectedRevipeView.Inlines.Add("Soup/Stew, ");
                         break;
                     case Category.VegetablesFruit:
-                        _recipeToDisplay += "Vegetables/Fruit, ";
+                        SelectedRevipeView.Inlines.Add("Vegetables/Fruit, ");
                         break;
                     default:
-                        _recipeToDisplay += category + ", ";
+                        SelectedRevipeView.Inlines.Add(category + ", ");
                         break;
                 }
             }
 
-            _recipeToDisplay += System.Environment.NewLine + System.Environment.NewLine + "Ingredients: ";
+            SelectedRevipeView.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Ingredients: ")));
 
             foreach (Ingredient ingredient in _selectedRecipe.ingredients)
             {
-                _recipeToDisplay += System.Environment.NewLine + "• " + ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name;
+                SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
+                SelectedRevipeView.Inlines.Add(new Bold(new Run("• ")));
+                SelectedRevipeView.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
             }
 
-            _recipeToDisplay += System.Environment.NewLine + System.Environment.NewLine + "Directions: ";
+            SelectedRevipeView.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
+            SelectedRevipeView.Inlines.Add(new Bold(new Run("Directions: ")));
 
             foreach (string direction in _selectedRecipe.directions)
             {
-                _recipeToDisplay += System.Environment.NewLine + directionNum++ + ". " + direction;
+                SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
+                SelectedRevipeView.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
+                SelectedRevipeView.Inlines.Add(direction);
             }
-
-            SelectedRevipeView.Text = _recipeToDisplay;
         }
 
         private void EditRecipe(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked 'Edit Recipe'");
+        }
+
+        private void ZoomIn(object sender, ExecutedRoutedEventArgs e)
+        {
+            var fontSize = SelectedRevipeView.FontSize;
+            SelectedRevipeView.FontSize = ++fontSize;
+        }
+
+        private void ZoomOut(object sender, ExecutedRoutedEventArgs e)
+        {
+            var fontSize = SelectedRevipeView.FontSize;
+            if (fontSize < 2)
+                return;
+            SelectedRevipeView.FontSize = --fontSize;
+        }
+
+        private void ZoomNormal(object sender, ExecutedRoutedEventArgs e)
+        {
+            SelectedRevipeView.FontSize = 16;
         }
 
         private void CreateMenu(object sender, RoutedEventArgs e)
