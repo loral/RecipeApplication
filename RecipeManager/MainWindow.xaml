@@ -157,6 +157,8 @@
                 <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" FontSize="14" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange"/>
             </Grid>
 
+            <GridSplitter Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Stretch" Width="3" Background="LightGray" />
+
             <Grid Grid.Column="2">
                 <ScrollViewer>
                     <TextBlock Name="SelectedRevipeView"  Margin="5,5,5,5" TextWrapping="Wrap" FontSize="16"/>

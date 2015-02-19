@@ -49,6 +49,10 @@ namespace RecipeManager
             // Create hot keys
             try
             {
+                RoutedCommand hideFilter = new RoutedCommand();
+                hideFilter.InputGestures.Add(new KeyGesture(Key.H, ModifierKeys.Control));
+                CommandBindings.Add(new CommandBinding(hideFilter, HideFilter));
+
                 RoutedCommand addRecipe = new RoutedCommand();
                 addRecipe.InputGestures.Add(new KeyGesture(Key.N, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(addRecipe, AddRecipe));
@@ -193,11 +197,15 @@ namespace RecipeManager
 
             // Run filter tests
             // Rating
-            if (String.IsNullOrEmpty(ratingLowFilter.Text))
+            if (String.IsNullOrEmpty(ratingLowFilter.Text.Trim()))
+                ratingGreaterThan = true;
+            else if (ratingLowFilter.Text.Trim() == ".")
                 ratingGreaterThan = true;
             else
                 ratingGreaterThan = (recipe.rating >= Convert.ToDouble(ratingLowFilter.Text));
-            if (String.IsNullOrEmpty(ratingHighFilter.Text))
+            if (String.IsNullOrEmpty(ratingHighFilter.Text.Trim()))
+                ratingLessThan = true;
+            else if (ratingHighFilter.Text.Trim() == ".")
                 ratingLessThan = true;
             else
                 ratingLessThan = (recipe.rating <= Convert.ToDouble(ratingHighFilter.Text) || String.IsNullOrEmpty(recipe.rating.ToString()));
@@ -284,6 +292,18 @@ namespace RecipeManager
 
             Recipe _selectedRecipe = (Recipe)RecipeListView.SelectedValue;
             PopulateSelectedRecipeDisplayed(_selectedRecipe);
+        }
+
+        private void HideFilter(object sender, ExecutedRoutedEventArgs e)
+        {
+            if (LeftColumn.ActualWidth > 1)
+            {
+                LeftColumn.Width = new GridLength(0,GridUnitType.Pixel);
+            }
+            else
+            {
+                LeftColumn.Width = new GridLength(240, GridUnitType.Pixel);
+            }
         }
 
         private void PopulateSelectedRecipeDisplayed(Recipe _selectedRecipe)
