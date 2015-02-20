@@ -416,6 +416,7 @@ namespace RecipeManager
                 SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
                 SelectedRevipeView.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
                 SelectedRevipeView.Inlines.Add(direction);
+                SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
             }
         }
 

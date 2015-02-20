@@ -161,7 +161,7 @@
 
             <Grid Grid.Column="2">
                 <ScrollViewer>
-                    <TextBlock Name="SelectedRevipeView"  Margin="5,5,5,5" TextWrapping="Wrap" FontSize="16"/>
+                    <TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" TextWrapping="Wrap" FontSize="16"/>
                 </ScrollViewer>
             </Grid>
 
