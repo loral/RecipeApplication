@@ -11,7 +11,7 @@
             <Setter Property="TextElement.FontFamily" Value="./CustomFonts/#Simplicity" />
         </Style>
     </Window.Resources>
-    
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -168,14 +168,93 @@
 
             <GridSplitter Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Stretch" Width="3" Background="LightGray" />
 
-            <Grid Grid.Column="2">
+            <Grid Grid.Column="2" Name="SelectedRecipeView">
+
                 <ScrollViewer>
+
+                    <Grid Grid.Row="0">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="10*"/>
+                            <RowDefinition Height="80*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <TextBlock Name="SelectedRecipeHeader"  Margin="0,10,0,0" Style="{DynamicResource SimplicityFont}" TextAlignment="Center" FontSize="25"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Rectangle Grid.Column="0" Grid.ColumnSpan="6" Stroke="Blue" StrokeThickness="2"/>
+
+                            <Label Grid.Column="0" Name="prepLabel" VerticalAlignment="Center" Margin="0,0,0,0" Content="Prep Time:" Foreground="Red" Style="{DynamicResource SimplicityFont}" FontSize="20"/>
+                            <Border Grid.Column="1" BorderBrush="{x:Null}" Height="30" VerticalAlignment="Center">
+                                <TextBlock Grid.Column="1" Name="prepTxtblk" Margin="0,0,0,0" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="20"/>
+                            </Border>
+                            <Label Grid.Column="2" Name="cookTimeLabel" VerticalAlignment="Center" Margin="0,0,0,0" Content="Cook Time:" Foreground="Red" Style="{DynamicResource SimplicityFont}" FontSize="20"/>
+                            <Border Grid.Column="3" BorderBrush="{x:Null}" Height="30" VerticalAlignment="Center">
+                                <TextBlock Grid.Column="3" Name="cookTimeTxtblk" Margin="0,0,0,0" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="20"/>
+                            </Border>
+                            <Label Grid.Column="4" Name="yeildLabel" VerticalAlignment="Center" Margin="0,0,0,0" Content="Serves:" Foreground="Red" Style="{DynamicResource SimplicityFont}" FontSize="20"/>
+                            <Border Grid.Column="5" BorderBrush="{x:Null}" Height="30" VerticalAlignment="Center">
+                                <TextBlock Grid.Column="5" Name="yeildTxtblk" Margin="0,0,0,0" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="20"/>
+                            </Border>
+
+                        </Grid>
+
+                        <Grid Grid.Row="2" Name="SelectedRecipeIngDir">
+
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40*"/>
+                                <ColumnDefinition Width="60*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"/>
+                                    <RowDefinition Height="90*"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Name="ingredientsLabel" Margin="0,0,0,0" Content="Ingredients:" VerticalAlignment="Center" Foreground="Red" Style="{DynamicResource SimplicityFont}" FontSize="16"/>
+                                <TextBlock Grid.Row="1" Name="ingredientsTxtblk" Margin="10,5,10,10" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="12"/>
+
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="10*"/>
+                                    <RowDefinition Height="90*"/>
+                                </Grid.RowDefinitions>
+
+                                <Label Grid.Row="0" Name="directionsLabel" Margin="0,0,0,0" Content="Directions:" VerticalAlignment="Center" Foreground="Red" Style="{DynamicResource SimplicityFont}" FontSize="16"/>
+                                <TextBlock Grid.Row="1" Name="directionsTxtblk" Margin="10,5,10,10" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="12"/>
+
+                            </Grid>
+
+                        </Grid>
+
+                    </Grid>
+
                     <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" TextWrapping="Wrap" FontSize="16"/>-->
-                    <TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="16"/>
+                    <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="16"/>-->
                     <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" Style="{DynamicResource SimplicityFont}" TextWrapping="Wrap" FontSize="16"/>-->
                     <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" FontFamily="./CustomFonts/#Simplicity" TextWrapping="Wrap" FontSize="16"/>-->
                     <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" FontFamily="./CustomFonts/#Andalus" TextWrapping="Wrap" FontSize="16"/>-->
+
                 </ScrollViewer>
+
             </Grid>
 
         </Grid>

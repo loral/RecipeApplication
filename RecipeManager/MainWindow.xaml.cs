@@ -116,7 +116,6 @@ namespace RecipeManager
         private void LoadFileData(string filePath)
         {
             doc.Load(filePath);
-            //MessageBox.Show(doc.InnerXml);
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -286,7 +285,7 @@ namespace RecipeManager
         {
             if (RecipeListView.SelectedValue == null)
             {
-                SelectedRevipeView.Text = "";
+                SelectedRecipeHeader.Text = "";
                 return;
             }
 
@@ -308,115 +307,37 @@ namespace RecipeManager
 
         private void PopulateSelectedRecipeDisplayed(Recipe _selectedRecipe)
         {
-            SelectedRevipeView.Text = "";
+            SelectedRecipeHeader.Text = "";
+            prepTxtblk.Text = "";
+            cookTimeTxtblk.Text = "";
+            yeildTxtblk.Text = "";
+            ingredientsTxtblk.Text = "";
+            directionsTxtblk.Text = "";
             int directionNum = 1;
 
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Name: ")));
-            SelectedRevipeView.Inlines.Add(_selectedRecipe.name + System.Environment.NewLine);
+            SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name));
 
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Rating: ")));
-            SelectedRevipeView.Inlines.Add(_selectedRecipe.rating.ToString() + System.Environment.NewLine);
+            //SelectedRevipeView.Inlines.Add(new Bold(new Run("Rating: ")));
+            //SelectedRevipeView.Inlines.Add(_selectedRecipe.rating.ToString() + System.Environment.NewLine);
 
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Prep Time: ")));
-            SelectedRevipeView.Inlines.Add(_selectedRecipe.prepTime + System.Environment.NewLine);
+            prepTxtblk.Inlines.Add(_selectedRecipe.prepTime + System.Environment.NewLine);
 
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Cook Time: ")));
-            SelectedRevipeView.Inlines.Add(_selectedRecipe.cookTime + System.Environment.NewLine);
+            cookTimeTxtblk.Inlines.Add(_selectedRecipe.cookTime + System.Environment.NewLine);
 
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Yeild: ")));
-            SelectedRevipeView.Inlines.Add(_selectedRecipe.yeild + System.Environment.NewLine);
-
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Meal Types: ")));
-
-            foreach (MealType mealType in _selectedRecipe.mealTypes)
-            {
-                SelectedRevipeView.Inlines.Add(mealType + ", ");
-            }
-
-            SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Recipe Types: ")));
-
-            foreach (RecipeType recipeType in _selectedRecipe.recipeTypes)
-            {
-                switch (recipeType)
-                {
-                    case RecipeType.MainDish:
-                        SelectedRevipeView.Inlines.Add("Main Dish, ");
-                        break;
-                    default:
-                        SelectedRevipeView.Inlines.Add(recipeType + ", ");
-                        break;
-                }
-            }
-
-            SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Categories: ")));
-
-            foreach (Category category in _selectedRecipe.categories)
-            {
-                switch (category)
-                {
-                    case Category.AppetizerSnack:
-                        SelectedRevipeView.Inlines.Add("Appetizer/Snack, ");
-                        break;
-                    case Category.BeanRiceGrain:
-                        SelectedRevipeView.Inlines.Add("Bean/Rice/Grain, ");
-                        break;
-                    case Category.CakeFrosting:
-                        SelectedRevipeView.Inlines.Add("Cake/Frosting, ");
-                        break;
-                    case Category.CanningFreezing:
-                        SelectedRevipeView.Inlines.Add("Canning/Freezing, ");
-                        break;
-                    case Category.CheeseEgg:
-                        SelectedRevipeView.Inlines.Add("Cheese/Egg, ");
-                        break;
-                    case Category.CookieBar:
-                        SelectedRevipeView.Inlines.Add("Cookie/Bar, ");
-                        break;
-                    case Category.PieTart:
-                        SelectedRevipeView.Inlines.Add("Pie/Tart, ");
-                        break;
-                    case Category.SaladDressing:
-                        SelectedRevipeView.Inlines.Add("Salad/Dressing, ");
-                        break;
-                    case Category.SauceRelish:
-                        SelectedRevipeView.Inlines.Add("Sauce/Relish, ");
-                        break;
-                    case Category.SlowCooker:
-                        SelectedRevipeView.Inlines.Add("Slow Cooker, ");
-                        break;
-                    case Category.SoupStew:
-                        SelectedRevipeView.Inlines.Add("Soup/Stew, ");
-                        break;
-                    case Category.VegetablesFruit:
-                        SelectedRevipeView.Inlines.Add("Vegetables/Fruit, ");
-                        break;
-                    default:
-                        SelectedRevipeView.Inlines.Add(category + ", ");
-                        break;
-                }
-            }
-
-            SelectedRevipeView.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Ingredients: ")));
+            yeildTxtblk.Inlines.Add(_selectedRecipe.yeild + System.Environment.NewLine);
 
             foreach (Ingredient ingredient in _selectedRecipe.ingredients)
-            {
-                SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
-                SelectedRevipeView.Inlines.Add(new Bold(new Run("• ")));
-                SelectedRevipeView.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
+            {  
+                ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
+                ingredientsTxtblk.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
+                ingredientsTxtblk.Inlines.Add(System.Environment.NewLine);
             }
-
-            SelectedRevipeView.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
-            SelectedRevipeView.Inlines.Add(new Bold(new Run("Directions: ")));
 
             foreach (string direction in _selectedRecipe.directions)
             {
-                SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
-                SelectedRevipeView.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                SelectedRevipeView.Inlines.Add(direction);
-                SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
+                directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
+                directionsTxtblk.Inlines.Add(direction);
+                directionsTxtblk.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
             }
 
             //the title and the headings (5 chees zit.. Preparation, cook time, serves, ingredients & Instructions) are in the Simplicity font. The actual ingredient list, and the directions are in Andulus.
@@ -428,23 +349,36 @@ namespace RecipeManager
             MessageBox.Show("You clicked 'Edit Recipe'");
         }
 
+        //Need to update
         private void ZoomIn(object sender, ExecutedRoutedEventArgs e)
         {
-            var fontSize = SelectedRevipeView.FontSize;
-            SelectedRevipeView.FontSize = ++fontSize;
+            //var headerFontSize = SelectedRevipeHeader.FontSize;
+            //var subHeaderFontSize = SelectedRevipeSubHeader.FontSize;
+            //var ingDirFontSize = SelectedRevipeIngDir.FontSize;
+            //SelectedRevipeHeader.FontSize = ++headerFontSize;
+            //SelectedRevipeSubHeader.FontSize = ++subHeaderFontSize;
+            //SelectedRevipeIngDir.FontSize = ++ingDirFontSize;
         }
 
+        //Need to update
         private void ZoomOut(object sender, ExecutedRoutedEventArgs e)
         {
-            var fontSize = SelectedRevipeView.FontSize;
-            if (fontSize < 2)
-                return;
-            SelectedRevipeView.FontSize = --fontSize;
+            //var headerFontSize = SelectedRevipeHeader.FontSize;
+            //var subHeaderFontSize = SelectedRevipeSubHeader.FontSize;
+            //var ingDirFontSize = SelectedRevipeIngDir.FontSize;
+            //if (headerFontSize < 2 || subHeaderFontSize < 2 || ingDirFontSize < 2)
+            //    return;
+            //SelectedRevipeHeader.FontSize = --headerFontSize;
+            //SelectedRevipeSubHeader.FontSize = --subHeaderFontSize;
+            //SelectedRevipeIngDir.FontSize = --ingDirFontSize;
         }
 
+        //Need to update
         private void ZoomNormal(object sender, ExecutedRoutedEventArgs e)
         {
-            SelectedRevipeView.FontSize = 16;
+            //SelectedRevipeHeader.FontSize = 20;
+            //SelectedRevipeSubHeader.FontSize = 16;
+            //SelectedRevipeIngDir.FontSize = 16;
         }
 
         private void CreateMenu(object sender, RoutedEventArgs e)
