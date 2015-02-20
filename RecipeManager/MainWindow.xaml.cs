@@ -310,7 +310,7 @@ namespace RecipeManager
         {
             SelectedRevipeView.Text = "";
             int directionNum = 1;
-            
+
             SelectedRevipeView.Inlines.Add(new Bold(new Run("Name: ")));
             SelectedRevipeView.Inlines.Add(_selectedRecipe.name + System.Environment.NewLine);
 
@@ -418,6 +418,9 @@ namespace RecipeManager
                 SelectedRevipeView.Inlines.Add(direction);
                 SelectedRevipeView.Inlines.Add(System.Environment.NewLine);
             }
+
+            //the title and the headings (5 chees zit.. Preparation, cook time, serves, ingredients & Instructions) are in the Simplicity font. The actual ingredient list, and the directions are in Andulus.
+
         }
 
         private void EditRecipe(object sender, RoutedEventArgs e)

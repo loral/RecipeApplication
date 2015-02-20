@@ -3,6 +3,15 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Name="RecipeManager" Title="Recipe Manager" Height="600" Width="1100" MinHeight="600" MinWidth="800" Loaded="Window_Loaded">
 
+    <Window.Resources>
+        <Style x:Key="AndalusFont">
+            <Setter Property="TextElement.FontFamily" Value="./CustomFonts/#Andalus" />
+        </Style>
+        <Style x:Key="SimplicityFont">
+            <Setter Property="TextElement.FontFamily" Value="./CustomFonts/#Simplicity" />
+        </Style>
+    </Window.Resources>
+    
     <Grid>
 
         <Grid.RowDefinitions>
@@ -161,7 +170,11 @@
 
             <Grid Grid.Column="2">
                 <ScrollViewer>
-                    <TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" TextWrapping="Wrap" FontSize="16"/>
+                    <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" TextWrapping="Wrap" FontSize="16"/>-->
+                    <TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" Style="{DynamicResource AndalusFont}" TextWrapping="Wrap" FontSize="16"/>
+                    <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" Style="{DynamicResource SimplicityFont}" TextWrapping="Wrap" FontSize="16"/>-->
+                    <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" FontFamily="./CustomFonts/#Simplicity" TextWrapping="Wrap" FontSize="16"/>-->
+                    <!--<TextBlock Name="SelectedRevipeView"  Margin="15,5,15,5" FontFamily="./CustomFonts/#Andalus" TextWrapping="Wrap" FontSize="16"/>-->
                 </ScrollViewer>
             </Grid>
 
