@@ -169,7 +169,7 @@
             <GridSplitter Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Stretch" Width="3" Background="LightGray" />
 
             <ScrollViewer Grid.Column="2" MinHeight="535">
-                <Grid Grid.Column="2" Name="SelectedRecipeView" Margin="10,5,10,5">
+                <Grid Grid.Column="2" Name="SelectedRecipeView" Margin="10,10,10,5">
 
                     <Grid Grid.Row="0">
 
@@ -181,7 +181,8 @@
 
                         <Border Grid.Row="0" BorderBrush="{x:Null}" BorderThickness="1">
                             <Grid Grid.Row="0">
-                                <TextBlock Name="SelectedRecipeHeader"  Margin="10,10,10,5" Style="{DynamicResource SimplicityFont}" TextAlignment="Center" FontSize="25"/>
+                                <!--<Rectangle Height="20" Stroke="Blue" StrokeDashOffset="20" StrokeDashArray="10 4" RadiusX="5" RadiusY="5"/>-->
+                                <TextBlock Name="SelectedRecipeHeader"  Margin="0,5,0,5" Style="{DynamicResource SimplicityFont}" TextAlignment="Center" FontSize="25"/>
                             </Grid>
                         </Border>
 
