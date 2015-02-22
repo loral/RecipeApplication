@@ -286,6 +286,11 @@ namespace RecipeManager
             if (RecipeListView.SelectedValue == null)
             {
                 SelectedRecipeHeader.Text = "";
+                prepTxtblk.Text = "";
+                cookTimeTxtblk.Text = "";
+                yeildTxtblk.Text = "";
+                ingredientsTxtblk.Text = "";
+                directionsTxtblk.Text = "";
                 return;
             }
 
@@ -315,16 +320,20 @@ namespace RecipeManager
             directionsTxtblk.Text = "";
             int directionNum = 1;
 
-            SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name));
+            if (_selectedRecipe.rating > 0)
+            {
+                SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name + " (" + _selectedRecipe.rating.ToString() + ")"));
+            }
+            else
+            {
+                SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name));
+            }
 
-            //SelectedRevipeView.Inlines.Add(new Bold(new Run("Rating: ")));
-            //SelectedRevipeView.Inlines.Add(_selectedRecipe.rating.ToString() + System.Environment.NewLine);
+            prepTxtblk.Text = _selectedRecipe.prepTime;
 
-            prepTxtblk.Inlines.Add(_selectedRecipe.prepTime + System.Environment.NewLine);
+            cookTimeTxtblk.Text = _selectedRecipe.cookTime;
 
-            cookTimeTxtblk.Inlines.Add(_selectedRecipe.cookTime + System.Environment.NewLine);
-
-            yeildTxtblk.Inlines.Add(_selectedRecipe.yeild + System.Environment.NewLine);
+            yeildTxtblk.Text = _selectedRecipe.yeild;
 
             foreach (Ingredient ingredient in _selectedRecipe.ingredients)
             {  
@@ -340,8 +349,6 @@ namespace RecipeManager
                 directionsTxtblk.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
             }
 
-            //the title and the headings (5 chees zit.. Preparation, cook time, serves, ingredients & Instructions) are in the Simplicity font. The actual ingredient list, and the directions are in Andulus.
-
         }
 
         private void EditRecipe(object sender, RoutedEventArgs e)
@@ -349,36 +356,65 @@ namespace RecipeManager
             MessageBox.Show("You clicked 'Edit Recipe'");
         }
 
-        //Need to update
         private void ZoomIn(object sender, ExecutedRoutedEventArgs e)
         {
-            //var headerFontSize = SelectedRevipeHeader.FontSize;
-            //var subHeaderFontSize = SelectedRevipeSubHeader.FontSize;
-            //var ingDirFontSize = SelectedRevipeIngDir.FontSize;
-            //SelectedRevipeHeader.FontSize = ++headerFontSize;
-            //SelectedRevipeSubHeader.FontSize = ++subHeaderFontSize;
-            //SelectedRevipeIngDir.FontSize = ++ingDirFontSize;
+            var headerFontSize = SelectedRecipeHeader.FontSize + 1;
+            var labelFontSize = prepLabel.FontSize + 1;
+            var infoFontSize = prepTxtblk.FontSize + 1;
+
+            if (labelFontSize > 45)
+                return;
+
+            SelectedRecipeHeader.FontSize = headerFontSize;
+            prepLabel.FontSize = labelFontSize;
+            cookTimeLabel.FontSize = labelFontSize;
+            yeildLabel.FontSize = labelFontSize;
+            ingredientsLabel.FontSize = labelFontSize;
+            directionsLabel.FontSize = labelFontSize;
+
+            prepTxtblk.FontSize = infoFontSize;
+            cookTimeTxtblk.FontSize = infoFontSize;
+            yeildTxtblk.FontSize = infoFontSize;
+            ingredientsTxtblk.FontSize = infoFontSize;
+            directionsTxtblk.FontSize = infoFontSize;
         }
 
-        //Need to update
         private void ZoomOut(object sender, ExecutedRoutedEventArgs e)
         {
-            //var headerFontSize = SelectedRevipeHeader.FontSize;
-            //var subHeaderFontSize = SelectedRevipeSubHeader.FontSize;
-            //var ingDirFontSize = SelectedRevipeIngDir.FontSize;
-            //if (headerFontSize < 2 || subHeaderFontSize < 2 || ingDirFontSize < 2)
-            //    return;
-            //SelectedRevipeHeader.FontSize = --headerFontSize;
-            //SelectedRevipeSubHeader.FontSize = --subHeaderFontSize;
-            //SelectedRevipeIngDir.FontSize = --ingDirFontSize;
+            var headerFontSize = SelectedRecipeHeader.FontSize - 1;
+            var labelFontSize = prepLabel.FontSize - 1;
+            var infoFontSize = prepTxtblk.FontSize - 1;
+
+            if (headerFontSize < 2 || labelFontSize < 2 || infoFontSize < 2)
+                return;
+
+            SelectedRecipeHeader.FontSize = headerFontSize;
+            prepLabel.FontSize = labelFontSize;
+            cookTimeLabel.FontSize = labelFontSize;
+            yeildLabel.FontSize = labelFontSize;
+            ingredientsLabel.FontSize = labelFontSize;
+            directionsLabel.FontSize = labelFontSize;
+
+            prepTxtblk.FontSize = infoFontSize;
+            cookTimeTxtblk.FontSize = infoFontSize;
+            yeildTxtblk.FontSize = infoFontSize;
+            ingredientsTxtblk.FontSize = infoFontSize;
+            directionsTxtblk.FontSize = infoFontSize;
         }
 
-        //Need to update
         private void ZoomNormal(object sender, ExecutedRoutedEventArgs e)
         {
-            //SelectedRevipeHeader.FontSize = 20;
-            //SelectedRevipeSubHeader.FontSize = 16;
-            //SelectedRevipeIngDir.FontSize = 16;
+            SelectedRecipeHeader.FontSize = 25;
+            prepLabel.FontSize = 20;
+            cookTimeLabel.FontSize = 20;
+            yeildLabel.FontSize = 20;
+            ingredientsLabel.FontSize = 20;
+            directionsLabel.FontSize = 20;
+            prepTxtblk.FontSize = 17;
+            cookTimeTxtblk.FontSize = 17;
+            yeildTxtblk.FontSize = 17;
+            ingredientsTxtblk.FontSize = 17;
+            directionsTxtblk.FontSize = 17;
         }
 
         private void CreateMenu(object sender, RoutedEventArgs e)
