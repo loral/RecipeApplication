@@ -51,7 +51,8 @@
                 <ColumnDefinition Width="*" MinWidth="550" Name="RightColumn"/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0">
+            <Grid Grid.Column="0" Background="Transparent">
+                <!--https://msdn.microsoft.com/en-us/library/system.windows.media.colors.aspx-->
 
                 <Grid.RowDefinitions>
                     <RowDefinition Height="35"/>
@@ -186,7 +187,7 @@
                             </Grid>
                         </Border>
 
-                        <Border Grid.Row="1" BorderBrush="Red" BorderThickness="1" CornerRadius="5" Margin="3,3,3,3">    
+                        <Border Grid.Row="1" BorderBrush="Red" BorderThickness="1" CornerRadius="5" Margin="3,3,3,3">
                             <Grid Grid.Row="1" Margin="2,2,2,2">
 
                                 <Grid.ColumnDefinitions>
@@ -250,11 +251,11 @@
 
                                 </Grid>
                             </Border>
-                            
+
                         </Grid>
-                        
+
                     </Grid>
-                    
+
                 </Grid>
             </ScrollViewer>
 
