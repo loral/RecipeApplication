@@ -286,9 +286,9 @@ namespace RecipeManager
             if (RecipeListView.SelectedValue == null)
             {
                 SelectedRecipeHeader.Text = "";
-                prepTxtblk.Text = "";
-                cookTimeTxtblk.Text = "";
-                yeildTxtblk.Text = "";
+                prepTxtblk.Content = "";
+                cookTimeTxtblk.Content = "";
+                yeildTxtblk.Content = "";
                 ingredientsTxtblk.Text = "";
                 directionsTxtblk.Text = "";
                 return;
@@ -313,9 +313,9 @@ namespace RecipeManager
         private void PopulateSelectedRecipeDisplayed(Recipe _selectedRecipe)
         {
             SelectedRecipeHeader.Text = "";
-            prepTxtblk.Text = "";
-            cookTimeTxtblk.Text = "";
-            yeildTxtblk.Text = "";
+            prepTxtblk.Content = "";
+            cookTimeTxtblk.Content = "";
+            yeildTxtblk.Content = "";
             ingredientsTxtblk.Text = "";
             directionsTxtblk.Text = "";
             int directionNum = 1;
@@ -329,24 +329,36 @@ namespace RecipeManager
                 SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name));
             }
 
-            prepTxtblk.Text = _selectedRecipe.prepTime;
+            prepTxtblk.Content = _selectedRecipe.prepTime;
 
-            cookTimeTxtblk.Text = _selectedRecipe.cookTime;
+            cookTimeTxtblk.Content = _selectedRecipe.cookTime;
 
-            yeildTxtblk.Text = _selectedRecipe.yeild;
+            yeildTxtblk.Content = _selectedRecipe.yeild;
 
-            foreach (Ingredient ingredient in _selectedRecipe.ingredients)
-            {  
+            if (_selectedRecipe.ingredients.Count > 0)
+            {
                 ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
-                ingredientsTxtblk.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
-                ingredientsTxtblk.Inlines.Add(System.Environment.NewLine);
+                ingredientsTxtblk.Inlines.Add(_selectedRecipe.ingredients[0].Quanity + " " + _selectedRecipe.ingredients[0].Unit + " " + _selectedRecipe.ingredients[0].Name);
             }
 
-            foreach (string direction in _selectedRecipe.directions)
+            foreach (Ingredient ingredient in _selectedRecipe.ingredients.Skip(1))
+            {
+                ingredientsTxtblk.Inlines.Add(System.Environment.NewLine);
+                ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
+                ingredientsTxtblk.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
+            }
+
+            if (_selectedRecipe.directions.Count > 0)
             {
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(direction);
+                directionsTxtblk.Inlines.Add(_selectedRecipe.directions[0]);
+            }
+
+            foreach (string direction in _selectedRecipe.directions.Skip(1))
+            {
                 directionsTxtblk.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
+                directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
+                directionsTxtblk.Inlines.Add(direction);  
             }
 
         }
