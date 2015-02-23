@@ -47,7 +47,7 @@
 
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="240" Name="LeftColumn"/>
-                <ColumnDefinition Width="300" Name="MiddleColumn"/>
+                <ColumnDefinition Width="300" MaxWidth="500" Name="MiddleColumn"/>
                 <ColumnDefinition Width="*" MinWidth="550" Name="RightColumn"/>
             </Grid.ColumnDefinitions>
 

@@ -389,6 +389,8 @@ namespace RecipeManager
             yeildTxtblk.FontSize = infoFontSize;
             ingredientsTxtblk.FontSize = infoFontSize;
             directionsTxtblk.FontSize = infoFontSize;
+
+            SetRecipeDisplayMinWidth();
         }
 
         private void ZoomOut(object sender, ExecutedRoutedEventArgs e)
@@ -412,6 +414,8 @@ namespace RecipeManager
             yeildTxtblk.FontSize = infoFontSize;
             ingredientsTxtblk.FontSize = infoFontSize;
             directionsTxtblk.FontSize = infoFontSize;
+
+            SetRecipeDisplayMinWidth();
         }
 
         private void ZoomNormal(object sender, ExecutedRoutedEventArgs e)
@@ -427,6 +431,99 @@ namespace RecipeManager
             yeildTxtblk.FontSize = 17;
             ingredientsTxtblk.FontSize = 17;
             directionsTxtblk.FontSize = 17;
+
+            SetRecipeDisplayMinWidth();
+        }
+
+        private void SetRecipeDisplayMinWidth()
+        {
+            int fontSize = Convert.ToInt32(prepLabel.FontSize);
+
+            if (fontSize < 20)
+            { 
+                RightColumn.MinWidth = 550;
+                return;
+            }
+
+            switch (fontSize)
+            {
+                case 20:
+                case 21:
+                    RightColumn.MinWidth = 550;
+                    break;
+                case 22:
+                    RightColumn.MinWidth = 652;
+                    break;
+                case 23:
+                    RightColumn.MinWidth = 707;
+                    break;
+                case 24:
+                    RightColumn.MinWidth = 730;
+                    break;
+                case 25:
+                    RightColumn.MinWidth = 762;
+                    break;
+                case 26:
+                    RightColumn.MinWidth = 782;
+                    break;
+                case 27:
+                    RightColumn.MinWidth = 807;
+                    break;
+                case 28:
+                    RightColumn.MinWidth = 834;
+                    break;
+                case 29:
+                    RightColumn.MinWidth = 866;
+                    break;
+                case 30:
+                    RightColumn.MinWidth = 886;
+                    break;
+                case 31:
+                    RightColumn.MinWidth = 914;
+                    break;
+                case 32:
+                    RightColumn.MinWidth = 942;
+                    break;
+                case 33:
+                    RightColumn.MinWidth = 966;
+                    break;
+                case 34:
+                    RightColumn.MinWidth = 989;
+                    break;
+                case 35:
+                    RightColumn.MinWidth = 1019;
+                    break;
+                case 36:
+                    RightColumn.MinWidth = 1044;
+                    break;
+                case 37:
+                    RightColumn.MinWidth = 1068;
+                    break;
+                case 38:
+                    RightColumn.MinWidth = 1095;
+                    break;
+                case 39:
+                    RightColumn.MinWidth = 1120;
+                    break;
+                case 40:
+                    RightColumn.MinWidth = 1145;
+                    break;
+                case 41:
+                    RightColumn.MinWidth = 1171;
+                    break;
+                case 42:
+                    RightColumn.MinWidth = 1200;
+                    break;
+                case 43:
+                    RightColumn.MinWidth = 1220;
+                    break;
+                case 44:
+                    RightColumn.MinWidth = 1250;
+                    break;
+                default:
+                    RightColumn.MinWidth = 1275;
+                    break;
+            }
         }
 
         private void CreateMenu(object sender, RoutedEventArgs e)
