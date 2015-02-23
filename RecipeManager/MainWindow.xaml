@@ -214,7 +214,7 @@
 
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="40*" MinWidth="200"/>
-                                <ColumnDefinition Width="60*" MinWidth="300"/>
+                                <ColumnDefinition Width="60*" MinWidth="310"/>
                             </Grid.ColumnDefinitions>
 
                             <Border Grid.Column="0" BorderBrush="Red" BorderThickness="1" Margin="3,3,3,3" CornerRadius="5">
