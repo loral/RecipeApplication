@@ -626,13 +626,41 @@ namespace RecipeManager
                 MessageBox.Show("You clicked print");
             }
 
+            //https://mlichtenberg.wordpress.com/2011/04/13/using-c-and-itextsharp-to-create-a-pdf/
+
             Document _doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
             PdfWriter pdfWriter = PdfWriter.GetInstance(_doc, new FileStream("Test.pdf", FileMode.Create));
             _doc.Open();
 
-            iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph(doc.OuterXml.ToString());
+            iTextSharp.text.RomanList rlist = new RomanList();
+            iTextSharp.text.List nlist = new iTextSharp.text.List(true);
 
-            _doc.Add(paragraph);
+            // Create an unordered bullet list.  The 10f argument separates the bullet from the text by 10 points 
+            iTextSharp.text.List blist = new iTextSharp.text.List(iTextSharp.text.List.UNORDERED, 10f);
+            blist.SetListSymbol("\u2022");   // Set the bullet symbol (without this a hypen starts each list item) 
+            blist.IndentationLeft = 0f;     // Indent the list 0 points
+
+            blist.Add("Lift, thrust, drag, and gravity are forces that act on a plane.");
+            blist.Add("A plane should be light to help fight against gravity’s pull.");
+            blist.Add("Gravity will have less effect on a plane built from light materials.");
+            blist.Add("In order to fly well, airplanes must be stable.");
+            blist.Add("A plane that is unstable will either pitch up into a stall, or nose-dive.");
+
+            rlist.Add("Lift, thrust, drag, and gravity are forces that act on a plane.");
+            rlist.Add("A plane should be light to help fight against gravity’s pull.");
+            rlist.Add("Gravity will have less effect on a plane built from light materials.");
+            rlist.Add("In order to fly well, airplanes must be stable.");
+            rlist.Add("A plane that is unstable will either pitch up into a stall, or nose-dive.");
+
+            nlist.Add("Lift, thrust, drag, and gravity are forces that act on a plane.");
+            nlist.Add("A plane should be light to help fight against gravity’s pull.");
+            nlist.Add("Gravity will have less effect on a plane built from light materials.");
+            nlist.Add("In order to fly well, airplanes must be stable.");
+            nlist.Add("A plane that is unstable will either pitch up into a stall, or nose-dive.");
+
+            _doc.Add(rlist);
+            _doc.Add(nlist);
+            _doc.Add(blist);
             _doc.Close();
         }
 
