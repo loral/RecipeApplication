@@ -30,3 +30,6 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.g.cs
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.baml
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.g.cs
+C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
+C:\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.dll
+C:\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.xml

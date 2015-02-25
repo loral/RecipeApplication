@@ -168,7 +168,8 @@
                     <ListView.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Edit" Click="EditRecipe"/>
-                            <MenuItem Header="Print" Click="Print"/>
+                            <!--<MenuItem Header="Print" Click="Print"/>-->
+                            <MenuItem Header="Add New" Click="AddRecipe"/>
                         </ContextMenu>
                     </ListView.ContextMenu>
                 </ListView>
