@@ -164,7 +164,14 @@
 
             <Grid Grid.Column="1">
                 <Border BorderThickness="1,0,1,0" BorderBrush="Black"/>
-                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" FontSize="14" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange"/>
+                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" FontSize="14" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange">
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Edit" Click="EditRecipe"/>
+                            <MenuItem Header="Print" Click="Print"/>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                </ListView>
             </Grid>
 
             <GridSplitter Grid.Column="1" HorizontalAlignment="Right"  VerticalAlignment="Stretch" Width="3" Background="LightGray" />
