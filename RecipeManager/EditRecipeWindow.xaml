@@ -629,7 +629,8 @@
         <!-- EndRegion -->
 
         <Grid Grid.Row="9">
-            <Button Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_saveRecipe" Content="Save" Width="75" Click="saveRecipe_btn_Click"/>
+            <Button Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,171,7" Height="22" Name="btn_saveRecipe" Content="Update" Width="75" Click="saveRecipe_btn_Click"/>
+            <Button Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_deleteRecipe" Content="Delete" Width="75" Click="deleteRecipe_btn_Click"/>
             <Button Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,7,7" Height="22" Name="btn_cancelRecipe" Content="Cancel" Width="75" Click="cancelRecipe_btn_Click"/>
         </Grid>
 

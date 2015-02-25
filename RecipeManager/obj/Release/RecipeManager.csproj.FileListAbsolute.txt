@@ -28,3 +28,5 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.g.cs
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.baml
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.g.cs

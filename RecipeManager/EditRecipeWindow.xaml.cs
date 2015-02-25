@@ -236,12 +236,13 @@ namespace RecipeManager
             // Add new recipe to recipe book file
             XmlDocument recipeDoc = new XmlDocument();
             recipeDoc.LoadXml(recipeXML);
-            XmlNode recipeNode = recipeDoc.DocumentElement;
+            XmlNode newRecipeNode = recipeDoc.DocumentElement;
 
-            string nodeName = "//RecipeManager/RecipeBook/Recipes[Recipe/Name='" + _editRecipe.name + "']";
+            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.name + "']";
             XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
 
-            recipeBook.SelectNodes("//RecipeManager/RecipeBook/Recipes")[0].ReplaceChild(recipeNode, oldRecipeNode);
+            oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
+            recipeBook.SelectNodes("//RecipeManager/RecipeBook/Recipes")[0].AppendChild(recipeBook.ImportNode(newRecipeNode, true));
 
             // Add new ingredients to recipe book file
             foreach (Ingredient ingredient in newRecipe.ingredients)
@@ -294,8 +295,7 @@ namespace RecipeManager
                         {
                             if (tb.Text == _recipe["Name"].InnerText)
                             {
-                                MessageBox.Show("Duplicate name.");
-                                //throw new Exception("Please select a unique recipe name.");
+                                //Possible duplicate name.
                             }
                         }
                         newRecipe.name = tb.Text;
@@ -473,6 +473,33 @@ namespace RecipeManager
                         yield return childOfChild;
                     }
                 }
+            }
+        }
+
+        private void deleteRecipe_btn_Click(object sender, RoutedEventArgs e)
+        {
+            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.name + "']";
+            XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
+
+            oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
+
+            // Save updated file to disk
+            try
+            {
+                var myObject = this.Owner as MainWindow;
+
+                string fileName = Application.Current.Properties["StartFile"].ToString();
+                recipeBook.Save(fileName);
+
+                MessageBox.Show("Deleted", "Deleted!");
+                myObject.reLoadFile();
+                myObject.Focus();
+
+                this.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Error");
             }
         }
     }
