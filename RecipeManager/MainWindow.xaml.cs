@@ -16,6 +16,8 @@ using System.Xml;
 using System.IO;
 using System.Globalization;
 using System.Diagnostics;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
 
 namespace RecipeManager
 {
@@ -623,6 +625,15 @@ namespace RecipeManager
                 //http://programming-pages.com/2012/06/12/printing-in-wpf/
                 MessageBox.Show("You clicked print");
             }
+
+            Document _doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
+            PdfWriter pdfWriter = PdfWriter.GetInstance(_doc, new FileStream("Test.pdf", FileMode.Create));
+            _doc.Open();
+
+            iTextSharp.text.Paragraph paragraph = new iTextSharp.text.Paragraph(doc.OuterXml.ToString());
+
+            _doc.Add(paragraph);
+            _doc.Close();
         }
 
         private void Exit(object sender, RoutedEventArgs e)
