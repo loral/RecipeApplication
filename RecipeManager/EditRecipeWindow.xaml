@@ -1,9 +1,8 @@
-﻿<Window x:Class="RecipeManager.AddRecipeWindow"
+﻿<Window x:Class="RecipeManager.EditRecipeWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Add New Recipe" Height="762" Width="565" MinHeight="498" MinWidth="570" Loaded="AddRecipeWindowLoaded"
-        Name="addRecipeWindow">
-    
+        Title="EditRecipeWindow" Height="762" Width="565" MinHeight="498" MinWidth="570" Loaded="EditRecipeWindowLoaded" Name="editRecipeWindow">
+
     <Grid>
 
         <Grid.RowDefinitions>
@@ -33,15 +32,15 @@
                 <ComboBoxItem>5</ComboBoxItem>
             </ComboBox>
         </Grid>
-        
-        <!-- EndRegion -->     
+
+        <!-- EndRegion -->
         <!-- Region (PrepTime) -->
 
         <Grid Grid.Row="1">
             <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0" Name="lbl_prepTime" Content="Prep Time"  FontWeight="Bold"/>
             <TextBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Name="tb_prepTime" Tag="PrepTime" Height="23" TextWrapping="NoWrap" Text="" Width="225"/>
         </Grid>
-        
+
         <!-- EndRegion -->
         <!-- Region (CookTime) -->
 
@@ -49,7 +48,7 @@
             <Label Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="7,0,0,0" Name="lbl_cookTime" Content="Cook Time" FontWeight="Bold"/>
             <TextBox Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="85,0,0,0" Name="tb_cookTime" Tag="CookTime"  Height="23" TextWrapping="NoWrap" Text="" Width="225"/>
         </Grid>
-        
+
         <!-- EndRegion-->
         <!-- Region (Yeild) -->
 
@@ -117,7 +116,8 @@
                     </Style>
                 </ScrollViewer.Resources>
 
-                <Grid> <!--Margin="0,2,0,0"-->
+                <Grid>
+                    <!--Margin="0,2,0,0"-->
 
                     <Grid.RowDefinitions>
                         <RowDefinition Height="30"/>
@@ -574,10 +574,10 @@
             </ScrollViewer>
 
         </Grid>
-        
+
         <!-- EndRegion -->
         <!-- Region (Categorie) -->
-        
+
         <Grid Grid.Row="8">
 
             <Grid.ColumnDefinitions>
@@ -622,11 +622,11 @@
                 <CheckBox Grid.Column="0" Grid.Row="4" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="350,0,0,0" Name="SoupStew" Tag="Categorie" Content="Soup/Stew"/>
                 <CheckBox Grid.Column="0" Grid.Row="5" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,0,0" Name="VegetablesFruit" Tag="Categorie" Content="Vegetables/Fruit"/>
 
-            </Grid>  
+            </Grid>
 
         </Grid>
-        
-        <!-- EndRegion --> 
+
+        <!-- EndRegion -->
 
         <Grid Grid.Row="9">
             <Button Grid.Row="10" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_saveRecipe" Content="Save" Width="75" Click="saveRecipe_btn_Click"/>
@@ -634,5 +634,5 @@
         </Grid>
 
     </Grid>
-    
+
 </Window>

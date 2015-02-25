@@ -365,7 +365,9 @@ namespace RecipeManager
 
         private void EditRecipe(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You clicked 'Edit Recipe'");
+            EditRecipeWindow editRecipeWindow = new EditRecipeWindow(doc, (Recipe)RecipeListView.SelectedItem);
+            editRecipeWindow.Owner = this;
+            editRecipeWindow.Show();
         }
 
         private void ZoomIn(object sender, ExecutedRoutedEventArgs e)
