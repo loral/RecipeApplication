@@ -478,28 +478,35 @@ namespace RecipeManager
 
         private void deleteRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
-            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.name + "']";
-            XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
-
-            oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
-
-            // Save updated file to disk
-            try
+            if(MessageBox.Show("Are you sure you want to delete " + _editRecipe.name + "?", "Delete?", MessageBoxButton.YesNo) == MessageBoxResult.No)
             {
-                var myObject = this.Owner as MainWindow;
-
-                string fileName = Application.Current.Properties["StartFile"].ToString();
-                recipeBook.Save(fileName);
-
-                MessageBox.Show("Deleted", "Deleted!");
-                myObject.reLoadFile();
-                myObject.Focus();
-
-                this.Close();
+                return;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString(), "Error");
+                string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.name + "']";
+                XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
+
+                oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
+
+                // Save updated file to disk
+                try
+                {
+                    var myObject = this.Owner as MainWindow;
+
+                    string fileName = Application.Current.Properties["StartFile"].ToString();
+                    recipeBook.Save(fileName);
+
+                    MessageBox.Show("Deleted", "Deleted!");
+                    myObject.reLoadFile();
+                    myObject.Focus();
+
+                    this.Close();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString(), "Error");
+                }
             }
         }
     }
