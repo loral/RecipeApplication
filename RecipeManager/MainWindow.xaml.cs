@@ -631,18 +631,29 @@ namespace RecipeManager
             //http://www.codeproject.com/Articles/686994/Create-Read-Advance-PDF-Report-using-iTextSharp-in
 
             Recipe recipe = (Recipe)RecipeListView.SelectedItem;
-            CreatePdf("Test.pdf", recipe);
+            string docName = string.Concat(recipe.name, ".pdf");
+            Document recipePdfDocument = CreatePdf(recipe);
+            
         }
 
-        private static void CreatePdf(string pdfFilename, Recipe recipe)
+        private Document CreatePdf(Recipe recipe)
         {
-            Document document = new Document(PageSize.LETTER, 35, 35, 35, 20);
-            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilename, FileMode.Create));
-            document.Open();
-
             Recipe selectedRecipe = recipe;
-            string _text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse blandit blandit turpis. Nam in lectus ut dolor consectetuer bibendum. Morbi neque ipsum, laoreet id; dignissim et, viverra id, mauris. Nulla mauris elit, consectetuer sit amet, accumsan eget, congue ac, libero. Vivamus suscipit. Nunc dignissim consectetuer lectus. Fusce elit nisi; commodo non, facilisis quis, hendrerit eu, dolor? Suspendisse eleifend nisi ut magna. Phasellus id lectus! Vivamus laoreet enim et dolor. Integer arcu mauris, ultricies vel, porta quis, venenatis at, libero. Donec nibh est, adipiscing et, ullamcorper vitae, placerat at, diam. Integer ac turpis vel ligula rutrum auctor! Morbi egestas erat sit amet diam. Ut ut ipsum? Aliquam non sem. Nulla risus eros, mollis quis, blandit ut; luctus eget, urna. Vestibulum vestibulum dapibus erat. Proin egestas leo a metus?";
+            Document document = new Document(PageSize.LETTER, 35, 35, 20, 20);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream((string.Concat(selectedRecipe.name, ".pdf")), FileMode.Create));
+            document.Open();
             PdfContentByte cb = writer.DirectContent;
+            
+            // Create Rectangle columns
+            // left measured from left, top measured up from bottom, right measured from left, bottom measured from bottom
+            iTextSharp.text.Rectangle ingredRectangle = new iTextSharp.text.Rectangle(35, 675, 250, 35);
+            iTextSharp.text.Rectangle directionRectangle = new iTextSharp.text.Rectangle(275, 675, 575, 35);
+
+            //outline the rectangles so we can visualize placement of the ColumnText
+            cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
+            cb.RoundRectangle(directionRectangle.Left, directionRectangle.Bottom, directionRectangle.Width, directionRectangle.Height, 4);
+            cb.SetColorStroke(BaseColor.RED);
+            cb.Stroke();
 
             // Heading
             iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 25, Font.NORMAL)));
@@ -651,7 +662,45 @@ namespace RecipeManager
             document.Add(pHeading);
 
             // Sub Heading
+            PdfPTable table = new PdfPTable(6);
+            table.WidthPercentage = 100;
 
+            PdfPCell prepLabelCell = new PdfPCell(new Phrase("Prep Time:"));
+            prepLabelCell.HorizontalAlignment = 2; //0=Left, 1=Centre, 2=Right
+            prepLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            table.AddCell(prepLabelCell);
+
+            PdfPCell prepTimeCell = new PdfPCell(new Phrase(selectedRecipe.prepTime));
+            prepTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            prepTimeCell.HorizontalAlignment = 0;
+            table.AddCell(prepTimeCell);
+
+            PdfPCell cookLabelCell = new PdfPCell(new Phrase("Cook Time:"));
+            cookLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            cookLabelCell.HorizontalAlignment = 2;
+            table.AddCell(cookLabelCell);
+
+            PdfPCell cookTimeCell = new PdfPCell(new Phrase(selectedRecipe.cookTime));
+            cookTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            cookTimeCell.HorizontalAlignment = 0;
+            table.AddCell(cookTimeCell);
+
+            PdfPCell servesLabelCell = new PdfPCell(new Phrase("Serves:"));
+            servesLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            servesLabelCell.HorizontalAlignment = 2;
+            table.AddCell(servesLabelCell);
+
+            PdfPCell servesActualCell = new PdfPCell(new Phrase(selectedRecipe.yeild));
+            servesActualCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+            servesActualCell.HorizontalAlignment = 0;
+            table.AddCell(servesActualCell);
+
+            document.Add(table);
+
+            //cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
+            cb.RoundRectangle(35, 687, table.TotalWidth, table.TotalHeight + 20, 4);
+            cb.SetColorStroke(BaseColor.RED);
+            cb.Stroke();
 
             // Ingredients
             iTextSharp.text.List ingredientList = new iTextSharp.text.List(iTextSharp.text.List.UNORDERED, 10f);
@@ -662,7 +711,7 @@ namespace RecipeManager
             }
 
             ColumnText ingredientColumn = new ColumnText(cb);
-            ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.NORMAL))), 35, 675, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+            ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("Ingredients:" + Chunk.NEWLINE, FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.NORMAL))), 35, 675, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
             
             int i = 0;
             foreach(Chunk chunk in ingredientList.Chunks)
@@ -685,7 +734,7 @@ namespace RecipeManager
             }
 
             ColumnText directionColumn = new ColumnText(cb);
-            directionColumn.SetSimpleColumn(new Phrase(new Chunk("", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.NORMAL))), 275, 675, 575, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+            directionColumn.SetSimpleColumn(new Phrase(new Chunk("Directions:" + Chunk.NEWLINE, FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.NORMAL))), 275, 675, 575, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
 
             i = 0;
             foreach(Chunk chunk in directionList.Chunks)
@@ -700,17 +749,9 @@ namespace RecipeManager
             }
             directionColumn.Go();
 
-            // left measured from left, top measured up from bottom, right measured from left, bottom measured from bottom
-            iTextSharp.text.Rectangle rect1 = new iTextSharp.text.Rectangle(35, 675, 250, 35);
-            iTextSharp.text.Rectangle rect2 = new iTextSharp.text.Rectangle(275, 675, 575, 35);
-
-            //outline the rectangles so we can visualize placement of the ColumnText
-            cb.Rectangle(rect1.Left, rect1.Bottom, rect1.Width, rect1.Height);
-            cb.Rectangle(rect2.Left, rect2.Bottom, rect2.Width, rect2.Height);
-            cb.SetColorStroke(BaseColor.RED);
-            cb.Stroke();
-
+            // Close and return file
             document.Close();
+            return document;
         }
 
         private void Exit(object sender, RoutedEventArgs e)
