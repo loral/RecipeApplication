@@ -32,3 +32,5 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\Edit
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.g.cs
 C:\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.dll
 C:\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.xml
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.dll
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.xml

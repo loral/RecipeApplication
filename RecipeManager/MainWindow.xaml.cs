@@ -627,41 +627,90 @@ namespace RecipeManager
             }
 
             //https://mlichtenberg.wordpress.com/2011/04/13/using-c-and-itextsharp-to-create-a-pdf/
+            //http://www.mikesdotnetting.com/article/80/create-pdfs-in-asp-net-getting-started-with-itextsharp
+            //http://www.codeproject.com/Articles/686994/Create-Read-Advance-PDF-Report-using-iTextSharp-in
 
-            Document _doc = new Document(iTextSharp.text.PageSize.LETTER, 10, 10, 42, 35);
-            PdfWriter pdfWriter = PdfWriter.GetInstance(_doc, new FileStream("Test.pdf", FileMode.Create));
-            _doc.Open();
+            Recipe recipe = (Recipe)RecipeListView.SelectedItem;
+            CreatePdf("Test.pdf", recipe);
+        }
 
-            iTextSharp.text.RomanList rlist = new RomanList();
-            iTextSharp.text.List nlist = new iTextSharp.text.List(true);
+        private static void CreatePdf(string pdfFilename, Recipe recipe)
+        {
+            Document document = new Document(PageSize.LETTER, 35, 35, 35, 20);
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilename, FileMode.Create));
+            document.Open();
 
-            // Create an unordered bullet list.  The 10f argument separates the bullet from the text by 10 points 
-            iTextSharp.text.List blist = new iTextSharp.text.List(iTextSharp.text.List.UNORDERED, 10f);
-            blist.SetListSymbol("\u2022");   // Set the bullet symbol (without this a hypen starts each list item) 
-            blist.IndentationLeft = 0f;     // Indent the list 0 points
+            Recipe selectedRecipe = recipe;
+            string _text = @"Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse blandit blandit turpis. Nam in lectus ut dolor consectetuer bibendum. Morbi neque ipsum, laoreet id; dignissim et, viverra id, mauris. Nulla mauris elit, consectetuer sit amet, accumsan eget, congue ac, libero. Vivamus suscipit. Nunc dignissim consectetuer lectus. Fusce elit nisi; commodo non, facilisis quis, hendrerit eu, dolor? Suspendisse eleifend nisi ut magna. Phasellus id lectus! Vivamus laoreet enim et dolor. Integer arcu mauris, ultricies vel, porta quis, venenatis at, libero. Donec nibh est, adipiscing et, ullamcorper vitae, placerat at, diam. Integer ac turpis vel ligula rutrum auctor! Morbi egestas erat sit amet diam. Ut ut ipsum? Aliquam non sem. Nulla risus eros, mollis quis, blandit ut; luctus eget, urna. Vestibulum vestibulum dapibus erat. Proin egestas leo a metus?";
+            PdfContentByte cb = writer.DirectContent;
 
-            blist.Add("Lift, thrust, drag, and gravity are forces that act on a plane.");
-            blist.Add("A plane should be light to help fight against gravity’s pull.");
-            blist.Add("Gravity will have less effect on a plane built from light materials.");
-            blist.Add("In order to fly well, airplanes must be stable.");
-            blist.Add("A plane that is unstable will either pitch up into a stall, or nose-dive.");
+            // Heading
+            iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 25, Font.NORMAL)));
+            pHeading.Alignment = Element.ALIGN_CENTER;
+            pHeading.SpacingAfter = 18f;
+            document.Add(pHeading);
 
-            rlist.Add("Lift, thrust, drag, and gravity are forces that act on a plane.");
-            rlist.Add("A plane should be light to help fight against gravity’s pull.");
-            rlist.Add("Gravity will have less effect on a plane built from light materials.");
-            rlist.Add("In order to fly well, airplanes must be stable.");
-            rlist.Add("A plane that is unstable will either pitch up into a stall, or nose-dive.");
+            // Sub Heading
 
-            nlist.Add("Lift, thrust, drag, and gravity are forces that act on a plane.");
-            nlist.Add("A plane should be light to help fight against gravity’s pull.");
-            nlist.Add("Gravity will have less effect on a plane built from light materials.");
-            nlist.Add("In order to fly well, airplanes must be stable.");
-            nlist.Add("A plane that is unstable will either pitch up into a stall, or nose-dive.");
 
-            _doc.Add(rlist);
-            _doc.Add(nlist);
-            _doc.Add(blist);
-            _doc.Close();
+            // Ingredients
+            iTextSharp.text.List ingredientList = new iTextSharp.text.List(iTextSharp.text.List.UNORDERED, 10f);
+
+            foreach (Ingredient ingredient in selectedRecipe.ingredients)
+            {
+                ingredientList.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
+            }
+
+            ColumnText ingredientColumn = new ColumnText(cb);
+            ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.NORMAL))), 35, 675, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+            
+            int i = 0;
+            foreach(Chunk chunk in ingredientList.Chunks)
+            {
+                ingredientColumn.AddText(new Phrase(string.Concat("• ",chunk)));
+
+                if (i != ingredientList.Size -1)
+                    ingredientColumn.AddText(Chunk.NEWLINE);
+
+                i = i + 1;
+            }
+            ingredientColumn.Go();
+            
+            // Directions
+            iTextSharp.text.List directionList = new iTextSharp.text.List(iTextSharp.text.List.UNORDERED, 10f);
+
+            foreach(string direction in selectedRecipe.directions)
+            {
+                directionList.Add(direction);
+            }
+
+            ColumnText directionColumn = new ColumnText(cb);
+            directionColumn.SetSimpleColumn(new Phrase(new Chunk("", FontFactory.GetFont(FontFactory.HELVETICA, 12, Font.NORMAL))), 275, 675, 575, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+
+            i = 0;
+            foreach(Chunk chunk in directionList.Chunks)
+            {
+                directionColumn.AddText(new Phrase(string.Concat(i + 1, ". " + chunk)));
+
+                if (i != directionList.Size - 1)
+                    directionColumn.AddText(new Phrase(string.Concat(Chunk.NEWLINE, Chunk.NEWLINE)));
+
+                i = i + 1;
+
+            }
+            directionColumn.Go();
+
+            // left measured from left, top measured up from bottom, right measured from left, bottom measured from bottom
+            iTextSharp.text.Rectangle rect1 = new iTextSharp.text.Rectangle(35, 675, 250, 35);
+            iTextSharp.text.Rectangle rect2 = new iTextSharp.text.Rectangle(275, 675, 575, 35);
+
+            //outline the rectangles so we can visualize placement of the ColumnText
+            cb.Rectangle(rect1.Left, rect1.Bottom, rect1.Width, rect1.Height);
+            cb.Rectangle(rect2.Left, rect2.Bottom, rect2.Width, rect2.Height);
+            cb.SetColorStroke(BaseColor.RED);
+            cb.Stroke();
+
+            document.Close();
         }
 
         private void Exit(object sender, RoutedEventArgs e)
