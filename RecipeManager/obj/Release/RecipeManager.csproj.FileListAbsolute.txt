@@ -34,4 +34,3 @@ C:\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.dll
 C:\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.xml
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.dll
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.xml
-C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache

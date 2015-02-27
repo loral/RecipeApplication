@@ -18,6 +18,7 @@ using System.Globalization;
 using System.Diagnostics;
 using iTextSharp.text;
 using iTextSharp.text.pdf;
+using System.Reflection;
 
 namespace RecipeManager
 {
@@ -638,6 +639,14 @@ namespace RecipeManager
 
         private Document CreatePdf(Recipe recipe)
         {
+            FileStream fontStream = File.Open(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", FileMode.Open, FileAccess.Read);
+            byte[] fileBytes = new byte[fontStream.Length];
+            fontStream.Read(fileBytes, 0, (int)fontStream.Length);
+            fontStream.Close();
+            BaseFont _customFont = BaseFont.CreateFont("fontfilename.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytes, null);
+
+            Font simplicity = new Font(_customFont, 12);
+
             Recipe selectedRecipe = recipe;
             Document document = new Document(PageSize.LETTER, 35, 35, 20, 20);
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream((string.Concat(selectedRecipe.name, ".pdf")), FileMode.Create));
@@ -656,7 +665,7 @@ namespace RecipeManager
             cb.Stroke();
 
             // Heading
-            iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, FontFactory.GetFont(FontFactory.TIMES_ROMAN, 25, Font.NORMAL)));
+            iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, simplicity));
             pHeading.Alignment = Element.ALIGN_CENTER;
             pHeading.SpacingAfter = 18f;
             document.Add(pHeading);
