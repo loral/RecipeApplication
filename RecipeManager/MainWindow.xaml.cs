@@ -624,48 +624,49 @@ namespace RecipeManager
             {
                 // Print document
                 //http://programming-pages.com/2012/06/12/printing-in-wpf/
-                MessageBox.Show("You clicked print");
             }
 
             Recipe recipe = (Recipe)RecipeListView.SelectedItem;
             string docName = string.Concat(recipe.name, ".pdf");
             Document recipePdfDocument = CreatePdf(recipe);
+            MessageBox.Show("You clicked print");
 
         }
 
         private Document CreatePdf(Recipe recipe)
         {
-            FileStream fontStream = File.Open(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", FileMode.Open, FileAccess.Read);
+            FileStream fontStream = File.Open(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", FileMode.Open, FileAccess.Read);
             byte[] fileBytes = new byte[fontStream.Length];
             fontStream.Read(fileBytes, 0, (int)fontStream.Length);
             fontStream.Close();
-            BaseFont _customFont = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytes, null);
+            BaseFont _customFont = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytes, null);
 
             Font redSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.RED);
-            Font simplicity = new Font(_customFont, 30, Font.NORMAL, BaseColor.BLACK);
+            Font simplicity = new Font(_customFont, 29, Font.NORMAL, BaseColor.BLACK);
             Font boldSimplicity = new Font(_customFont, 15, Font.BOLD, BaseColor.DARK_GRAY);
             Font normalSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.BLACK);
 
-            FileStream fontStreamtwo = File.Open(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", FileMode.Open, FileAccess.Read);
+            FileStream fontStreamtwo = File.Open(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", FileMode.Open, FileAccess.Read);
             byte[] fileBytesTwo = new byte[fontStreamtwo.Length];
             fontStreamtwo.Read(fileBytesTwo, 0, (int)fontStreamtwo.Length);
             fontStreamtwo.Close();
-            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytesTwo, null);
+            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytesTwo, null);
 
-            Font largeAndalus = new Font(_customFontTwo, 14, Font.NORMAL, BaseColor.BLACK);
-            Font andalus = new Font(_customFontTwo, 12, Font.NORMAL, BaseColor.BLACK);
+            Font largeAndalus = new Font(_customFontTwo, 13, Font.NORMAL, BaseColor.BLACK);
+            Font andalus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
             Font boldAndalus = new Font(_customFontTwo, 15, Font.BOLD, BaseColor.BLACK);
+            Font customAndalus = new Font(_customFontTwo, 5, Font.NORMAL, BaseColor.BLACK);
 
             Recipe selectedRecipe = recipe;
-            Document document = new Document(PageSize.LETTER, 35, 35, 15, 20);
+            Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream((string.Concat(selectedRecipe.name, ".pdf")), FileMode.Create));
             document.Open();
             PdfContentByte cb = writer.DirectContent;
 
             // Create Rectangle columns
             // left measured from left, top measured up from bottom, right measured from left, bottom measured from bottom
-            iTextSharp.text.Rectangle ingredRectangle = new iTextSharp.text.Rectangle(35, 675, 250, 35);
-            iTextSharp.text.Rectangle directionRectangle = new iTextSharp.text.Rectangle(275, 675, 575, 35);
+            iTextSharp.text.Rectangle ingredRectangle = new iTextSharp.text.Rectangle(35, 650, 255, 35);
+            iTextSharp.text.Rectangle directionRectangle = new iTextSharp.text.Rectangle(265, 650, 575, 35);
 
             //outline the rectangles so we can visualize placement of the ColumnText
             cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
@@ -676,12 +677,16 @@ namespace RecipeManager
             // Heading
             iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, simplicity));
             pHeading.Alignment = Element.ALIGN_CENTER;
-            pHeading.SpacingAfter = 18f;
+            pHeading.SpacingAfter = 34f;
             document.Add(pHeading);
 
             // Sub Heading
             PdfPTable table = new PdfPTable(6);
-            table.WidthPercentage = 100;
+            table.HorizontalAlignment = 0;
+            table.TotalWidth = 542f;
+            table.LockedWidth = true;
+            float[] widths = new float[] { 77f, 115f, 75f, 115f, 45f, 115f };
+            table.SetWidths(widths);
 
             PdfPCell prepLabelCell = new PdfPCell(new Phrase("Prep Time:", redSimplicity));
             prepLabelCell.HorizontalAlignment = 2; //0=Left, 1=Centre, 2=Right
@@ -715,14 +720,14 @@ namespace RecipeManager
 
             document.Add(table);
 
-            //cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
-            cb.RoundRectangle(35, 687, table.TotalWidth, table.TotalHeight + 20, 4);
+            // Sub Header Border
+            cb.RoundRectangle(35, 660, 540, 40, 4);
             cb.SetColorStroke(BaseColor.RED);
             cb.Stroke();
 
             // Ingredients
             ColumnText ingredientColumn = new ColumnText(cb);
-            ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("Ingredients:" + Chunk.NEWLINE, redSimplicity)), 35, 675, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+            ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("Ingredients:" + Chunk.NEWLINE, redSimplicity)), 45, 647, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
 
             int i = 0;
             foreach (Ingredient ingredient in selectedRecipe.ingredients)
@@ -739,7 +744,7 @@ namespace RecipeManager
 
             // Directions
             ColumnText directionColumn = new ColumnText(cb);
-            directionColumn.SetSimpleColumn(new Phrase(new Chunk("Directions:" + Chunk.NEWLINE, redSimplicity)), 275, 675, 575, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+            directionColumn.SetSimpleColumn(new Phrase(new Chunk("Directions:\n", redSimplicity)), 271, 647, 565, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
 
             i = 0;
             foreach (string direction in selectedRecipe.directions)
