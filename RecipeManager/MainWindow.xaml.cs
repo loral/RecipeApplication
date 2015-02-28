@@ -634,22 +634,14 @@ namespace RecipeManager
 
         private Document CreatePdf(Recipe recipe)
         {
-            FileStream fontStream = File.Open(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", FileMode.Open, FileAccess.Read);
-            byte[] fileBytes = new byte[fontStream.Length];
-            fontStream.Read(fileBytes, 0, (int)fontStream.Length);
-            fontStream.Close();
-            BaseFont _customFont = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytes, null);
+            BaseFont _customFont = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font redSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.RED);
             Font simplicity = new Font(_customFont, 29, Font.NORMAL, BaseColor.BLACK);
             Font boldSimplicity = new Font(_customFont, 15, Font.BOLD, BaseColor.DARK_GRAY);
             Font normalSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.BLACK);
 
-            FileStream fontStreamtwo = File.Open(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", FileMode.Open, FileAccess.Read);
-            byte[] fileBytesTwo = new byte[fontStreamtwo.Length];
-            fontStreamtwo.Read(fileBytesTwo, 0, (int)fontStreamtwo.Length);
-            fontStreamtwo.Close();
-            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED, fileBytesTwo, null);
+            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font largeAndalus = new Font(_customFontTwo, 13, Font.NORMAL, BaseColor.BLACK);
             Font andalus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
