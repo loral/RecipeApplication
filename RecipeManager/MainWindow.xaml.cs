@@ -629,7 +629,6 @@ namespace RecipeManager
             Recipe recipe = (Recipe)RecipeListView.SelectedItem;
             string docName = string.Concat(recipe.name, ".pdf");
             Document recipePdfDocument = CreatePdf(recipe);
-            MessageBox.Show("You clicked print");
 
         }
 
@@ -762,6 +761,9 @@ namespace RecipeManager
 
             // Close and return file
             document.Close();
+
+            System.Diagnostics.Process.Start(string.Concat(selectedRecipe.name, ".pdf"));
+
             return document;
         }
 
