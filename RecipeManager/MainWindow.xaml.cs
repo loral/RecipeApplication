@@ -32,6 +32,7 @@ namespace RecipeManager
         public string fileName = string.Empty;
         CultureInfo culture = new CultureInfo("en-US");
         public IngredientView ingredientView;
+        public List<string> fileList;
 
         public MainWindow()
         {
@@ -123,6 +124,7 @@ namespace RecipeManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            fileList = new List<string>();
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
             Keyboard.Focus(nameFilter);
 
@@ -139,6 +141,25 @@ namespace RecipeManager
             {
                 RecipeListView.SelectedItem = RecipeListView.Items[0];
             }
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            foreach (var item in fileList)
+            {
+                try
+                {
+                    if (File.Exists(item))
+                    {
+                        File.Delete(item);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Error deleteing TEMP file: " + ex.Message);
+                }
+            }
+            //MessageBox.Show("closing");
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -611,28 +632,28 @@ namespace RecipeManager
 
         private void Print(object sender, RoutedEventArgs e)
         {
-            // Configure printer dialog box
-            System.Windows.Controls.PrintDialog dlg = new System.Windows.Controls.PrintDialog();
-            dlg.PageRangeSelection = PageRangeSelection.AllPages;
-            dlg.UserPageRangeEnabled = true;
+            //// Configure printer dialog box
+            //System.Windows.Controls.PrintDialog dlg = new System.Windows.Controls.PrintDialog();
+            //dlg.PageRangeSelection = PageRangeSelection.AllPages;
+            //dlg.UserPageRangeEnabled = true;
 
-            // Show print file dialog box
-            Nullable<bool> result = dlg.ShowDialog();
+            //// Show print file dialog box
+            //Nullable<bool> result = dlg.ShowDialog();
 
-            // Process print file dialog box results 
-            if (result == true)
-            {
-                // Print document
-                //http://programming-pages.com/2012/06/12/printing-in-wpf/
-            }
+            //// Process print file dialog box results 
+            //if (result == true)
+            //{
+            //    // Print document
+            //    //http://programming-pages.com/2012/06/12/printing-in-wpf/
+            //}
 
             Recipe recipe = (Recipe)RecipeListView.SelectedItem;
             string docName = string.Concat(recipe.name, ".pdf");
-            Document recipePdfDocument = CreatePdf(recipe);
+            CreatePdf(recipe);
 
         }
 
-        private Document CreatePdf(Recipe recipe)
+        private void CreatePdf(Recipe recipe)
         {
             BaseFont _customFont = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
@@ -649,114 +670,125 @@ namespace RecipeManager
             Font customAndalus = new Font(_customFontTwo, 5, Font.NORMAL, BaseColor.BLACK);
 
             Recipe selectedRecipe = recipe;
-            Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
-            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream((string.Concat(selectedRecipe.name, ".pdf")), FileMode.Create));
-            document.Open();
-            PdfContentByte cb = writer.DirectContent;
 
-            // Create Rectangle columns
-            // left measured from left, top measured up from bottom, right measured from left, bottom measured from bottom
-            iTextSharp.text.Rectangle ingredRectangle = new iTextSharp.text.Rectangle(35, 650, 255, 35);
-            iTextSharp.text.Rectangle directionRectangle = new iTextSharp.text.Rectangle(265, 650, 575, 35);
-
-            //outline the rectangles so we can visualize placement of the ColumnText
-            cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
-            cb.RoundRectangle(directionRectangle.Left, directionRectangle.Bottom, directionRectangle.Width, directionRectangle.Height, 4);
-            cb.SetColorStroke(BaseColor.RED);
-            cb.Stroke();
-
-            // Heading
-            iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, simplicity));
-            pHeading.Alignment = Element.ALIGN_CENTER;
-            pHeading.SpacingAfter = 34f;
-            document.Add(pHeading);
-
-            // Sub Heading
-            PdfPTable table = new PdfPTable(6);
-            table.HorizontalAlignment = 0;
-            table.TotalWidth = 542f;
-            table.LockedWidth = true;
-            float[] widths = new float[] { 77f, 115f, 75f, 115f, 45f, 115f };
-            table.SetWidths(widths);
-
-            PdfPCell prepLabelCell = new PdfPCell(new Phrase("Prep Time:", redSimplicity));
-            prepLabelCell.HorizontalAlignment = 2; //0=Left, 1=Centre, 2=Right
-            prepLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            table.AddCell(prepLabelCell);
-
-            PdfPCell prepTimeCell = new PdfPCell(new Phrase(selectedRecipe.prepTime, largeAndalus));
-            prepTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            prepTimeCell.HorizontalAlignment = 0;
-            table.AddCell(prepTimeCell);
-
-            PdfPCell cookLabelCell = new PdfPCell(new Phrase("Cook Time:", redSimplicity));
-            cookLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            cookLabelCell.HorizontalAlignment = 2;
-            table.AddCell(cookLabelCell);
-
-            PdfPCell cookTimeCell = new PdfPCell(new Phrase(selectedRecipe.cookTime, largeAndalus));
-            cookTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            cookTimeCell.HorizontalAlignment = 0;
-            table.AddCell(cookTimeCell);
-
-            PdfPCell servesLabelCell = new PdfPCell(new Phrase("Serves:", redSimplicity));
-            servesLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            servesLabelCell.HorizontalAlignment = 2;
-            table.AddCell(servesLabelCell);
-
-            PdfPCell servesActualCell = new PdfPCell(new Phrase(selectedRecipe.yeild, largeAndalus));
-            servesActualCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
-            servesActualCell.HorizontalAlignment = 0;
-            table.AddCell(servesActualCell);
-
-            document.Add(table);
-
-            // Sub Header Border
-            cb.RoundRectangle(35, 660, 540, 40, 4);
-            cb.SetColorStroke(BaseColor.RED);
-            cb.Stroke();
-
-            // Ingredients
-            ColumnText ingredientColumn = new ColumnText(cb);
-            ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("Ingredients:" + Chunk.NEWLINE, redSimplicity)), 45, 647, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
-
-            int i = 0;
-            foreach (Ingredient ingredient in selectedRecipe.ingredients)
+            using (MemoryStream ms = new MemoryStream())
             {
-                ingredientColumn.AddText(new Phrase("• ", FontFactory.GetFont("Arial", 12, Font.BOLD, BaseColor.DARK_GRAY)));
-                ingredientColumn.AddText(new Phrase(16, (string.Concat(ingredient.Quanity, " ", ingredient.Unit, " ", ingredient.Name)), andalus));
 
-                if (i != selectedRecipe.ingredients.Count - 1)
-                    ingredientColumn.AddText(Chunk.NEWLINE);
+                Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
+                PdfWriter writer = PdfWriter.GetInstance(document, ms);
+                document.Open();
+                PdfContentByte cb = writer.DirectContent;
 
-                i = i + 1;
+                // Create Rectangle columns
+                // left measured from left, top measured up from bottom, right measured from left, bottom measured from bottom
+                iTextSharp.text.Rectangle ingredRectangle = new iTextSharp.text.Rectangle(35, 650, 255, 35);
+                iTextSharp.text.Rectangle directionRectangle = new iTextSharp.text.Rectangle(265, 650, 575, 35);
+
+                //outline the rectangles so we can visualize placement of the ColumnText
+                cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
+                cb.RoundRectangle(directionRectangle.Left, directionRectangle.Bottom, directionRectangle.Width, directionRectangle.Height, 4);
+                cb.SetColorStroke(BaseColor.RED);
+                cb.Stroke();
+
+                // Heading
+                iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, simplicity));
+                pHeading.Alignment = Element.ALIGN_CENTER;
+                pHeading.SpacingAfter = 34f;
+                document.Add(pHeading);
+
+                // Sub Heading
+                PdfPTable table = new PdfPTable(6);
+                table.HorizontalAlignment = 0;
+                table.TotalWidth = 542f;
+                table.LockedWidth = true;
+                float[] widths = new float[] { 77f, 115f, 75f, 115f, 45f, 115f };
+                table.SetWidths(widths);
+
+                PdfPCell prepLabelCell = new PdfPCell(new Phrase("Prep Time:", redSimplicity));
+                prepLabelCell.HorizontalAlignment = 2; //0=Left, 1=Centre, 2=Right
+                prepLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                table.AddCell(prepLabelCell);
+
+                PdfPCell prepTimeCell = new PdfPCell(new Phrase(selectedRecipe.prepTime, largeAndalus));
+                prepTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                prepTimeCell.HorizontalAlignment = 0;
+                table.AddCell(prepTimeCell);
+
+                PdfPCell cookLabelCell = new PdfPCell(new Phrase("Cook Time:", redSimplicity));
+                cookLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cookLabelCell.HorizontalAlignment = 2;
+                table.AddCell(cookLabelCell);
+
+                PdfPCell cookTimeCell = new PdfPCell(new Phrase(selectedRecipe.cookTime, largeAndalus));
+                cookTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                cookTimeCell.HorizontalAlignment = 0;
+                table.AddCell(cookTimeCell);
+
+                PdfPCell servesLabelCell = new PdfPCell(new Phrase("Serves:", redSimplicity));
+                servesLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                servesLabelCell.HorizontalAlignment = 2;
+                table.AddCell(servesLabelCell);
+
+                PdfPCell servesActualCell = new PdfPCell(new Phrase(selectedRecipe.yeild, largeAndalus));
+                servesActualCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
+                servesActualCell.HorizontalAlignment = 0;
+                table.AddCell(servesActualCell);
+
+                document.Add(table);
+
+                // Sub Header Border
+                cb.RoundRectangle(35, 660, 540, 40, 4);
+                cb.SetColorStroke(BaseColor.RED);
+                cb.Stroke();
+
+                // Ingredients
+                ColumnText ingredientColumn = new ColumnText(cb);
+                ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("Ingredients:" + Chunk.NEWLINE, redSimplicity)), 45, 647, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+
+                int i = 0;
+                foreach (Ingredient ingredient in selectedRecipe.ingredients)
+                {
+                    ingredientColumn.AddText(new Phrase("• ", FontFactory.GetFont("Arial", 12, Font.BOLD, BaseColor.DARK_GRAY)));
+                    ingredientColumn.AddText(new Phrase(16, (string.Concat(ingredient.Quanity, " ", ingredient.Unit, " ", ingredient.Name)), andalus));
+
+                    if (i != selectedRecipe.ingredients.Count - 1)
+                        ingredientColumn.AddText(Chunk.NEWLINE);
+
+                    i = i + 1;
+                }
+                ingredientColumn.Go();
+
+                // Directions
+                ColumnText directionColumn = new ColumnText(cb);
+                directionColumn.SetSimpleColumn(new Phrase(new Chunk("Directions:\n", redSimplicity)), 271, 647, 565, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+
+                i = 0;
+                foreach (string direction in selectedRecipe.directions)
+                {
+                    directionColumn.AddText(new Phrase((string.Concat(i + 1, ". ")), largeAndalus));
+                    directionColumn.AddText(new Phrase(direction, andalus));
+
+                    if (i != selectedRecipe.directions.Count - 1)
+                        directionColumn.AddText(new Phrase(string.Concat(Chunk.NEWLINE, Chunk.NEWLINE)));
+
+                    i = i + 1;
+
+                }
+                directionColumn.Go();
+
+                // Close and return file
+                document.Close();
+                writer.Close();
+
+                var file = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".pdf";
+                fileList.Add(file.ToString());
+                using (FileStream fs = File.Create(file, Int16.MaxValue))
+                {
+                    var buffer = ms.GetBuffer();
+                    fs.Write(buffer, 0, buffer.Length);
+                    System.Diagnostics.Process.Start(file);
+                }
             }
-            ingredientColumn.Go();
-
-            // Directions
-            ColumnText directionColumn = new ColumnText(cb);
-            directionColumn.SetSimpleColumn(new Phrase(new Chunk("Directions:\n", redSimplicity)), 271, 647, 565, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
-
-            i = 0;
-            foreach (string direction in selectedRecipe.directions)
-            {
-                directionColumn.AddText(new Phrase((string.Concat(i + 1, ". ")), largeAndalus));
-                directionColumn.AddText(new Phrase(direction, andalus));
-
-                if (i != selectedRecipe.directions.Count - 1)
-                    directionColumn.AddText(new Phrase(string.Concat(Chunk.NEWLINE, Chunk.NEWLINE)));
-
-                i = i + 1;
-
-            }
-            directionColumn.Go();
-
-            // Close and return file
-            document.Close();
-
-            System.Diagnostics.Process.Start(string.Concat(selectedRecipe.name, ".pdf"));
-
-            return document;
         }
 
         private void Exit(object sender, RoutedEventArgs e)
