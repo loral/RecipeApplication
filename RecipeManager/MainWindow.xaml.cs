@@ -673,6 +673,10 @@ namespace RecipeManager
 
             using (MemoryStream ms = new MemoryStream())
             {
+                var file = SaveAsPDF(recipe);
+
+                if (string.IsNullOrEmpty(file))
+                    return;
 
                 Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
                 PdfWriter writer = PdfWriter.GetInstance(document, ms);
@@ -780,14 +784,35 @@ namespace RecipeManager
                 document.Close();
                 writer.Close();
 
-                var file = System.IO.Path.GetTempPath() + Guid.NewGuid().ToString() + ".pdf";
-                fileList.Add(file.ToString());
                 using (FileStream fs = File.Create(file, Int16.MaxValue))
                 {
                     var buffer = ms.GetBuffer();
                     fs.Write(buffer, 0, buffer.Length);
                     System.Diagnostics.Process.Start(file);
                 }
+            }
+        }
+
+        private string SaveAsPDF(Recipe recipe)
+        {
+            // Configure save file dialog box
+            Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
+            dlg.FileName = recipe.name; // Default file name
+            dlg.DefaultExt = ".pdf"; // Default file extension
+            dlg.Filter = recipe.name + " (.pdf)|*.pdf"; // Filter files by extension 
+
+            // Show save file dialog box
+            Nullable<bool> result = dlg.ShowDialog();
+
+            // Process save file dialog box results 
+            if (result == true)
+            {
+                fileName = dlg.FileName;
+                return fileName;
+            }
+            else
+            {
+                return null;
             }
         }
 
