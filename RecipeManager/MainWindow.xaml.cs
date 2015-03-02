@@ -666,6 +666,7 @@ namespace RecipeManager
 
             Font largeAndalus = new Font(_customFontTwo, 13, Font.NORMAL, BaseColor.BLACK);
             Font andalus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
+            //Font directionsAndulus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
             Font boldAndalus = new Font(_customFontTwo, 15, Font.BOLD, BaseColor.BLACK);
             Font customAndalus = new Font(_customFontTwo, 5, Font.NORMAL, BaseColor.BLACK);
 
@@ -747,37 +748,77 @@ namespace RecipeManager
 
                 // Ingredients
                 ColumnText ingredientColumn = new ColumnText(cb);
-                ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("Ingredients:" + Chunk.NEWLINE, redSimplicity)), 45, 647, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+                ingredientColumn.SetSimpleColumn(new Phrase(new Chunk("" + Chunk.NEWLINE, redSimplicity)), 45, 647, 250, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+
+                iTextSharp.text.Paragraph ingredientLabelParagraph = new iTextSharp.text.Paragraph();
+                iTextSharp.text.Paragraph ingredientSpacerParagraph = new iTextSharp.text.Paragraph();
+
+                ingredientLabelParagraph.Add(new Phrase(new Chunk("Ingredients:", redSimplicity)));
+                ingredientLabelParagraph.SetLeading(0f, 1.3f);
+
+                ingredientSpacerParagraph.Add(new Phrase(new Chunk(System.Environment.NewLine, redSimplicity)));
+                ingredientSpacerParagraph.SetLeading(0f, 0.5f);
+
+                ingredientColumn.AddElement(ingredientLabelParagraph);
+                ingredientColumn.AddElement(ingredientSpacerParagraph);
 
                 int i = 0;
                 foreach (Ingredient ingredient in selectedRecipe.ingredients)
                 {
-                    ingredientColumn.AddText(new Phrase("• ", FontFactory.GetFont("Arial", 12, Font.BOLD, BaseColor.DARK_GRAY)));
-                    ingredientColumn.AddText(new Phrase(16, (string.Concat(ingredient.Quanity, " ", ingredient.Unit, " ", ingredient.Name)), andalus));
+                    iTextSharp.text.Paragraph ingredientParagraph = new iTextSharp.text.Paragraph();
+                    ingredientParagraph.SetLeading(0f, 1.5f);
+
+                    ingredientParagraph.Add(new Phrase("• ", FontFactory.GetFont("Arial", 12, Font.BOLD, BaseColor.DARK_GRAY)));
+                    ingredientParagraph.Add(new Phrase(16, (string.Concat(ingredient.Quanity, " ", ingredient.Unit, " ", ingredient.Name)), andalus));
+
+                    ingredientColumn.AddElement(ingredientParagraph);
 
                     if (i != selectedRecipe.ingredients.Count - 1)
-                        ingredientColumn.AddText(Chunk.NEWLINE);
-
+                    {
+                        ingredientParagraph.Add(new Phrase(string.Concat(Chunk.NEWLINE)));
+                    }
                     i = i + 1;
                 }
+
                 ingredientColumn.Go();
 
                 // Directions
                 ColumnText directionColumn = new ColumnText(cb);
-                directionColumn.SetSimpleColumn(new Phrase(new Chunk("Directions:\n", redSimplicity)), 271, 647, 565, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+                directionColumn.SetSimpleColumn(new Phrase(new Chunk("", redSimplicity)), 271, 647, 565, 35, 20, Element.ALIGN_LEFT | Element.ALIGN_TOP);
+
+                iTextSharp.text.Paragraph directionLabelParagraph = new iTextSharp.text.Paragraph();
+                iTextSharp.text.Paragraph directionSpacerParagraph = new iTextSharp.text.Paragraph();
+
+                directionLabelParagraph.Add(new Phrase(new Chunk("Directions:", redSimplicity)));
+                directionLabelParagraph.SetLeading(0f, 1.3f);
+
+                directionSpacerParagraph.Add(new Phrase(new Chunk(System.Environment.NewLine, redSimplicity)));
+                directionSpacerParagraph.SetLeading(0f, 0.4f);
+
+                directionColumn.AddElement(directionLabelParagraph);
+                directionColumn.AddElement(directionSpacerParagraph);
 
                 i = 0;
                 foreach (string direction in selectedRecipe.directions)
                 {
-                    directionColumn.AddText(new Phrase((string.Concat(i + 1, ". ")), largeAndalus));
-                    directionColumn.AddText(new Phrase(direction, andalus));
+                    iTextSharp.text.Paragraph directionParagraph = new iTextSharp.text.Paragraph();
+                    directionParagraph.SetLeading(0f, 1.3f);
+
+                    directionParagraph.Add(new Phrase((string.Concat(i + 1, ". ")), largeAndalus));
+                    directionParagraph.Add(new Phrase(direction, andalus));
+
+                    directionColumn.AddElement(directionParagraph);
 
                     if (i != selectedRecipe.directions.Count - 1)
-                        directionColumn.AddText(new Phrase(string.Concat(Chunk.NEWLINE, Chunk.NEWLINE)));
-
+                    {
+                        iTextSharp.text.Paragraph directionSpaceParagraph = new iTextSharp.text.Paragraph();
+                        directionSpaceParagraph.SetLeading(0f, .5f);
+                        directionSpaceParagraph.Add(new Phrase(string.Concat(Chunk.NEWLINE, Chunk.NEWLINE)));
+                        directionColumn.AddElement(directionSpaceParagraph);
+                    }               
                     i = i + 1;
-
                 }
+                
                 directionColumn.Go();
 
                 // Close and return file
