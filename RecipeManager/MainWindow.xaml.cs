@@ -648,21 +648,26 @@ namespace RecipeManager
             //}
 
             Recipe recipe = (Recipe)RecipeListView.SelectedItem;
-            string docName = string.Concat(recipe.name, ".pdf");
+            //string docName = string.Concat(recipe.name, ".pdf");
             CreatePdf(recipe);
 
         }
 
         private void CreatePdf(Recipe recipe)
         {
-            BaseFont _customFont = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
+            var file = SaveAsPDF(recipe);
+
+            if (string.IsNullOrEmpty(file))
+                return;
+
+            BaseFont _customFont = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font redSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.RED);
             Font simplicity = new Font(_customFont, 29, Font.NORMAL, BaseColor.BLACK);
             Font boldSimplicity = new Font(_customFont, 15, Font.BOLD, BaseColor.DARK_GRAY);
             Font normalSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.BLACK);
 
-            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
+            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font largeAndalus = new Font(_customFontTwo, 13, Font.NORMAL, BaseColor.BLACK);
             Font andalus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
@@ -674,12 +679,7 @@ namespace RecipeManager
 
             using (MemoryStream ms = new MemoryStream())
             {
-                var file = SaveAsPDF(recipe);
-
-                if (string.IsNullOrEmpty(file))
-                    return;
-
-                Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
+                                Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
                 PdfWriter writer = PdfWriter.GetInstance(document, ms);
                 document.Open();
                 PdfContentByte cb = writer.DirectContent;
@@ -827,9 +827,9 @@ namespace RecipeManager
 
                 using (FileStream fs = File.Create(file, Int16.MaxValue))
                 {
-                    var buffer = ms.GetBuffer();
+                    var buffer = ms.ToArray();
                     fs.Write(buffer, 0, buffer.Length);
-                    System.Diagnostics.Process.Start(file);
+                    Process.Start(file);
                 }
             }
         }
