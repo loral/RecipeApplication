@@ -10,7 +10,6 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using System.Windows.Navigation;
 using System.Xml;
 using System.IO;
@@ -660,18 +659,19 @@ namespace RecipeManager
             if (string.IsNullOrEmpty(file))
                 return;
 
-            BaseFont _customFont = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
+            //BaseFont _customFont = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
+            string folderpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CustomFonts");
+            BaseFont _customFont = BaseFont.CreateFont(Path.Combine(folderpath,"simplicity.ttf"), BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font redSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.RED);
             Font simplicity = new Font(_customFont, 29, Font.NORMAL, BaseColor.BLACK);
             Font boldSimplicity = new Font(_customFont, 15, Font.BOLD, BaseColor.DARK_GRAY);
             Font normalSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.BLACK);
 
-            BaseFont _customFontTwo = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\andlso.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
+            BaseFont _customFontTwo = BaseFont.CreateFont(Path.Combine(folderpath,"andlso.ttf"), BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font largeAndalus = new Font(_customFontTwo, 13, Font.NORMAL, BaseColor.BLACK);
             Font andalus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
-            //Font directionsAndulus = new Font(_customFontTwo, 11, Font.NORMAL, BaseColor.BLACK);
             Font boldAndalus = new Font(_customFontTwo, 15, Font.BOLD, BaseColor.BLACK);
             Font customAndalus = new Font(_customFontTwo, 5, Font.NORMAL, BaseColor.BLACK);
 
@@ -757,7 +757,7 @@ namespace RecipeManager
                 ingredientLabelParagraph.SetLeading(0f, 1.3f);
 
                 ingredientSpacerParagraph.Add(new Phrase(new Chunk(System.Environment.NewLine, redSimplicity)));
-                ingredientSpacerParagraph.SetLeading(0f, 0.5f);
+                ingredientSpacerParagraph.SetLeading(0f, 0.3f);
 
                 ingredientColumn.AddElement(ingredientLabelParagraph);
                 ingredientColumn.AddElement(ingredientSpacerParagraph);
@@ -829,8 +829,10 @@ namespace RecipeManager
                 {
                     var buffer = ms.ToArray();
                     fs.Write(buffer, 0, buffer.Length);
-                    Process.Start(file);
                 }
+
+                Process.Start(file);
+
             }
         }
 

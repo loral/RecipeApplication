@@ -30,10 +30,11 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\Recipe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.application
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.exe
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.pdb
-C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.exe.manifest
-C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\RecipeManager.application
 C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\AddRecipeWindow.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\AddRecipeWindow.g.cs
-C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.TrustInfo.xml
-C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.exe.manifest
-C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager.application
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\itextsharp.dll
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\itextsharp.xml
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\EditRecipeWindow.baml
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\EditRecipeWindow.g.cs
+C:\GitHub\RecipeApplication\RecipeManager\bin\Debug\CustomFonts\andlso.ttf
+C:\GitHub\RecipeApplication\RecipeManager\obj\Debug\RecipeManager_Content.g.cs

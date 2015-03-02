@@ -9,6 +9,5 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customfonts/andlso.ttf")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("customfonts/simplicity.ttf")]
 
 
