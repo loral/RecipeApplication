@@ -663,6 +663,8 @@ namespace RecipeManager
             string folderpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CustomFonts");
             BaseFont _customFont = BaseFont.CreateFont(Path.Combine(folderpath,"simplicity.ttf"), BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
+            Font darkGreenSimplicity = new Font(_customFont, 15, Font.NORMAL);
+            darkGreenSimplicity.SetColor(122, 150, 60);
             Font redSimplicity = new Font(_customFont, 15, Font.NORMAL, BaseColor.RED);
             Font simplicity = new Font(_customFont, 29, Font.NORMAL, BaseColor.BLACK);
             Font boldSimplicity = new Font(_customFont, 15, Font.BOLD, BaseColor.DARK_GRAY);
@@ -679,7 +681,7 @@ namespace RecipeManager
 
             using (MemoryStream ms = new MemoryStream())
             {
-                                Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
+                Document document = new Document(PageSize.LETTER, 35, 35, 23, 20);
                 PdfWriter writer = PdfWriter.GetInstance(document, ms);
                 document.Open();
                 PdfContentByte cb = writer.DirectContent;
@@ -693,6 +695,7 @@ namespace RecipeManager
                 cb.RoundRectangle(ingredRectangle.Left, ingredRectangle.Bottom, ingredRectangle.Width, ingredRectangle.Height, 4);
                 cb.RoundRectangle(directionRectangle.Left, directionRectangle.Bottom, directionRectangle.Width, directionRectangle.Height, 4);
                 cb.SetColorStroke(BaseColor.RED);
+                //cb.SetRGBColorStroke(196, 215, 155);
                 cb.Stroke();
 
                 // Heading
@@ -717,6 +720,7 @@ namespace RecipeManager
                 PdfPCell prepTimeCell = new PdfPCell(new Phrase(selectedRecipe.prepTime, largeAndalus));
                 prepTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 prepTimeCell.HorizontalAlignment = 0;
+                prepTimeCell.VerticalAlignment = Element.ALIGN_BOTTOM;
                 table.AddCell(prepTimeCell);
 
                 PdfPCell cookLabelCell = new PdfPCell(new Phrase("Cook Time:", redSimplicity));
@@ -727,6 +731,7 @@ namespace RecipeManager
                 PdfPCell cookTimeCell = new PdfPCell(new Phrase(selectedRecipe.cookTime, largeAndalus));
                 cookTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 cookTimeCell.HorizontalAlignment = 0;
+                cookTimeCell.VerticalAlignment = Element.ALIGN_BOTTOM;
                 table.AddCell(cookTimeCell);
 
                 PdfPCell servesLabelCell = new PdfPCell(new Phrase("Serves:", redSimplicity));
@@ -737,6 +742,7 @@ namespace RecipeManager
                 PdfPCell servesActualCell = new PdfPCell(new Phrase(selectedRecipe.yeild, largeAndalus));
                 servesActualCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 servesActualCell.HorizontalAlignment = 0;
+                servesActualCell.VerticalAlignment = Element.ALIGN_BOTTOM;
                 table.AddCell(servesActualCell);
 
                 document.Add(table);
@@ -744,6 +750,7 @@ namespace RecipeManager
                 // Sub Header Border
                 cb.RoundRectangle(35, 660, 540, 40, 4);
                 cb.SetColorStroke(BaseColor.RED);
+                //cb.SetRGBColorStroke(196, 215, 155);
                 cb.Stroke();
 
                 // Ingredients
