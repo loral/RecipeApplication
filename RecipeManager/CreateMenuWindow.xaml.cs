@@ -28,7 +28,6 @@ namespace RecipeManager
         public CreateMenuWindow(List<Recipe> _recipes)
         {
             InitializeComponent();
-
             recipeBook = _recipes;
         }
 
@@ -44,17 +43,34 @@ namespace RecipeManager
 
         private void saveMenu_btn_Click(object sender, RoutedEventArgs e)
         {
-
+            // Do
         }
 
         private void createMenu_btn_Click(object sender, RoutedEventArgs e)
         {
             string recipeOutput = "";
 
+            Random rnd = new Random();
+            List<int> numList = new List<int>();
+
+            for(int i = 0; i < Convert.ToInt32(cb_meals.Text); i++)
+            {
+                numList.Add(rnd.Next(1, recipeBook.Count));
+            }
+
             foreach (Recipe _recipe in recipeBook)
             {
                 recipeOutput += _recipe.name + System.Environment.NewLine;
             }
+
+            recipeOutput += System.Environment.NewLine;
+
+            foreach(int num in numList)
+            {
+                recipeOutput += string.Concat(num, System.Environment.NewLine);
+            }
+
+            MessageBox.Show(recipeBook.Count.ToString());
             output.Text = recipeOutput;
         }
 
