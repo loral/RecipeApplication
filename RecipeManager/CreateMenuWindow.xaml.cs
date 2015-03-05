@@ -23,13 +23,13 @@ namespace RecipeManager
     public partial class CreateMenuWindow : Window
     {
 
-        public XmlDocument recipeBook = new XmlDocument();
+        public List<Recipe> recipeBook;
 
-        public CreateMenuWindow(XmlDocument StartFile)
+        public CreateMenuWindow(List<Recipe> _recipes)
         {
             InitializeComponent();
 
-            recipeBook = StartFile;
+            recipeBook = _recipes;
         }
 
         private void cancelRecipe_btn_Click(object sender, RoutedEventArgs e)
@@ -49,12 +49,32 @@ namespace RecipeManager
 
         private void createMenu_btn_Click(object sender, RoutedEventArgs e)
         {
+            string recipeOutput = "";
 
+            foreach (Recipe _recipe in recipeBook)
+            {
+                recipeOutput += _recipe.name + System.Environment.NewLine;
+            }
+            output.Text = recipeOutput;
+        }
+
+        private void emailMenu_btn_Click(object sender, RoutedEventArgs e)
+        {
+            SendEmail();
         }
 
         public void SendEmail()
         {
-            string to = "loralgodfrey@gmail.com";
+            string to;
+
+            if (!string.IsNullOrEmpty(email_txtbx.Text))
+                to = email_txtbx.Text;
+            else
+            {
+                MessageBox.Show("Please enter a valid email.", "Invalid Email Address");
+                return;
+            }
+
             string from = "loral@loralgodfrey.com";
             string subject = "Using the new SMTP client.";
             string body = @"Using this new feature, you can send an e-mail message from an application very easily.";

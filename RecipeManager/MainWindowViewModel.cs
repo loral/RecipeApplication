@@ -39,7 +39,7 @@ namespace RecipeManager
                     {
                         _doubleRating = Convert.ToDouble(_rating);
                     }
-                    catch (Exception ex)
+                    catch (Exception)
                     {
                         _doubleRating = null;
                         MessageBox.Show("Non null on convertable rating encountered.");

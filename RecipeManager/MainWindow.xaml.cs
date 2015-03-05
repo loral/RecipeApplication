@@ -31,7 +31,7 @@ namespace RecipeManager
         public string fileName = string.Empty;
         CultureInfo culture = new CultureInfo("en-US");
         public IngredientView ingredientView;
-        public List<string> fileList;
+        //public List<string> fileList;
 
         public MainWindow()
         {
@@ -123,7 +123,7 @@ namespace RecipeManager
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            fileList = new List<string>();
+            //fileList = new List<string>();
             CollectionViewSource.GetDefaultView(RecipeListView.ItemsSource).Filter = UserFilter;
             Keyboard.Focus(nameFilter);
 
@@ -144,21 +144,21 @@ namespace RecipeManager
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            foreach (var item in fileList)
-            {
-                try
-                {
-                    if (File.Exists(item))
-                    {
-                        File.Delete(item);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("Error deleteing TEMP file: " + ex.Message);
-                }
-            }
-            //MessageBox.Show("closing");
+            //foreach (var item in fileList)
+            //{
+            //    try
+            //    {
+            //        if (File.Exists(item))
+            //        {
+            //            File.Delete(item);
+            //        }
+            //    }
+            //    catch (Exception)
+            //    {
+            //        //MessageBox.Show("Error deleteing TEMP file: " + ex.Message);
+            //    }
+            //}
+            ////MessageBox.Show("closing");
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
@@ -553,7 +553,7 @@ namespace RecipeManager
 
         private void CreateMenu(object sender, RoutedEventArgs e)
         {
-            CreateMenuWindow createMenuWindow = new CreateMenuWindow(doc);
+            CreateMenuWindow createMenuWindow = new CreateMenuWindow(new MainWindowViewModel(doc).Recipes);
             createMenuWindow.Owner = this;
             createMenuWindow.Show();
         }

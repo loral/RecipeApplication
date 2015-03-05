@@ -167,9 +167,13 @@
                 <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" FontSize="14" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="name" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange">
                     <ListView.ContextMenu>
                         <ContextMenu>
-                            <MenuItem Header="Edit Selected" Click="EditRecipe"/>
-                            <MenuItem Header="Print Selected" Click="Print"/>
-                            <MenuItem Header="Add New" Click="AddRecipe"/>
+                            <MenuItem Header="Create Menu" Click="CreateMenu"/>
+                            <!--<Separator/>-->
+                            <MenuItem Header="Add New Recipe" Click="AddRecipe"/>
+                            <!--<Separator/>-->
+                            <MenuItem Header="Edit Selected Recipe" Click="EditRecipe"/>
+                            <MenuItem Header="Print Selected Rercipe" Click="Print"/>
+                            
                         </ContextMenu>
                     </ListView.ContextMenu>
                 </ListView>
