@@ -553,7 +553,9 @@ namespace RecipeManager
 
         private void CreateMenu(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("You clicked 'Create Menu'");
+            CreateMenuWindow createMenuWindow = new CreateMenuWindow(doc);
+            createMenuWindow.Owner = this;
+            createMenuWindow.Show();
         }
 
         private void Open(object sender, RoutedEventArgs e)

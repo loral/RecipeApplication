@@ -99,6 +99,9 @@
     <Compile Include="AddRecipeWindow.xaml.cs">
       <DependentUpon>AddRecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CreateMenuWindow.xaml.cs">
+      <DependentUpon>CreateMenuWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="EditRecipeWindow.xaml.cs">
       <DependentUpon>EditRecipeWindow.xaml</DependentUpon>
     </Compile>
@@ -109,6 +112,10 @@
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="UnitOfMeasure.cs" />
     <Page Include="AddRecipeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CreateMenuWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

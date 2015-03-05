@@ -1,0 +1,63 @@
+﻿<Window x:Class="RecipeManager.CreateMenuWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Create Menu" Height="300" Width="300" MinHeight="300" MinWidth="300" Loaded="CreateMenuWindowLoaded">
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="45" MinHeight="45"/>
+            <RowDefinition Height="*" MinHeight="100"/>
+            <RowDefinition Height="35" MinHeight="35"/>
+        </Grid.RowDefinitions>
+        
+        <Grid Grid.Row="0">
+            <Label Content="Meals" VerticalAlignment="Center" Margin="7,0,0,0"/>
+            <ComboBox Grid.Column="0" Grid.Row="0" Width="45" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0" Height="23" Name="cb_meals" IsEditable="False" MaxDropDownHeight="125">
+                <ComboBoxItem>1</ComboBoxItem>
+                <ComboBoxItem>2</ComboBoxItem>
+                <ComboBoxItem>3</ComboBoxItem>
+                <ComboBoxItem>4</ComboBoxItem>
+                <ComboBoxItem>5</ComboBoxItem>
+                <ComboBoxItem>6</ComboBoxItem>
+                <ComboBoxItem>7</ComboBoxItem>
+                <ComboBoxItem>8</ComboBoxItem>
+                <ComboBoxItem>9</ComboBoxItem>
+                <ComboBoxItem>10</ComboBoxItem>
+                <ComboBoxItem>11</ComboBoxItem>
+                <ComboBoxItem>12</ComboBoxItem>
+                <ComboBoxItem>13</ComboBoxItem>
+                <ComboBoxItem>14</ComboBoxItem>
+                <ComboBoxItem>15</ComboBoxItem>
+                <ComboBoxItem>16</ComboBoxItem>
+                <ComboBoxItem>17</ComboBoxItem>
+                <ComboBoxItem>18</ComboBoxItem>
+                <ComboBoxItem>19</ComboBoxItem>
+                <ComboBoxItem>20</ComboBoxItem>
+                <ComboBoxItem>21</ComboBoxItem>
+                <ComboBoxItem>22</ComboBoxItem>
+                <ComboBoxItem>23</ComboBoxItem>
+                <ComboBoxItem>24</ComboBoxItem>
+                <ComboBoxItem>25</ComboBoxItem>
+                <ComboBoxItem>26</ComboBoxItem>
+                <ComboBoxItem>27</ComboBoxItem>
+                <ComboBoxItem>28</ComboBoxItem>
+                <ComboBoxItem>29</ComboBoxItem>
+                <ComboBoxItem>30</ComboBoxItem>
+                <ComboBoxItem>31</ComboBoxItem>
+            </ComboBox>
+            <Button Grid.Row="0" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="105,0,0,0" Height="22" Name="btn_createMenu" Content="Create Menu" Width="75" Click="createMenu_btn_Click"/>
+        </Grid>
+        
+        <Grid Grid.Row="1">
+            <TextBox Name="output" />
+        </Grid>
+        
+        <Grid Grid.Row="2">
+            <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_saveRecipe" Content="Save Recipe" Width="75" Click="saveMenu_btn_Click"/>
+            <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,7,7" Height="22" Name="btn_cancelRecipe" Content="Cancel" Width="75" Click="cancelRecipe_btn_Click"/>
+        </Grid>
+        
+    </Grid>
+    
+</Window>
