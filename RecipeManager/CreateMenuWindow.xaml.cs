@@ -48,9 +48,15 @@ namespace RecipeManager
 
         private void createMenu_btn_Click(object sender, RoutedEventArgs e)
         {
-            string recipeOutput = "";
+            if (string.IsNullOrEmpty(cb_meals.Text))
+            {
+                MessageBox.Show("Please select the number of meals you would like to create a munu for.");
+                return;
+            }
 
+            string recipeOutput = "";
             Random rnd = new Random();
+            List<Recipe> recipeBookCopy = new List<Recipe>();
 
             foreach (Recipe recipe in recipeBook)
             {
@@ -59,27 +65,19 @@ namespace RecipeManager
 
             recipeOutput += string.Concat(System.Environment.NewLine, recipeBook.Count.ToString(), System.Environment.NewLine, System.Environment.NewLine);
 
-            List<Recipe> recipeBookCopy = new List<Recipe>();
-
-            foreach(Recipe recipe in recipeBook)
+            foreach (Recipe recipe in recipeBook)
             {
                 if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
                     recipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
             }
 
-            if (!string.IsNullOrEmpty(cb_meals.Text))
-                PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
-            else
-            {
-                MessageBox.Show("Please select the number of meals you would like to create a munu for.");
-                return;
-            }
+            PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
 
             for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
             {
                 recipeOutput += string.Concat(recipeBookCopy[i].name, System.Environment.NewLine);
             }
-            
+
             output.Text = recipeOutput;
         }
 
