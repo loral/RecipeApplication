@@ -51,27 +51,50 @@ namespace RecipeManager
             string recipeOutput = "";
 
             Random rnd = new Random();
-            List<int> numList = new List<int>();
 
-            for(int i = 0; i < Convert.ToInt32(cb_meals.Text); i++)
+            foreach (Recipe recipe in recipeBook)
             {
-                numList.Add(rnd.Next(1, recipeBook.Count));
+                recipeOutput += string.Concat(recipe.name, System.Environment.NewLine);
             }
 
-            foreach (Recipe _recipe in recipeBook)
+            recipeOutput += string.Concat(System.Environment.NewLine, recipeBook.Count.ToString(), System.Environment.NewLine, System.Environment.NewLine);
+
+            List<Recipe> recipeBookCopy = new List<Recipe>();
+
+            foreach(Recipe recipe in recipeBook)
             {
-                recipeOutput += _recipe.name + System.Environment.NewLine;
+                recipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
             }
 
-            recipeOutput += System.Environment.NewLine;
-
-            foreach(int num in numList)
+            if (!string.IsNullOrEmpty(cb_meals.Text))
+                PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
+            else
             {
-                recipeOutput += string.Concat(num, System.Environment.NewLine);
+                MessageBox.Show("Please select the number of meals you would like to create a munu for.");
+                return;
             }
 
-            MessageBox.Show(recipeBook.Count.ToString());
+            for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
+            {
+                recipeOutput += string.Concat(recipeBookCopy[i].name, System.Environment.NewLine);
+            }
+            
             output.Text = recipeOutput;
+        }
+
+        public IList<T> PartialShuffle<T>(IList<T> source, int count, Random random)
+        {
+            for (int i = 0; i < count && i < source.Count; i++)
+            {
+                // Pick a random element out of the remaining elements,
+                // and swap it into place.
+                int index = i + random.Next(source.Count - i);
+                T tmp = source[index];
+                source[index] = source[i];
+                source[i] = tmp;
+            }
+
+            return source;
         }
 
         private void emailMenu_btn_Click(object sender, RoutedEventArgs e)

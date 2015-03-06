@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace RecipeManager
 {
@@ -6,6 +7,7 @@ namespace RecipeManager
     public enum MealType { Breakfast, Lunch, Dinner };
     public enum RecipeType { MainDish, Side };
 
+    [Serializable()]
     public class Recipe
     {
         public string name { get; set; }

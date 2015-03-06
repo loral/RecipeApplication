@@ -99,6 +99,7 @@
     <Compile Include="AddRecipeWindow.xaml.cs">
       <DependentUpon>AddRecipeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Clone.cs" />
     <Compile Include="CreateMenuWindow.xaml.cs">
       <DependentUpon>CreateMenuWindow.xaml</DependentUpon>
     </Compile>
