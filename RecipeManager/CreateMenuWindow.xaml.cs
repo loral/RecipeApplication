@@ -63,7 +63,8 @@ namespace RecipeManager
 
             foreach(Recipe recipe in recipeBook)
             {
-                recipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
+                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
+                    recipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
             }
 
             if (!string.IsNullOrEmpty(cb_meals.Text))
