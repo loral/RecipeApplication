@@ -1,7 +1,24 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="uri:settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="RecipeManager.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="smtp_client_host" Type="System.String" Scope="User">
+      <Value Profile="(Default)">mail.loralgodfrey.com</Value>
+    </Setting>
+    <Setting Name="smtp_client_port" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">2626</Value>
+    </Setting>
+    <Setting Name="from_email" Type="System.String" Scope="User">
+      <Value Profile="(Default)">loral@loralgodfrey.com</Value>
+    </Setting>
+    <Setting Name="timeout" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">60000</Value>
+    </Setting>
+    <Setting Name="client_username" Type="System.String" Scope="User">
+      <Value Profile="(Default)">loral@loralgodfrey.com</Value>
+    </Setting>
+    <Setting Name="client_password" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Gibscam7!</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>

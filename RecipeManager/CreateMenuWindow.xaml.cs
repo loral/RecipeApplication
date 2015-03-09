@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RecipeManager.Properties;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -24,6 +25,7 @@ namespace RecipeManager
     {
 
         public List<Recipe> recipeBook;
+        public List<Recipe> recipeBookCopy;
 
         public CreateMenuWindow(List<Recipe> _recipes)
         {
@@ -56,7 +58,7 @@ namespace RecipeManager
 
             string recipeOutput = "";
             Random rnd = new Random();
-            List<Recipe> recipeBookCopy = new List<Recipe>();
+            recipeBookCopy = new List<Recipe>();
 
             foreach (Recipe recipe in recipeBook)
             {
@@ -104,6 +106,7 @@ namespace RecipeManager
         public void SendEmail()
         {
             string to;
+            List<string> ingredientList = new List<string>();
 
             if (!string.IsNullOrEmpty(email_txtbx.Text))
                 to = email_txtbx.Text;
@@ -113,20 +116,31 @@ namespace RecipeManager
                 return;
             }
 
-            string from = "loral@loralgodfrey.com";
-            string subject = "Using the new SMTP client.";
-            string body = @"Using this new feature, you can send an e-mail message from an application very easily.";
+            string from = Settings.Default.from_email;
+            string subject = "Recipe Manager Menu";
+
+            string body = "";
+
+            for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
+            {
+                foreach(Ingredient ingredient in recipeBookCopy[i].ingredients)
+                {
+                    if(!ingredientList.Contains(ingredient.Name))
+                        ingredientList.Add(ingredient.Name);
+                }
+            }
+
             MailMessage message = new MailMessage(from, to, subject, body);
             message.BodyEncoding = UTF8Encoding.UTF8;
             message.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
             // Set up google
-            SmtpClient client = new SmtpClient("mail.loralgodfrey.com", 2626);
+            SmtpClient client = new SmtpClient(Settings.Default.smtp_client_host, Settings.Default.smtp_client_port);
             client.EnableSsl = false;
-            client.Timeout = 60000;
+            client.Timeout = Settings.Default.timeout;
             client.DeliveryMethod = SmtpDeliveryMethod.Network;
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("loral@loralgodfrey.com", "Gibscam7!");
+            client.Credentials = new NetworkCredential(Settings.Default.client_username, Settings.Default.client_password);
 
             try
             {
@@ -134,9 +148,10 @@ namespace RecipeManager
             }
             catch (Exception ex)
             {
-                output.Text = "";
-                output.Text = ex.ToString();
+                MessageBox.Show(ex.ToString());
+                return;
             }
+            MessageBox.Show("Email sent!");
         }
     }
 }

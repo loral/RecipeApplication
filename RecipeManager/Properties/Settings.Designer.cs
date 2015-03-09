@@ -22,5 +22,77 @@ namespace RecipeManager.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("mail.loralgodfrey.com")]
+        public string smtp_client_host {
+            get {
+                return ((string)(this["smtp_client_host"]));
+            }
+            set {
+                this["smtp_client_host"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("2626")]
+        public int smtp_client_port {
+            get {
+                return ((int)(this["smtp_client_port"]));
+            }
+            set {
+                this["smtp_client_port"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("loral@loralgodfrey.com")]
+        public string from_email {
+            get {
+                return ((string)(this["from_email"]));
+            }
+            set {
+                this["from_email"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("60000")]
+        public int timeout {
+            get {
+                return ((int)(this["timeout"]));
+            }
+            set {
+                this["timeout"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("loral@loralgodfrey.com")]
+        public string client_username {
+            get {
+                return ((string)(this["client_username"]));
+            }
+            set {
+                this["client_username"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Gibscam7!")]
+        public string client_password {
+            get {
+                return ((string)(this["client_password"]));
+            }
+            set {
+                this["client_password"] = value;
+            }
+        }
     }
 }
