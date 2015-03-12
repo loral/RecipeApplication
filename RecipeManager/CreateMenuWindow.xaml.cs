@@ -50,6 +50,7 @@ namespace RecipeManager
 
         private void createMenu_btn_Click(object sender, RoutedEventArgs e)
         {
+            // Make sure a valid number of meals is selected
             if (string.IsNullOrEmpty(cb_meals.Text))
             {
                 MessageBox.Show("Please select the number of meals you would like to create a munu for.");
@@ -60,26 +61,36 @@ namespace RecipeManager
             Random rnd = new Random();
             recipeBookCopy = new List<Recipe>();
 
-            foreach (Recipe recipe in recipeBook)
-            {
-                recipeOutput += string.Concat(recipe.name, System.Environment.NewLine);
-            }
+            //// List of possible meals (are both dinner and main dish)
+            //foreach (Recipe recipe in recipeBook)
+            //{
+            //    if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
+            //        recipeOutput += string.Concat(recipe.name, System.Environment.NewLine);
+            //}
 
-            recipeOutput += string.Concat(System.Environment.NewLine, recipeBook.Count.ToString(), System.Environment.NewLine, System.Environment.NewLine);
+            //recipeOutput += string.Concat(System.Environment.NewLine, recipeBook.Count.ToString(), System.Environment.NewLine, System.Environment.NewLine);
 
+            // Create a list of possible reciepies that are both dinner and main dish
             foreach (Recipe recipe in recipeBook)
             {
                 if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
                     recipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
             }
 
+            // Shuffle the list
             PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
 
+            // Need to account for negative second argument case to .RemoveRange method.
+            //// Trim list to selected meal length
+            //recipeBookCopy.RemoveRange(Convert.ToInt32(cb_meals.Text), (recipeBookCopy.Count - Convert.ToInt32(cb_meals.Text)));
+
+            // Add selected number of meals to the output string from the shuffled list
             for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
             {
                 recipeOutput += string.Concat(recipeBookCopy[i].name, System.Environment.NewLine);
             }
 
+            // Output the ouput string
             output.Text = recipeOutput;
         }
 
@@ -93,7 +104,7 @@ namespace RecipeManager
                 T tmp = source[index];
                 source[index] = source[i];
                 source[i] = tmp;
-            }
+            }         
 
             return source;
         }
@@ -134,7 +145,7 @@ namespace RecipeManager
             message.BodyEncoding = UTF8Encoding.UTF8;
             message.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
 
-            // Set up google
+            // Set up client
             SmtpClient client = new SmtpClient(Settings.Default.smtp_client_host, Settings.Default.smtp_client_port);
             client.EnableSsl = false;
             client.Timeout = Settings.Default.timeout;
