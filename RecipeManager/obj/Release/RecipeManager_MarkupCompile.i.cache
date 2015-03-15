@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\GitHub\RecipeApplication\RecipeManager\obj\Release\
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\
 RecipeManager
 none
 false
 TRACE
-C:\GitHub\RecipeApplication\RecipeManager\App.xaml
+C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\App.xaml
 41043062780
 2609810752
-191397576935
-14-1932573051
+19-463078076
+141887390416
 AddRecipeWindow.xaml;CreateMenuWindow.xaml;EditRecipeWindow.xaml;MainWindow.xaml;
 
 False

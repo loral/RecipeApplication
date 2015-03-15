@@ -61,15 +61,6 @@ namespace RecipeManager
             Random rnd = new Random();
             recipeBookCopy = new List<Recipe>();
 
-            //// List of possible meals (are both dinner and main dish)
-            //foreach (Recipe recipe in recipeBook)
-            //{
-            //    if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
-            //        recipeOutput += string.Concat(recipe.name, System.Environment.NewLine);
-            //}
-
-            //recipeOutput += string.Concat(System.Environment.NewLine, recipeBook.Count.ToString(), System.Environment.NewLine, System.Environment.NewLine);
-
             // Create a list of possible reciepies that are both dinner and main dish
             foreach (Recipe recipe in recipeBook)
             {
@@ -81,8 +72,8 @@ namespace RecipeManager
             PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
 
             // Need to account for negative second argument case to .RemoveRange method.
-            //// Trim list to selected meal length
-            //recipeBookCopy.RemoveRange(Convert.ToInt32(cb_meals.Text), (recipeBookCopy.Count - Convert.ToInt32(cb_meals.Text)));
+            // Trim list to selected meal length
+            recipeBookCopy.RemoveRange(Convert.ToInt32(cb_meals.Text), (recipeBookCopy.Count - Convert.ToInt32(cb_meals.Text)));
 
             // Add selected number of meals to the output string from the shuffled list
             for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
