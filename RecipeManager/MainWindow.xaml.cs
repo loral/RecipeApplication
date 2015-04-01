@@ -144,21 +144,7 @@ namespace RecipeManager
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            //foreach (var item in fileList)
-            //{
-            //    try
-            //    {
-            //        if (File.Exists(item))
-            //        {
-            //            File.Delete(item);
-            //        }
-            //    }
-            //    catch (Exception)
-            //    {
-            //        //MessageBox.Show("Error deleteing TEMP file: " + ex.Message);
-            //    }
-            //}
-            ////MessageBox.Show("closing");
+            // Cleanup
         }
 
         private void AddRecipe(object sender, RoutedEventArgs e)
