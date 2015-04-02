@@ -26,6 +26,7 @@ namespace RecipeManager
 
         public List<Recipe> recipeBook;
         public List<Recipe> recipeBookCopy;
+        public List<string> ingredients;
 
         public CreateMenuWindow(List<Recipe> _recipes)
         {
@@ -57,9 +58,10 @@ namespace RecipeManager
                 return;
             }
 
-            string recipeOutput = "";
+            string recipeOutput = String.Empty;
             Random rnd = new Random();
             recipeBookCopy = new List<Recipe>();
+            ingredients = new List<string>();
 
             // Create a list of possible reciepies that are both dinner and main dish
             foreach (Recipe recipe in recipeBook)
@@ -71,18 +73,28 @@ namespace RecipeManager
             // Shuffle the list
             PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
 
-            // Need to account for negative second argument case to .RemoveRange method.
             // Trim list to selected meal length
-            recipeBookCopy.RemoveRange(Convert.ToInt32(cb_meals.Text), (recipeBookCopy.Count - Convert.ToInt32(cb_meals.Text)));
-
-            // Add selected number of meals to the output string from the shuffled list
-            for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
+            if(recipeBookCopy.Count > Convert.ToInt32(cb_meals.Text))
             {
-                recipeOutput += string.Concat(recipeBookCopy[i].name, System.Environment.NewLine);
+                recipeBookCopy.RemoveRange(Convert.ToInt32(cb_meals.Text), (recipeBookCopy.Count - Convert.ToInt32(cb_meals.Text)));
             }
 
-            // Output the ouput string
-            output.Text = recipeOutput;
+            // Grab ingredients
+            foreach (Recipe recipe in recipeBookCopy)
+            {
+                foreach (Ingredient ingredient in recipe.ingredients)
+                {
+                    if (!ingredients.Contains(ingredient.Name))
+                    {
+                        ingredients.Add(ingredient.Name);
+                    }
+                }
+            }
+
+            ingredients.Sort();
+
+            RecipeListView.ItemsSource = recipeBookCopy;
+            IngredientListView.ItemsSource = ingredients;
         }
 
         public IList<T> PartialShuffle<T>(IList<T> source, int count, Random random)
@@ -154,6 +166,21 @@ namespace RecipeManager
                 return;
             }
             MessageBox.Show("Email sent!");
+        }
+
+        private void RandomReplace(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void ManualReplace(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void RemoveIngredients(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
