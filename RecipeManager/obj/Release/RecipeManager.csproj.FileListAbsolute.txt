@@ -44,3 +44,4 @@ C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\Crea
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager_Content.g.cs
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\CustomFonts\andlso.ttf
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\CustomFonts\simplicity.ttf
+C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache

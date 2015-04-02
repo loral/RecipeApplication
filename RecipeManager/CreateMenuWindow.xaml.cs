@@ -133,16 +133,9 @@ namespace RecipeManager
             string from = Settings.Default.from_email;
             string subject = "Recipe Manager Menu";
 
-            string body = "";
+            string body = string.Empty;
 
-            for (int i = 0; i < Convert.ToInt32(cb_meals.Text) && i < recipeBookCopy.Count; i++)
-            {
-                foreach(Ingredient ingredient in recipeBookCopy[i].ingredients)
-                {
-                    if(!ingredientList.Contains(ingredient.Name))
-                        ingredientList.Add(ingredient.Name);
-                }
-            }
+            // ***Need to write the code to populate body with recipes and ingredients***
 
             MailMessage message = new MailMessage(from, to, subject, body);
             message.BodyEncoding = UTF8Encoding.UTF8;
@@ -170,17 +163,17 @@ namespace RecipeManager
 
         private void RandomReplace(object sender, RoutedEventArgs e)
         {
-
+            // Todo
         }
 
         private void ManualReplace(object sender, RoutedEventArgs e)
         {
-
+            // Todo
         }
 
         private void RemoveIngredients(object sender, RoutedEventArgs e)
         {
-
+            // Todo
         }
     }
 }
