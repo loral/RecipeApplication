@@ -8,7 +8,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="45" MinHeight="45"/>
             <RowDefinition Height="*" MinHeight="100"/>
-            <RowDefinition Height="35" MinHeight="35"/>
+            <RowDefinition Height="37" MinHeight="37"/>
         </Grid.RowDefinitions>
         
         <Grid Grid.Row="0">
