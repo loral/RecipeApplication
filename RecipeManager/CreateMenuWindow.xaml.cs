@@ -173,22 +173,25 @@ namespace RecipeManager
                 menuRecipes.Add(recipe.name);
             }
 
+            // Currently grab fist recipe not in the menu, need to update to pick a random one
             foreach (Recipe recipe in recipeBook)
             {
                 if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
                 {
                     if (!menuRecipes.Contains(recipe.name))
-                    {
-                        recipeBookCopy.Add(recipe);
-                        // NEED TO CHECK TO MAKE SURE A RECIPE IS SELECTED AND ONLY ONE IS SELECTED
+                    {  
                         foreach(Recipe _recipe in RecipeListView.SelectedItems)
                         {
-                            recipeBookCopy.Remove(_recipe);
+                            if(recipeBookCopy.IndexOf(_recipe) > -1)
+                            {
+                                recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = recipe;
+                            }
                         }
                     }
                 }
             }
 
+            // Update recipes
             ICollectionView view = CollectionViewSource.GetDefaultView(recipeBookCopy);
             view.Refresh();
 
@@ -210,6 +213,12 @@ namespace RecipeManager
 
             ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
             ingredView.Refresh();
+
+            // Select a recipe
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
 
         }
 
