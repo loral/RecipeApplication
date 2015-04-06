@@ -104,7 +104,7 @@
         </Grid>
 
         <Grid Grid.Row="3">
-            <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,170,7" Height="22" Name="btn_saveRecipe" Content="Save Menu" Width="75" Click="saveMenu_btn_Click"/>
+            <!--<Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,170,7" Height="22" Name="btn_saveRecipe" Content="Save Menu" Width="75" Click="saveMenu_btn_Click"/>-->
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_emailRecipe" Content="Email Menu" Width="75" Click="emailMenu_btn_Click"/>
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,7,7" Height="22" Name="btn_cancelRecipe" Content="Cancel" Width="75" Click="cancelRecipe_btn_Click"/>
         </Grid>
