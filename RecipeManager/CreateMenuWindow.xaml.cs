@@ -27,7 +27,6 @@ namespace RecipeManager
 
         public List<Recipe> recipeBook;
         public List<Recipe> recipeBookCopy;
-        public List<Recipe> recipeReplacements;
         public List<string> ingredients;
 
         public CreateMenuWindow(List<Recipe> _recipes)
@@ -97,6 +96,12 @@ namespace RecipeManager
 
             RecipeListView.ItemsSource = recipeBookCopy;
             IngredientListView.ItemsSource = ingredients;
+
+            // Make sure a recipe is selected
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
         }
 
         public IList<T> PartialShuffle<T>(IList<T> source, int count, Random random)
@@ -137,7 +142,19 @@ namespace RecipeManager
 
             string body = string.Empty;
 
-            // ***Need to write the code to populate body with recipes and ingredients***
+            // Build the body text
+            body += "Recipes:" + System.Environment.NewLine;
+            foreach(Recipe recipe in recipeBookCopy)
+            {
+                body += recipe.name + System.Environment.NewLine;
+            }
+
+            body += System.Environment.NewLine + "Ingredients:" + System.Environment.NewLine;
+
+            foreach(string ingredient in ingredients)
+            {
+                body += ingredient + System.Environment.NewLine;
+            }
 
             MailMessage message = new MailMessage(from, to, subject, body);
             message.BodyEncoding = UTF8Encoding.UTF8;
@@ -165,37 +182,34 @@ namespace RecipeManager
 
         private void RandomReplace(object sender, RoutedEventArgs e)
         {
-            recipeReplacements = new List<Recipe>();
+            // Get list of recipes currently on the menu
             List<string> menuRecipes = new List<string>();
 
-            foreach(Recipe recipe in recipeBookCopy)
+            foreach (Recipe recipe in recipeBookCopy)
             {
                 menuRecipes.Add(recipe.name);
             }
 
-            // Currently grab fist recipe not in the menu, need to update to pick a random one
+            // Grab the fist recipe from the recipe book that is dinner and main that is not already on the menu and swap it with the selected recipe (need to update to pick a random recipe instead)
             foreach (Recipe recipe in recipeBook)
             {
-                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
-                {
-                    if (!menuRecipes.Contains(recipe.name))
-                    {  
-                        foreach(Recipe _recipe in RecipeListView.SelectedItems)
+                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.name))
+                { 
+                    foreach (Recipe _recipe in RecipeListView.SelectedItems)
+                    {
+                        if (recipeBookCopy.IndexOf(_recipe) > -1)
                         {
-                            if(recipeBookCopy.IndexOf(_recipe) > -1)
-                            {
-                                recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = recipe;
-                            }
+                            recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = recipe;
                         }
                     }
                 }
             }
 
-            // Update recipes
+            // Update recipe list view
             ICollectionView view = CollectionViewSource.GetDefaultView(recipeBookCopy);
             view.Refresh();
 
-            // Update ingredients
+            // Update ingredient list view
             ingredients.Clear();
 
             foreach (Recipe recipe in recipeBookCopy)
@@ -214,7 +228,7 @@ namespace RecipeManager
             ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
             ingredView.Refresh();
 
-            // Select a recipe
+            // Make sure a recipe is selected
             if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
             {
                 RecipeListView.SelectedItem = RecipeListView.Items[0];
