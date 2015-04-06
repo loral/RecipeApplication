@@ -1,6 +1,7 @@
 ﻿using RecipeManager.Properties;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
@@ -26,6 +27,7 @@ namespace RecipeManager
 
         public List<Recipe> recipeBook;
         public List<Recipe> recipeBookCopy;
+        public List<Recipe> recipeReplacements;
         public List<string> ingredients;
 
         public CreateMenuWindow(List<Recipe> _recipes)
@@ -74,7 +76,7 @@ namespace RecipeManager
             PartialShuffle<Recipe>(recipeBookCopy, Convert.ToInt32(cb_meals.Text), rnd);
 
             // Trim list to selected meal length
-            if(recipeBookCopy.Count > Convert.ToInt32(cb_meals.Text))
+            if (recipeBookCopy.Count > Convert.ToInt32(cb_meals.Text))
             {
                 recipeBookCopy.RemoveRange(Convert.ToInt32(cb_meals.Text), (recipeBookCopy.Count - Convert.ToInt32(cb_meals.Text)));
             }
@@ -107,7 +109,7 @@ namespace RecipeManager
                 T tmp = source[index];
                 source[index] = source[i];
                 source[i] = tmp;
-            }         
+            }
 
             return source;
         }
@@ -163,7 +165,52 @@ namespace RecipeManager
 
         private void RandomReplace(object sender, RoutedEventArgs e)
         {
-            // Todo
+            recipeReplacements = new List<Recipe>();
+            List<string> menuRecipes = new List<string>();
+
+            foreach(Recipe recipe in recipeBookCopy)
+            {
+                menuRecipes.Add(recipe.name);
+            }
+
+            foreach (Recipe recipe in recipeBook)
+            {
+                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish))
+                {
+                    if (!menuRecipes.Contains(recipe.name))
+                    {
+                        recipeBookCopy.Add(recipe);
+                        // NEED TO CHECK TO MAKE SURE A RECIPE IS SELECTED AND ONLY ONE IS SELECTED
+                        foreach(Recipe _recipe in RecipeListView.SelectedItems)
+                        {
+                            recipeBookCopy.Remove(_recipe);
+                        }
+                    }
+                }
+            }
+
+            ICollectionView view = CollectionViewSource.GetDefaultView(recipeBookCopy);
+            view.Refresh();
+
+            // Update ingredients
+            ingredients.Clear();
+
+            foreach (Recipe recipe in recipeBookCopy)
+            {
+                foreach (Ingredient ingredient in recipe.ingredients)
+                {
+                    if (!ingredients.Contains(ingredient.Name))
+                    {
+                        ingredients.Add(ingredient.Name);
+                    }
+                }
+            }
+
+            ingredients.Sort();
+
+            ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
+            ingredView.Refresh();
+
         }
 
         private void ManualReplace(object sender, RoutedEventArgs e)
@@ -173,7 +220,13 @@ namespace RecipeManager
 
         private void RemoveIngredients(object sender, RoutedEventArgs e)
         {
-            // Todo
+            foreach (string _ingredient in IngredientListView.SelectedItems)
+            {
+                ingredients.Remove(_ingredient);
+            }
+
+            ICollectionView view = CollectionViewSource.GetDefaultView(ingredients);
+            view.Refresh();
         }
     }
 }
