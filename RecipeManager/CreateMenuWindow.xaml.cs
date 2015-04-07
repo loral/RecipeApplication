@@ -256,6 +256,7 @@ namespace RecipeManager
         private void ManualReplace(object sender, RoutedEventArgs e)
         {
             manualReplaceRecipeBookCopy = new List<Recipe>();
+            Recipe manualReplaceRecipe = new Recipe();
 
             // Get list of recipe names currently on the menu
             List<string> menuRecipes = new List<string>();
@@ -276,7 +277,16 @@ namespace RecipeManager
             if (manualReplaceRecipeBookCopy.Count > 0)
             {
 
-                // ***Need to update so user can select a recipe from the manualReplaceRecipeBookCopy***
+                // Get user selected recipe
+                ManualRecipeSelection manualRecipeSelection = new ManualRecipeSelection(manualReplaceRecipeBookCopy);
+                manualRecipeSelection.Owner = this;
+
+                if (manualRecipeSelection.ShowDialog() == true)
+                {
+                    manualReplaceRecipe = manualRecipeSelection.chosenRecipe; 
+                }
+
+                MessageBox.Show(manualReplaceRecipe.name);
 
                 foreach (Recipe _recipe in RecipeListView.SelectedItems)
                 {

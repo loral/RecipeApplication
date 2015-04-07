@@ -109,6 +109,9 @@
     <Compile Include="Ingredient.cs" />
     <Compile Include="IngredientView.cs" />
     <Compile Include="ListContainsAll.cs" />
+    <Compile Include="ManualRecipeSelection.xaml.cs">
+      <DependentUpon>ManualRecipeSelection.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Recipe.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="UnitOfMeasure.cs" />
@@ -136,6 +139,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="ManualRecipeSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
