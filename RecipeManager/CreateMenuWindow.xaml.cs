@@ -27,6 +27,8 @@ namespace RecipeManager
 
         public List<Recipe> recipeBook;
         public List<Recipe> recipeBookCopy;
+        public List<Recipe> randReplaceRecipeBookCopy;
+        public List<Recipe> manualReplaceRecipeBookCopy;
         public List<string> ingredients;
 
         public CreateMenuWindow(List<Recipe> _recipes)
@@ -144,14 +146,14 @@ namespace RecipeManager
 
             // Build the body text
             body += "Recipes:" + System.Environment.NewLine;
-            foreach(Recipe recipe in recipeBookCopy)
+            foreach (Recipe recipe in recipeBookCopy)
             {
                 body += recipe.name + System.Environment.NewLine;
             }
 
             body += System.Environment.NewLine + "Ingredients:" + System.Environment.NewLine;
 
-            foreach(string ingredient in ingredients)
+            foreach (string ingredient in ingredients)
             {
                 body += ingredient + System.Environment.NewLine;
             }
@@ -182,7 +184,10 @@ namespace RecipeManager
 
         private void RandomReplace(object sender, RoutedEventArgs e)
         {
-            // Get list of recipes currently on the menu
+            Random rnd = new Random();
+            randReplaceRecipeBookCopy = new List<Recipe>();
+
+            // Get list of recipe names currently on the menu
             List<string> menuRecipes = new List<string>();
 
             foreach (Recipe recipe in recipeBookCopy)
@@ -190,43 +195,55 @@ namespace RecipeManager
                 menuRecipes.Add(recipe.name);
             }
 
-            // Grab the fist recipe from the recipe book that is dinner and main that is not already on the menu and swap it with the selected recipe (need to update to pick a random recipe instead)
+            // Create a copy of the recipe book to use for finding a substitue recipe (recipes not currently on the menu and that are dinner and main dish)
             foreach (Recipe recipe in recipeBook)
             {
                 if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.name))
-                { 
-                    foreach (Recipe _recipe in RecipeListView.SelectedItems)
+                    randReplaceRecipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
+            }
+
+            // Shuffle the copied list
+            PartialShuffle<Recipe>(randReplaceRecipeBookCopy, randReplaceRecipeBookCopy.Count, rnd);
+
+            // Grab the fist recipe from the shuffled list and swap it with the selected recipe
+            if (randReplaceRecipeBookCopy.Count > 0)
+            {
+                foreach (Recipe _recipe in RecipeListView.SelectedItems)
+                {
+                    if (recipeBookCopy.IndexOf(_recipe) > -1)
                     {
-                        if (recipeBookCopy.IndexOf(_recipe) > -1)
+                        recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = randReplaceRecipeBookCopy[0];
+                    }
+                }
+
+
+                // Update recipe list view
+                ICollectionView view = CollectionViewSource.GetDefaultView(recipeBookCopy);
+                view.Refresh();
+
+                // Update ingredient list view
+                ingredients.Clear();
+
+                foreach (Recipe recipe in recipeBookCopy)
+                {
+                    foreach (Ingredient ingredient in recipe.ingredients)
+                    {
+                        if (!ingredients.Contains(ingredient.Name))
                         {
-                            recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = recipe;
+                            ingredients.Add(ingredient.Name);
                         }
                     }
                 }
+
+                ingredients.Sort();
+
+                ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
+                ingredView.Refresh();
+
             }
 
-            // Update recipe list view
-            ICollectionView view = CollectionViewSource.GetDefaultView(recipeBookCopy);
-            view.Refresh();
-
-            // Update ingredient list view
-            ingredients.Clear();
-
-            foreach (Recipe recipe in recipeBookCopy)
-            {
-                foreach (Ingredient ingredient in recipe.ingredients)
-                {
-                    if (!ingredients.Contains(ingredient.Name))
-                    {
-                        ingredients.Add(ingredient.Name);
-                    }
-                }
-            }
-
-            ingredients.Sort();
-
-            ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
-            ingredView.Refresh();
+            else
+                MessageBox.Show("There are not enough recipes in your recipe book to replace the selected recipe.");
 
             // Make sure a recipe is selected
             if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
@@ -238,7 +255,69 @@ namespace RecipeManager
 
         private void ManualReplace(object sender, RoutedEventArgs e)
         {
-            // Todo
+            manualReplaceRecipeBookCopy = new List<Recipe>();
+
+            // Get list of recipe names currently on the menu
+            List<string> menuRecipes = new List<string>();
+
+            foreach (Recipe recipe in recipeBookCopy)
+            {
+                menuRecipes.Add(recipe.name);
+            }
+
+            // Create a copy of the recipe book to use for finding a substitue recipe (recipes not currently on the menu and that are dinner and main dish)
+            foreach (Recipe recipe in recipeBook)
+            {
+                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.name))
+                    manualReplaceRecipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
+            }
+
+            // From the manualReplaceRecipeBookCopy list have the submitter choose one and replace the selected recipe with it
+            if (manualReplaceRecipeBookCopy.Count > 0)
+            {
+
+                // ***Need to update so user can select a recipe from the manualReplaceRecipeBookCopy***
+
+                foreach (Recipe _recipe in RecipeListView.SelectedItems)
+                {
+                    if (recipeBookCopy.IndexOf(_recipe) > -1)
+                    {
+                        recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = manualReplaceRecipeBookCopy[0]; // ***Need to update to the index of the user selected recipe from manualReplaceRecipeBookCopy***
+                    }
+                }
+
+                // Update recipe list view
+                ICollectionView view = CollectionViewSource.GetDefaultView(recipeBookCopy);
+                view.Refresh();
+
+                // Update ingredient list view
+                ingredients.Clear();
+
+                foreach (Recipe recipe in recipeBookCopy)
+                {
+                    foreach (Ingredient ingredient in recipe.ingredients)
+                    {
+                        if (!ingredients.Contains(ingredient.Name))
+                        {
+                            ingredients.Add(ingredient.Name);
+                        }
+                    }
+                }
+
+                ingredients.Sort();
+
+                ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
+                ingredView.Refresh();
+            }
+
+            else
+                MessageBox.Show("There are not enough recipes in your recipe book to replace the selected recipe.");
+
+            // Make sure a recipe is selected
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
         }
 
         private void RemoveIngredients(object sender, RoutedEventArgs e)
