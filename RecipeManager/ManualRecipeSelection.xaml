@@ -1,7 +1,7 @@
 ﻿<Window x:Class="RecipeManager.ManualRecipeSelection"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="ManualRecipeSelection" Height="300" MinHeight="300" Width="400" MinWidth="400"
+        Title="Manual Recipe Selection" Height="300" MinHeight="300" Width="400" MinWidth="400"
         Loaded="ManualRecipeSelectionLoaded" Closing="WindowClosing">
     <Grid>
 

@@ -198,9 +198,6 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="hat4.ico" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="hat5.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
