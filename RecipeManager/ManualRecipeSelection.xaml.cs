@@ -31,6 +31,12 @@ namespace RecipeManager
         private void ManualRecipeSelectionLoaded(object sender, RoutedEventArgs e)
         {
             RecipeListView.ItemsSource = possibleRecipes;
+
+            // Make sure a recipe is selected
+            if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
+            {
+                RecipeListView.SelectedItem = RecipeListView.Items[0];
+            }
         }
 
         private void ChooseSelected(object sender, RoutedEventArgs e)
@@ -44,7 +50,12 @@ namespace RecipeManager
 
         private void WindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBox.Show(chosenRecipe.name);
+            // MessageBox.Show(chosenRecipe.name);
+        }
+
+        private void cancel_btn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
         }
     }
 }

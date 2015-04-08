@@ -4,12 +4,30 @@
         Title="ManualRecipeSelection" Height="300" MinHeight="300" Width="400" MinWidth="400"
         Loaded="ManualRecipeSelectionLoaded" Closing="WindowClosing">
     <Grid>
-        <ListView Name="RecipeListView" DisplayMemberPath="name" FontSize="14" Margin="5,5,5,5" BorderBrush="Transparent" SelectionMode="Single" MouseDoubleClick="ChooseSelected">
-            <ListView.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="Use selected recipe" Click="ChooseSelected"/>
-                </ContextMenu>
-            </ListView.ContextMenu>
-        </ListView>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="37"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+
+            <ListView Name="RecipeListView" DisplayMemberPath="name" FontSize="14" Margin="5,5,5,5" BorderBrush="Transparent" SelectionMode="Single" MouseDoubleClick="ChooseSelected">
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Use selected recipe" Click="ChooseSelected"/>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+            </ListView>
+
+        </Grid>
+
+        <Grid Grid.Row="1">
+
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_select" Content="Select" Width="75" Click="ChooseSelected"/>
+            <Button HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,7,7" Height="22" Name="btn_cancel" Content="Cancel" Width="75" Click="cancel_btn_Click"/>
+
+        </Grid>
+
     </Grid>
 </Window>

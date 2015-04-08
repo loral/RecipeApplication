@@ -281,18 +281,17 @@ namespace RecipeManager
                 ManualRecipeSelection manualRecipeSelection = new ManualRecipeSelection(manualReplaceRecipeBookCopy);
                 manualRecipeSelection.Owner = this;
 
-                if (manualRecipeSelection.ShowDialog() == true)
+                if (manualRecipeSelection.ShowDialog() == false)
                 {
                     manualReplaceRecipe = manualRecipeSelection.chosenRecipe; 
                 }
 
-                MessageBox.Show(manualReplaceRecipe.name);
-
+                // Replace selected recipe with the user selected recipe
                 foreach (Recipe _recipe in RecipeListView.SelectedItems)
                 {
                     if (recipeBookCopy.IndexOf(_recipe) > -1)
                     {
-                        recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = manualReplaceRecipeBookCopy[0]; // ***Need to update to the index of the user selected recipe from manualReplaceRecipeBookCopy***
+                        recipeBookCopy[recipeBookCopy.IndexOf(_recipe)] = manualReplaceRecipe;
                     }
                 }
 
