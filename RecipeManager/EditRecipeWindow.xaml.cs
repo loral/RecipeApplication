@@ -238,7 +238,9 @@ namespace RecipeManager
             recipeDoc.LoadXml(recipeXML);
             XmlNode newRecipeNode = recipeDoc.DocumentElement;
 
-            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.name + "']";
+            string escapedName = escapeXML(_editRecipe.name);
+
+            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + escapedName + "']";
             XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
 
             oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
@@ -298,23 +300,23 @@ namespace RecipeManager
                                 //Possible duplicate name.
                             }
                         }
-                        newRecipe.name = tb.Text;
+                        newRecipe.name = System.Security.SecurityElement.Escape(tb.Text);
                     }
                     else if (tb.Tag.ToString() == "PrepTime")
                     {
-                        newRecipe.prepTime = tb.Text;
+                        newRecipe.prepTime = System.Security.SecurityElement.Escape(tb.Text);
                     }
                     else if (tb.Tag.ToString() == "CookTime")
                     {
-                        newRecipe.cookTime = tb.Text;
+                        newRecipe.cookTime = System.Security.SecurityElement.Escape(tb.Text);
                     }
                     else if (tb.Tag.ToString() == "Yeild")
                     {
-                        newRecipe.yeild = tb.Text;
+                        newRecipe.yeild = System.Security.SecurityElement.Escape(tb.Text);
                     }
                     else if (tb.Tag.ToString() == "Direction")
                     {
-                        newRecipe.directions.Add(tb.Text);
+                        newRecipe.directions.Add(System.Security.SecurityElement.Escape(tb.Text));
                     }
                 }
             }
@@ -478,7 +480,7 @@ namespace RecipeManager
 
         private void deleteRecipe_btn_Click(object sender, RoutedEventArgs e)
         {
-            if(MessageBox.Show("Are you sure you want to delete " + _editRecipe.name + "?", "Delete?", MessageBoxButton.YesNo) == MessageBoxResult.No)
+            if (MessageBox.Show("Are you sure you want to delete " + _editRecipe.name + "?", "Delete?", MessageBoxButton.YesNo) == MessageBoxResult.No)
             {
                 return;
             }
@@ -508,6 +510,19 @@ namespace RecipeManager
                     MessageBox.Show(ex.ToString(), "Error");
                 }
             }
+        }
+
+        public string escapeXML(string _string)
+        {
+            string escapedName = _string;
+
+            escapedName = escapedName.Replace("&", "&amp;");
+            escapedName = escapedName.Replace("<", "&lt;");
+            escapedName = escapedName.Replace(">", "&gt;");
+            escapedName = escapedName.Replace("\"", "&quot;");
+            escapedName = escapedName.Replace("\'", "&apos;");
+
+            return escapedName;
         }
     }
 }
