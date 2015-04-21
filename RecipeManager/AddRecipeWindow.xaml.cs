@@ -204,28 +204,28 @@ namespace RecipeManager
                                 throw new Exception("Please select a unique recipe name.");
                             }
                         }
-                        newRecipe.name = escapeXML(tb.Text);
+                        newRecipe.Name = tb.Text;
                     }
                     else if (tb.Tag.ToString() == "PrepTime")
                     {
-                        newRecipe.prepTime = escapeXML(tb.Text);
+                        newRecipe.PrepTime = tb.Text;
                     }
                     else if (tb.Tag.ToString() == "CookTime")
                     {
-                        newRecipe.cookTime = escapeXML(tb.Text);
+                        newRecipe.CookTime = tb.Text;
                     }
                     else if (tb.Tag.ToString() == "Yeild")
                     {
-                        newRecipe.yeild = escapeXML(tb.Text);
+                        newRecipe.Yeild = tb.Text;
                     }
                     else if (tb.Tag.ToString() == "Direction")
                     {
-                        newRecipe.directions.Add(escapeXML(tb.Text));
+                        newRecipe.directions.Add(tb.Text);
                     }
                 }
             }
 
-            if (String.IsNullOrEmpty(newRecipe.name))
+            if (String.IsNullOrEmpty(newRecipe.Name))
             {
                 MessageBox.Show("Pleae enter a recipe name.");
                 throw new Exception("Invalid recipe name.");
@@ -307,11 +307,11 @@ namespace RecipeManager
             // Build recipe xml
             string recipeToAddXML = @"<Recipe><Name>{name}</Name><Rating>{rating}</Rating><PrepTime>{prepTime}</PrepTime><CookTime>{cookTime}</CookTime><Yeild>{yeild}</Yeild><MealTypes>{mealTypes}</MealTypes><RecipeTypes>{recipeType}</RecipeTypes><RecipeIngredients>{recipeIngredient}</RecipeIngredients><Directions>{direction}</Directions><Categories>{category}</Categories></Recipe>";
 
-            recipeToAddXML = recipeToAddXML.Replace("{name}", newRecipe.name);
+            recipeToAddXML = recipeToAddXML.Replace("{name}", newRecipe.Name);
             recipeToAddXML = recipeToAddXML.Replace("{rating}", newRecipe.rating.ToString());
-            recipeToAddXML = recipeToAddXML.Replace("{prepTime}", newRecipe.prepTime);
-            recipeToAddXML = recipeToAddXML.Replace("{cookTime}", newRecipe.cookTime);
-            recipeToAddXML = recipeToAddXML.Replace("{yeild}", newRecipe.yeild);
+            recipeToAddXML = recipeToAddXML.Replace("{prepTime}", newRecipe.PrepTime);
+            recipeToAddXML = recipeToAddXML.Replace("{cookTime}", newRecipe.CookTime);
+            recipeToAddXML = recipeToAddXML.Replace("{yeild}", newRecipe.Yeild);
 
             string mealTypeXML = "";
             string recipeTypeXML = "";
@@ -416,17 +416,5 @@ namespace RecipeManager
             throw new FormatException("Not a valid fraction.");
         }
 
-        public string escapeXML(string _string)
-        {
-            string escapedName = _string;
-
-            escapedName = escapedName.Replace("&", "&amp;");
-            escapedName = escapedName.Replace("<", "&lt;");
-            escapedName = escapedName.Replace(">", "&gt;");
-            escapedName = escapedName.Replace("\"", "&quot;");
-            escapedName = escapedName.Replace("\'", "&apos;");
-
-            return escapedName;
-        }
     }
 }

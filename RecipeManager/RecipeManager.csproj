@@ -103,6 +103,7 @@
     <Compile Include="CreateMenuWindow.xaml.cs">
       <DependentUpon>CreateMenuWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Direction.cs" />
     <Compile Include="EditRecipeWindow.xaml.cs">
       <DependentUpon>EditRecipeWindow.xaml</DependentUpon>
     </Compile>

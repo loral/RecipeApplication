@@ -228,7 +228,7 @@ namespace RecipeManager
             else
             {
                 //name = (recipe.name.StartsWith(nameFilter.Text, StringComparison.OrdinalIgnoreCase)); // Starts with 
-                name = (culture.CompareInfo.IndexOf(recipe.name, nameFilter.Text, CompareOptions.IgnoreCase) > -1); // Contains
+                name = (culture.CompareInfo.IndexOf(recipe.Name, nameFilter.Text, CompareOptions.IgnoreCase) > -1); // Contains
             }
 
             categories = (ListContainsAll.ContainsAllItems(recipe.categories, _categoryList));
@@ -331,43 +331,43 @@ namespace RecipeManager
 
             if (_selectedRecipe.rating > 0)
             {
-                SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name + " (" + _selectedRecipe.rating.ToString() + ")"));
+                SelectedRecipeHeader.Inlines.Add(new Run(XmlConvert.DecodeName(_selectedRecipe.Name) + " (" + _selectedRecipe.rating.ToString() + ")"));
             }
             else
             {
-                SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.name));
+                SelectedRecipeHeader.Inlines.Add(new Run(XmlConvert.DecodeName(_selectedRecipe.Name)));
             }
 
-            prepTxtblk.Content = _selectedRecipe.prepTime;
+            prepTxtblk.Content = XmlConvert.DecodeName(_selectedRecipe.PrepTime);
 
-            cookTimeTxtblk.Content = _selectedRecipe.cookTime;
+            cookTimeTxtblk.Content = XmlConvert.DecodeName(_selectedRecipe.CookTime);
 
-            yeildTxtblk.Content = _selectedRecipe.yeild;
+            yeildTxtblk.Content = XmlConvert.DecodeName(_selectedRecipe.Yeild);
 
             if (_selectedRecipe.ingredients.Count > 0)
             {
                 ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
-                ingredientsTxtblk.Inlines.Add(_selectedRecipe.ingredients[0].Quanity + " " + _selectedRecipe.ingredients[0].Unit + " " + _selectedRecipe.ingredients[0].Name);
+                ingredientsTxtblk.Inlines.Add(XmlConvert.DecodeName(_selectedRecipe.ingredients[0].Quanity) + " " + XmlConvert.DecodeName(_selectedRecipe.ingredients[0].Unit) + " " + XmlConvert.DecodeName(_selectedRecipe.ingredients[0].Name));
             }
 
             foreach (Ingredient ingredient in _selectedRecipe.ingredients.Skip(1))
             {
                 ingredientsTxtblk.Inlines.Add(System.Environment.NewLine);
                 ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
-                ingredientsTxtblk.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
+                ingredientsTxtblk.Inlines.Add(XmlConvert.DecodeName(ingredient.Quanity) + " " + XmlConvert.DecodeName(ingredient.Unit) + " " + XmlConvert.DecodeName(ingredient.Name));
             }
 
             if (_selectedRecipe.directions.Count > 0)
             {
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(_selectedRecipe.directions[0]);
+                directionsTxtblk.Inlines.Add(XmlConvert.DecodeName(_selectedRecipe.directions[0]));
             }
 
             foreach (string direction in _selectedRecipe.directions.Skip(1))
             {
                 directionsTxtblk.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(direction);
+                directionsTxtblk.Inlines.Add(XmlConvert.DecodeName(direction));
             }
 
         }
@@ -687,7 +687,7 @@ namespace RecipeManager
                 cb.Stroke();
 
                 // Heading
-                iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.name, simplicity));
+                iTextSharp.text.Paragraph pHeading = new iTextSharp.text.Paragraph(new Chunk(selectedRecipe.Name, simplicity));
                 pHeading.Alignment = Element.ALIGN_CENTER;
                 pHeading.SpacingAfter = 34f;
                 document.Add(pHeading);
@@ -705,7 +705,7 @@ namespace RecipeManager
                 prepLabelCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 table.AddCell(prepLabelCell);
 
-                PdfPCell prepTimeCell = new PdfPCell(new Phrase(selectedRecipe.prepTime, largeAndalus));
+                PdfPCell prepTimeCell = new PdfPCell(new Phrase(selectedRecipe.PrepTime, largeAndalus));
                 prepTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 prepTimeCell.HorizontalAlignment = 0;
                 prepTimeCell.VerticalAlignment = Element.ALIGN_BOTTOM;
@@ -716,7 +716,7 @@ namespace RecipeManager
                 cookLabelCell.HorizontalAlignment = 2;
                 table.AddCell(cookLabelCell);
 
-                PdfPCell cookTimeCell = new PdfPCell(new Phrase(selectedRecipe.cookTime, largeAndalus));
+                PdfPCell cookTimeCell = new PdfPCell(new Phrase(selectedRecipe.CookTime, largeAndalus));
                 cookTimeCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 cookTimeCell.HorizontalAlignment = 0;
                 cookTimeCell.VerticalAlignment = Element.ALIGN_BOTTOM;
@@ -727,7 +727,7 @@ namespace RecipeManager
                 servesLabelCell.HorizontalAlignment = 2;
                 table.AddCell(servesLabelCell);
 
-                PdfPCell servesActualCell = new PdfPCell(new Phrase(selectedRecipe.yeild, largeAndalus));
+                PdfPCell servesActualCell = new PdfPCell(new Phrase(selectedRecipe.Yeild, largeAndalus));
                 servesActualCell.Border = iTextSharp.text.Rectangle.NO_BORDER;
                 servesActualCell.HorizontalAlignment = 0;
                 servesActualCell.VerticalAlignment = Element.ALIGN_BOTTOM;
@@ -835,9 +835,9 @@ namespace RecipeManager
         {
             // Configure save file dialog box
             Microsoft.Win32.SaveFileDialog dlg = new Microsoft.Win32.SaveFileDialog();
-            dlg.FileName = recipe.name; // Default file name
+            dlg.FileName = recipe.Name; // Default file name
             dlg.DefaultExt = ".pdf"; // Default file extension
-            dlg.Filter = recipe.name + " (.pdf)|*.pdf"; // Filter files by extension 
+            dlg.Filter = recipe.Name + " (.pdf)|*.pdf"; // Filter files by extension 
 
             // Show save file dialog box
             Nullable<bool> result = dlg.ShowDialog();

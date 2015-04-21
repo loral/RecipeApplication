@@ -26,7 +26,7 @@ namespace RecipeManager
                 List<MealType> _mealList = new List<MealType>();
                 List<RecipeType> _recipeList = new List<RecipeType>();
                 List<Ingredient> _ingredientList = new List<Ingredient>();
-                List<String> _directionsList = new List<string>();
+                List<string> _directionsList = new List<string>();
                 List<Category> _categoryList = new List<Category>();
                 Double? _doubleRating;
 
@@ -92,7 +92,7 @@ namespace RecipeManager
 
                 try
                 {
-                    Recipe newRecipe = new Recipe { name = _name, rating = _doubleRating, prepTime = _prep, cookTime = _cook, yeild = _yeild, mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
+                    Recipe newRecipe = new Recipe { Name = _name, rating = _doubleRating, PrepTime = _prep, CookTime = _cook, Yeild = _yeild, mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
                     Recipes.Add(newRecipe);
                 }
                 catch (Exception ex)
@@ -103,7 +103,7 @@ namespace RecipeManager
 
             }
 
-            Recipes = Recipes.OrderBy(x => x.name).ToList();
+            Recipes = Recipes.OrderBy(x => x.Name).ToList();
 
             //https://github.com/grantwinney/BlogCodeSamples/tree/master/CollectionViewSourceSample/CollectionViewSourceSample
             //http://grantwinney.com/using-a-textbox-and-collectionviewsource-to-filter-a-listview-in-wpf/

@@ -148,7 +148,7 @@ namespace RecipeManager
             body += "Recipes:" + System.Environment.NewLine;
             foreach (Recipe recipe in recipeBookCopy)
             {
-                body += recipe.name + System.Environment.NewLine;
+                body += recipe.Name + System.Environment.NewLine;
             }
 
             body += System.Environment.NewLine + "Ingredients:" + System.Environment.NewLine;
@@ -192,13 +192,13 @@ namespace RecipeManager
 
             foreach (Recipe recipe in recipeBookCopy)
             {
-                menuRecipes.Add(recipe.name);
+                menuRecipes.Add(recipe.Name);
             }
 
             // Create a copy of the recipe book to use for finding a substitue recipe (recipes not currently on the menu and that are dinner and main dish)
             foreach (Recipe recipe in recipeBook)
             {
-                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.name))
+                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.Name))
                     randReplaceRecipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
             }
 
@@ -263,13 +263,13 @@ namespace RecipeManager
 
             foreach (Recipe recipe in recipeBookCopy)
             {
-                menuRecipes.Add(recipe.name);
+                menuRecipes.Add(recipe.Name);
             }
 
             // Create a copy of the recipe book to use for finding a substitue recipe (recipes not currently on the menu and that are dinner and main dish)
             foreach (Recipe recipe in recipeBook)
             {
-                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.name))
+                if (recipe.mealTypes.Contains(MealType.Dinner) && recipe.recipeTypes.Contains(RecipeType.MainDish) && !menuRecipes.Contains(recipe.Name))
                     manualReplaceRecipeBookCopy.Add(Clone.DeepClone<Recipe>(recipe));
             }
 
