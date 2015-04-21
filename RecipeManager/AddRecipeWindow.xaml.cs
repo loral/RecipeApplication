@@ -220,7 +220,9 @@ namespace RecipeManager
                     }
                     else if (tb.Tag.ToString() == "Direction")
                     {
-                        newRecipe.directions.Add(tb.Text);
+                        Direction newDirection = new Direction();
+                        newDirection.direction = tb.Text;
+                        newRecipe.directions.Add(newDirection);
                     }
                 }
             }
@@ -340,9 +342,9 @@ namespace RecipeManager
 
             recipeToAddXML = recipeToAddXML.Replace("{recipeIngredient}", ingredientXML);
 
-            foreach (string direction in newRecipe.directions)
+            foreach (Direction direction in newRecipe.directions)
             {
-                directionXML = directionXML + ("<Direction>" + direction + "</Direction>");
+                directionXML = directionXML + ("<Direction>" + direction.direction + "</Direction>");
             }
 
             recipeToAddXML = recipeToAddXML.Replace("{direction}", directionXML);

@@ -26,7 +26,7 @@ namespace RecipeManager
                 List<MealType> _mealList = new List<MealType>();
                 List<RecipeType> _recipeList = new List<RecipeType>();
                 List<Ingredient> _ingredientList = new List<Ingredient>();
-                List<string> _directionsList = new List<string>();
+                List<Direction> _directionsList = new List<Direction>();
                 List<Category> _categoryList = new List<Category>();
                 Double? _doubleRating;
 
@@ -83,7 +83,9 @@ namespace RecipeManager
                 }
                 foreach (XmlNode _direction in _directions)
                 {
-                    _directionsList.Add(_direction.InnerText);
+                    Direction newDirection = new Direction();
+                    newDirection.direction = _direction.InnerText;
+                    _directionsList.Add(newDirection);
                 }
                 foreach (XmlNode _category in _categories)
                 {

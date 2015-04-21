@@ -156,13 +156,13 @@ namespace RecipeManager
             }
 
             counter = 1;
-            foreach (string direction in _editRecipe.directions)
+            foreach (Direction direction in _editRecipe.directions)
             {
                 foreach (TextBox tb in FindVisualChildren<TextBox>(editRecipeWindow))
                 {
                     if ((tb.Tag != null) && (tb.Tag.ToString() == "Direction") && (tb.Name == ("tb_direction" + counter.ToString())))
                     {
-                        tb.Text = direction;
+                        tb.Text = direction.decodedDirection;
                         counter = counter + 1;
                         break;
                     }
@@ -316,7 +316,9 @@ namespace RecipeManager
                     }
                     else if (tb.Tag.ToString() == "Direction")
                     {
-                        newRecipe.directions.Add(tb.Text);
+                        Direction newDirection = new Direction();
+                        newDirection.direction = tb.Text;
+                        newRecipe.directions.Add(newDirection);
                     }
                 }
             }
@@ -436,9 +438,9 @@ namespace RecipeManager
 
             recipeToAddXML = recipeToAddXML.Replace("{recipeIngredient}", ingredientXML);
 
-            foreach (string direction in newRecipe.directions)
+            foreach (Direction direction in newRecipe.directions)
             {
-                directionXML = directionXML + ("<Direction>" + direction + "</Direction>");
+                directionXML = directionXML + ("<Direction>" + direction.direction + "</Direction>");
             }
 
             recipeToAddXML = recipeToAddXML.Replace("{direction}", directionXML);

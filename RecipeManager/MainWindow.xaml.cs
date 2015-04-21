@@ -360,14 +360,14 @@ namespace RecipeManager
             if (_selectedRecipe.directions.Count > 0)
             {
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(XmlConvert.DecodeName(_selectedRecipe.directions[0]));
+                directionsTxtblk.Inlines.Add(_selectedRecipe.directions[0].decodedDirection);
             }
 
-            foreach (string direction in _selectedRecipe.directions.Skip(1))
+            foreach (Direction direction in _selectedRecipe.directions.Skip(1))
             {
                 directionsTxtblk.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(XmlConvert.DecodeName(direction));
+                directionsTxtblk.Inlines.Add(direction.decodedDirection);
             }
 
         }
@@ -794,13 +794,13 @@ namespace RecipeManager
                 directionColumn.AddElement(directionSpacerParagraph);
 
                 i = 0;
-                foreach (string direction in selectedRecipe.directions)
+                foreach (Direction direction in selectedRecipe.directions)
                 {
                     iTextSharp.text.Paragraph directionParagraph = new iTextSharp.text.Paragraph();
                     directionParagraph.SetLeading(0f, 1.3f);
 
                     directionParagraph.Add(new Phrase((string.Concat(i + 1, ". ")), largeAndalus));
-                    directionParagraph.Add(new Phrase(direction, andalus));
+                    directionParagraph.Add(new Phrase(direction.decodedDirection, andalus));
 
                     directionColumn.AddElement(directionParagraph);
 
