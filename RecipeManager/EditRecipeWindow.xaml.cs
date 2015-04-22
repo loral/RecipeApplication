@@ -72,7 +72,7 @@ namespace RecipeManager
             XMLingredientList = recipeBook.SelectNodes("//Ingredient");
             foreach (XmlNode ingredient in XMLingredientList)
             {
-                ingredientList.Add(ingredient.InnerXml);
+                ingredientList.Add(XmlConvert.DecodeName(ingredient.InnerXml));
             }
             ingredientList.Sort();
 
@@ -156,13 +156,13 @@ namespace RecipeManager
             }
 
             counter = 1;
-            foreach (Direction direction in _editRecipe.directions)
+            foreach (string direction in _editRecipe.directions)
             {
                 foreach (TextBox tb in FindVisualChildren<TextBox>(editRecipeWindow))
                 {
                     if ((tb.Tag != null) && (tb.Tag.ToString() == "Direction") && (tb.Name == ("tb_direction" + counter.ToString())))
                     {
-                        tb.Text = direction.decodedDirection;
+                        tb.Text = direction;
                         counter = counter + 1;
                         break;
                     }
@@ -240,7 +240,7 @@ namespace RecipeManager
 
             //string escapedName = _editRecipe.name;
 
-            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.Name + "']";
+            string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + XmlConvert.EncodeLocalName(_editRecipe.Name) + "']";
             XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
 
             oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
@@ -252,7 +252,7 @@ namespace RecipeManager
                 if (!ingredientList.Contains(ingredient.Name.ToString()))
                 {
                     XmlDocument ingredientDoc = new XmlDocument();
-                    ingredientDoc.LoadXml("<Ingredient>" + ingredient.Name.ToString() + "</Ingredient>");
+                    ingredientDoc.LoadXml("<Ingredient>" + XmlConvert.EncodeLocalName(ingredient.Name.ToString()) + "</Ingredient>");
                     XmlNode ingredientNode = ingredientDoc.DocumentElement;
 
                     recipeBook.SelectNodes("//RecipeManager/IngredientList")[0].AppendChild(recipeBook.ImportNode(ingredientNode, true));
@@ -295,7 +295,7 @@ namespace RecipeManager
                         // Duplicate name check
                         foreach (XmlNode _recipe in _recipeNames)
                         {
-                            if (tb.Text == _recipe["Name"].InnerText)
+                            if (tb.Text == XmlConvert.DecodeName(_recipe["Name"].InnerText))
                             {
                                 //Possible duplicate name.
                             }
@@ -316,8 +316,8 @@ namespace RecipeManager
                     }
                     else if (tb.Tag.ToString() == "Direction")
                     {
-                        Direction newDirection = new Direction();
-                        newDirection.direction = tb.Text;
+                        string newDirection;
+                        newDirection = tb.Text;
                         newRecipe.directions.Add(newDirection);
                     }
                 }
@@ -433,14 +433,14 @@ namespace RecipeManager
 
             foreach (Ingredient ingredient in newRecipe.ingredients)
             {
-                ingredientXML = ingredientXML + ("<RecipeIngredient><IngredientName>" + ingredient.Name + "</IngredientName><IngredientQuantity>" + ingredient.Quanity + "</IngredientQuantity><IngredientUnit>" + ingredient.Unit + "</IngredientUnit></RecipeIngredient>");
+                ingredientXML = ingredientXML + ("<RecipeIngredient><IngredientName>" + XmlConvert.EncodeLocalName(ingredient.Name) + "</IngredientName><IngredientQuantity>" + XmlConvert.EncodeLocalName(ingredient.Quanity) + "</IngredientQuantity><IngredientUnit>" + XmlConvert.EncodeLocalName(ingredient.Unit) + "</IngredientUnit></RecipeIngredient>");
             }
 
             recipeToAddXML = recipeToAddXML.Replace("{recipeIngredient}", ingredientXML);
 
-            foreach (Direction direction in newRecipe.directions)
+            foreach (string direction in newRecipe.directions)
             {
-                directionXML = directionXML + ("<Direction>" + direction.direction + "</Direction>");
+                directionXML = directionXML + ("<Direction>" + XmlConvert.EncodeLocalName(direction) + "</Direction>");
             }
 
             recipeToAddXML = recipeToAddXML.Replace("{direction}", directionXML);
@@ -488,7 +488,7 @@ namespace RecipeManager
             }
             else
             {
-                string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.Name + "']";
+                string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + XmlConvert.EncodeLocalName(_editRecipe.Name) + "']";
                 XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
 
                 oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);

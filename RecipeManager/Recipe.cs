@@ -11,99 +11,19 @@ namespace RecipeManager
     [Serializable()]
     public class Recipe
     {
-        private string _name;
+        public string Name{get; set;}
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                _name = XmlConvert.EncodeLocalName(value);
-            }
-        }
+        public string PrepTime { get; set;}
 
-        public string DecodedName
-        {
-            get
-            {
-                return XmlConvert.DecodeName(_name);
-            }
-        }
+        public string CookTime { get; set;}
 
-        private string _prepTime;
-
-        public string PrepTime
-        {
-            get
-            {
-                return _prepTime;
-            }
-            set
-            {
-                _prepTime = XmlConvert.EncodeLocalName(value);
-            }
-        }
-
-        public string DecodedPrepTime
-        {
-            get
-            {
-                return XmlConvert.DecodeName(_prepTime);
-            }
-        }
-
-        private string _cookTime;
-
-        public string CookTime
-        {
-            get
-            {
-                return _cookTime;
-            }
-            set
-            {
-                _cookTime = XmlConvert.EncodeLocalName(value);
-            }
-        }
-
-        public string DecodedCookTime
-        {
-            get
-            {
-                return XmlConvert.DecodeName(_cookTime);
-            }
-        }
-
-        private string _yeild;
-
-        public string Yeild
-        {
-            get
-            {
-                return _yeild;
-            }
-            set
-            {
-                _yeild = XmlConvert.EncodeLocalName(value);
-            }
-        }
-
-        public string DecodedYeild
-        {
-            get
-            {
-                return XmlConvert.DecodeName(_yeild);
-            }
-        }
+        public string Yeild { get; set;}
 
         public double? rating { get; set; }
 
         public List<Ingredient> ingredients = new List<Ingredient>();
 
-        public List<Direction> directions = new List<Direction>();
+        public List<string> directions = new List<string>();
 
         public List<MealType> mealTypes = new List<MealType>();
 

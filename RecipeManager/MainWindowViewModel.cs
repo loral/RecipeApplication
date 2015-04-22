@@ -26,7 +26,7 @@ namespace RecipeManager
                 List<MealType> _mealList = new List<MealType>();
                 List<RecipeType> _recipeList = new List<RecipeType>();
                 List<Ingredient> _ingredientList = new List<Ingredient>();
-                List<Direction> _directionsList = new List<Direction>();
+                List<string> _directionsList = new List<string>();
                 List<Category> _categoryList = new List<Category>();
                 Double? _doubleRating;
 
@@ -70,9 +70,9 @@ namespace RecipeManager
                 }
                 foreach (XmlNode _ingredient in _ingredients)
                 {
-                    var _ingName = _ingredient["IngredientName"].InnerText;
-                    var _ingQuantity = _ingredient["IngredientQuantity"].InnerText;
-                    var _ingUnit = _ingredient["IngredientUnit"].InnerText;
+                    var _ingName = XmlConvert.DecodeName(_ingredient["IngredientName"].InnerText);
+                    var _ingQuantity = XmlConvert.DecodeName(_ingredient["IngredientQuantity"].InnerText);
+                    var _ingUnit = XmlConvert.DecodeName(_ingredient["IngredientUnit"].InnerText);
 
                     Ingredient newIngredient = new Ingredient();
                     newIngredient.Name = _ingName;
@@ -83,8 +83,8 @@ namespace RecipeManager
                 }
                 foreach (XmlNode _direction in _directions)
                 {
-                    Direction newDirection = new Direction();
-                    newDirection.direction = _direction.InnerText;
+                    string newDirection;
+                    newDirection = XmlConvert.DecodeName(_direction.InnerText);
                     _directionsList.Add(newDirection);
                 }
                 foreach (XmlNode _category in _categories)
@@ -94,7 +94,7 @@ namespace RecipeManager
 
                 try
                 {
-                    Recipe newRecipe = new Recipe { Name = _name, rating = _doubleRating, PrepTime = _prep, CookTime = _cook, Yeild = _yeild, mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
+                    Recipe newRecipe = new Recipe { Name = XmlConvert.DecodeName(_name), rating = _doubleRating, PrepTime = XmlConvert.DecodeName(_prep), CookTime = XmlConvert.DecodeName(_cook), Yeild = XmlConvert.DecodeName(_yeild), mealTypes = _mealList, recipeTypes = _recipeList, directions = _directionsList, categories = _categoryList, ingredients = _ingredientList };
                     Recipes.Add(newRecipe);
                 }
                 catch (Exception ex)

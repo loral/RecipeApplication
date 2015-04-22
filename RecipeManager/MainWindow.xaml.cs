@@ -31,7 +31,6 @@ namespace RecipeManager
         public string fileName = string.Empty;
         CultureInfo culture = new CultureInfo("en-US");
         public IngredientView ingredientView;
-        //public List<string> fileList;
 
         public MainWindow()
         {
@@ -331,43 +330,43 @@ namespace RecipeManager
 
             if (_selectedRecipe.rating > 0)
             {
-                SelectedRecipeHeader.Inlines.Add(new Run(XmlConvert.DecodeName(_selectedRecipe.Name) + " (" + _selectedRecipe.rating.ToString() + ")"));
+                SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.Name + " (" + _selectedRecipe.rating.ToString() + ")"));
             }
             else
             {
-                SelectedRecipeHeader.Inlines.Add(new Run(XmlConvert.DecodeName(_selectedRecipe.Name)));
+                SelectedRecipeHeader.Inlines.Add(new Run(_selectedRecipe.Name));
             }
 
-            prepTxtblk.Content = XmlConvert.DecodeName(_selectedRecipe.PrepTime);
+            prepTxtblk.Content = _selectedRecipe.PrepTime;
 
-            cookTimeTxtblk.Content = XmlConvert.DecodeName(_selectedRecipe.CookTime);
+            cookTimeTxtblk.Content = _selectedRecipe.CookTime;
 
-            yeildTxtblk.Content = XmlConvert.DecodeName(_selectedRecipe.Yeild);
+            yeildTxtblk.Content = _selectedRecipe.Yeild;
 
             if (_selectedRecipe.ingredients.Count > 0)
             {
                 ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
-                ingredientsTxtblk.Inlines.Add(XmlConvert.DecodeName(_selectedRecipe.ingredients[0].Quanity) + " " + XmlConvert.DecodeName(_selectedRecipe.ingredients[0].Unit) + " " + XmlConvert.DecodeName(_selectedRecipe.ingredients[0].Name));
+                ingredientsTxtblk.Inlines.Add(_selectedRecipe.ingredients[0].Quanity + " " + _selectedRecipe.ingredients[0].Unit + " " + _selectedRecipe.ingredients[0].Name);
             }
 
             foreach (Ingredient ingredient in _selectedRecipe.ingredients.Skip(1))
             {
                 ingredientsTxtblk.Inlines.Add(System.Environment.NewLine);
                 ingredientsTxtblk.Inlines.Add(new Bold(new Run("• ")));
-                ingredientsTxtblk.Inlines.Add(XmlConvert.DecodeName(ingredient.Quanity) + " " + XmlConvert.DecodeName(ingredient.Unit) + " " + XmlConvert.DecodeName(ingredient.Name));
+                ingredientsTxtblk.Inlines.Add(ingredient.Quanity + " " + ingredient.Unit + " " + ingredient.Name);
             }
 
             if (_selectedRecipe.directions.Count > 0)
             {
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(_selectedRecipe.directions[0].decodedDirection);
+                directionsTxtblk.Inlines.Add(_selectedRecipe.directions[0]);
             }
 
-            foreach (Direction direction in _selectedRecipe.directions.Skip(1))
+            foreach (string direction in _selectedRecipe.directions.Skip(1))
             {
                 directionsTxtblk.Inlines.Add(System.Environment.NewLine + System.Environment.NewLine);
                 directionsTxtblk.Inlines.Add(new Bold(new Run(directionNum++ + ". ")));
-                directionsTxtblk.Inlines.Add(direction.decodedDirection);
+                directionsTxtblk.Inlines.Add(direction);
             }
 
         }
@@ -794,13 +793,13 @@ namespace RecipeManager
                 directionColumn.AddElement(directionSpacerParagraph);
 
                 i = 0;
-                foreach (Direction direction in selectedRecipe.directions)
+                foreach (string direction in selectedRecipe.directions)
                 {
                     iTextSharp.text.Paragraph directionParagraph = new iTextSharp.text.Paragraph();
                     directionParagraph.SetLeading(0f, 1.3f);
 
                     directionParagraph.Add(new Phrase((string.Concat(i + 1, ". ")), largeAndalus));
-                    directionParagraph.Add(new Phrase(direction.decodedDirection, andalus));
+                    directionParagraph.Add(new Phrase(direction, andalus));
 
                     directionColumn.AddElement(directionParagraph);
 

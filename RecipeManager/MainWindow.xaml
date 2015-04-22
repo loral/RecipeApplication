@@ -164,7 +164,7 @@
 
             <Grid Grid.Column="1">
                 <Border BorderThickness="1,0,1,0" BorderBrush="Black"/>
-                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" FontSize="14" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="DecodedName" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange">
+                <ListView Name="RecipeListView" ItemsSource="{Binding Path=Recipes}" FontSize="14" SelectedValue="{Binding Path=SelectedRecipe}" DisplayMemberPath="Name" Margin="5,5,5,5" BorderBrush="Transparent" SelectionChanged="OnSelectedRecipeChange">
                     <ListView.ContextMenu>
                         <ContextMenu>
                             <MenuItem Header="Create Menu" Click="CreateMenu"/>
