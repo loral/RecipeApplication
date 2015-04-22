@@ -646,9 +646,8 @@ namespace RecipeManager
             if (string.IsNullOrEmpty(file))
                 return;
 
-            //BaseFont _customFont = BaseFont.CreateFont(@"C:\GitHub\RecipeApplication\RecipeManager\CustomFonts\simplicity.ttf", BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
             string folderpath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "CustomFonts");
-            BaseFont _customFont = BaseFont.CreateFont(Path.Combine(folderpath,"simplicity.ttf"), BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
+            BaseFont _customFont = BaseFont.CreateFont(Path.Combine(folderpath, "simplicity.ttf"), BaseFont.CP1252, BaseFont.EMBEDDED, BaseFont.CACHED);
 
             Font darkGreenSimplicity = new Font(_customFont, 15, Font.NORMAL);
             darkGreenSimplicity.SetColor(122, 150, 60);
