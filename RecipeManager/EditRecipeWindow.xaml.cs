@@ -241,7 +241,19 @@ namespace RecipeManager
             //string escapedName = _editRecipe.name;
 
             string nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + XmlConvert.EncodeLocalName(_editRecipe.Name) + "']";
+
             XmlNode oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
+
+            if (oldRecipeNode == null)
+            {
+                nodeName = "//RecipeManager/RecipeBook/Recipes/Recipe[./Name='" + _editRecipe.Name + "']";
+                oldRecipeNode = recipeBook.SelectSingleNode(nodeName);
+            }
+            else
+            {
+                MessageBox.Show("Could not find recipe to replace, please make Loral aware of this error", "Error");
+                this.Close();
+            }
 
             oldRecipeNode.ParentNode.RemoveChild(oldRecipeNode);
             recipeBook.SelectNodes("//RecipeManager/RecipeBook/Recipes")[0].AppendChild(recipeBook.ImportNode(newRecipeNode, true));
