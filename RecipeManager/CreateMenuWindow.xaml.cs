@@ -283,7 +283,9 @@ namespace RecipeManager
 
                 if (manualRecipeSelection.ShowDialog() == false)
                 {
-                    manualReplaceRecipe = manualRecipeSelection.chosenRecipe; 
+                    manualReplaceRecipe = manualRecipeSelection.chosenRecipe;
+                    if (manualReplaceRecipe == null)
+                        return;
                 }
 
                 // Replace selected recipe with the user selected recipe
