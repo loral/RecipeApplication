@@ -114,7 +114,9 @@
     </Compile>
     <Compile Include="Recipe.cs" />
     <Compile Include="MainWindowViewModel.cs" />
+    <Compile Include="StringValue.cs" />
     <Compile Include="UnitOfMeasure.cs" />
+    <Compile Include="VisualTreeHelpers.cs" />
     <Page Include="AddRecipeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

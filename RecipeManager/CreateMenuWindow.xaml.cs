@@ -29,7 +29,10 @@ namespace RecipeManager
         public List<Recipe> recipeBookCopy;
         public List<Recipe> randReplaceRecipeBookCopy;
         public List<Recipe> manualReplaceRecipeBookCopy;
-        public List<string> ingredients;
+
+        public List<string> ingredients { get; set; }
+
+        public List<StringValue> _Ingredients { get; set; }
 
         public CreateMenuWindow(List<Recipe> _recipes)
         {
@@ -65,6 +68,7 @@ namespace RecipeManager
             Random rnd = new Random();
             recipeBookCopy = new List<Recipe>();
             ingredients = new List<string>();
+            _Ingredients = new List<StringValue>();
 
             // Create a list of possible reciepies that are both dinner and main dish
             foreach (Recipe recipe in recipeBook)
@@ -90,14 +94,18 @@ namespace RecipeManager
                     if (!ingredients.Contains(ingredient.Name))
                     {
                         ingredients.Add(ingredient.Name);
+                        StringValue newIngredient = new StringValue(ingredient.Name);
+                        _Ingredients.Add(newIngredient);
                     }
                 }
             }
 
             ingredients.Sort();
+            _Ingredients = _Ingredients.OrderBy(i => i.Value).ToList();
 
             RecipeListView.ItemsSource = recipeBookCopy;
             IngredientListView.ItemsSource = ingredients;
+            IngredientGridView.ItemsSource = _Ingredients;
 
             // Make sure a recipe is selected
             if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
@@ -340,6 +348,28 @@ namespace RecipeManager
 
             ICollectionView view = CollectionViewSource.GetDefaultView(ingredients);
             view.Refresh();
+        }
+
+        private void CheckBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var chk = (CheckBox)sender;
+            var row = VisualTreeHelpers.FindAncestor<DataGridRow>(chk);
+            var newValue = !chk.IsChecked.GetValueOrDefault();
+
+            row.IsSelected = newValue;
+            chk.IsChecked = newValue;
+
+            // Mark event as handled so that the default 
+            // DataGridPreviewMouseDown doesn't handle the event
+            e.Handled = true;
+        }
+
+        private void TestDataGrid_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
+            var chk = VisualTreeHelpers.FindAncestor<CheckBox>((DependencyObject)e.OriginalSource, "TestCheckBox");
+
+            if (chk == null)
+                e.Handled = true;
         }
     }
 }
