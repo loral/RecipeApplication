@@ -93,7 +93,12 @@
 
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="2" Background="LightGray" />
 
-            <DataGrid Name="IngredientGridView" Grid.Column="1" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,0,5,0" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_PreviewMouseLeftButtonDown_1">
+            <DataGrid Name="IngredientGridView" Grid.Column="1" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,1,5,1" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_PreviewMouseLeftButtonDown_1">
+                <DataGrid.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Remove Selected Ingredients" Click="RemoveIngredients"/>
+                    </ContextMenu>
+                </DataGrid.ContextMenu>
                 <DataGrid.Columns>
                     <DataGridTemplateColumn Width="25">
                         <DataGridTemplateColumn.CellTemplate>

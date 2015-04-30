@@ -104,8 +104,11 @@ namespace RecipeManager
             _Ingredients = _Ingredients.OrderBy(i => i.Value).ToList();
 
             RecipeListView.ItemsSource = recipeBookCopy;
+
+            //**************************************//
             IngredientListView.ItemsSource = ingredients;
             IngredientGridView.ItemsSource = _Ingredients;
+            //**************************************//
 
             // Make sure a recipe is selected
             if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
@@ -161,10 +164,21 @@ namespace RecipeManager
 
             body += System.Environment.NewLine + "Ingredients:" + System.Environment.NewLine;
 
-            foreach (string ingredient in ingredients)
+            // ***Need to update to pull from grid instead of ingredients***
+            if (IngredientListView.Visibility == System.Windows.Visibility.Visible)
             {
-                body += ingredient + System.Environment.NewLine;
+                foreach (string ingredient in ingredients)
+                {
+                    body += ingredient + System.Environment.NewLine;
+                }
             }
+            else
+            {
+                foreach (StringValue ingredient in _Ingredients)
+                {
+                    body += ingredient.Value + System.Environment.NewLine;
+                }
+            } 
 
             MailMessage message = new MailMessage(from, to, subject, body);
             message.BodyEncoding = UTF8Encoding.UTF8;
@@ -341,15 +355,30 @@ namespace RecipeManager
 
         private void RemoveIngredients(object sender, RoutedEventArgs e)
         {
-            foreach (string _ingredient in IngredientListView.SelectedItems)
+            // ***Once testing is done need to remove the if/else and just use one***
+            if (IngredientListView.Visibility == System.Windows.Visibility.Visible)
             {
-                ingredients.Remove(_ingredient);
-            }
+                foreach (string _ingredient in IngredientListView.SelectedItems)
+                {
+                    ingredients.Remove(_ingredient);
+                }
 
-            ICollectionView view = CollectionViewSource.GetDefaultView(ingredients);
-            view.Refresh();
+                ICollectionView view = CollectionViewSource.GetDefaultView(ingredients);
+                view.Refresh();
+            }
+            else
+            {
+                foreach (StringValue _ingredient in IngredientGridView.SelectedItems)
+                {
+                    _Ingredients.Remove(_ingredient);
+                }
+
+                ICollectionView view = CollectionViewSource.GetDefaultView(_Ingredients);
+                view.Refresh();
+            }            
         }
 
+        // Set the IsSelected property of the row.
         private void CheckBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             var chk = (CheckBox)sender;
@@ -359,11 +388,11 @@ namespace RecipeManager
             row.IsSelected = newValue;
             chk.IsChecked = newValue;
 
-            // Mark event as handled so that the default 
-            // DataGridPreviewMouseDown doesn't handle the event
+            // Mark event as handled so that the default dataGridPreviewMouseDown doesn't handle the event
             e.Handled = true;
         }
 
+        // Ensure that the IsSelected value only changes when the user clicks on the CheckBox.
         private void TestDataGrid_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             var chk = VisualTreeHelpers.FindAncestor<CheckBox>((DependencyObject)e.OriginalSource, "TestCheckBox");
