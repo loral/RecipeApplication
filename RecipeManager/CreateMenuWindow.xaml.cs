@@ -105,10 +105,9 @@ namespace RecipeManager
 
             RecipeListView.ItemsSource = recipeBookCopy;
 
-            //**************************************//
+            // ***Once complete need to narrow to just one***
             IngredientListView.ItemsSource = ingredients;
             IngredientGridView.ItemsSource = _Ingredients;
-            //**************************************//
 
             // Make sure a recipe is selected
             if (RecipeListView.SelectedIndex == -1 && RecipeListView.Items.Count > 0)
