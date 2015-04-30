@@ -103,7 +103,9 @@
                     <DataGridTemplateColumn Width="25">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="TestCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" PreviewMouseLeftButtonDown="CheckBox_PreviewMouseLeftButtonDown" />
+                                <CheckBox x:Name="TestCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding  Path=IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" PreviewMouseLeftButtonDown="CheckBox_PreviewMouseLeftButtonDown" />
+                                <!-- PreviewMouseLeftButtonDown="CheckBox_PreviewMouseLeftButtonDown" -->
+                                <!--Checked="CheckedMethod"-->
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>

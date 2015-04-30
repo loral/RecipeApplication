@@ -177,7 +177,7 @@ namespace RecipeManager
                 {
                     body += ingredient.Value + System.Environment.NewLine;
                 }
-            } 
+            }
 
             MailMessage message = new MailMessage(from, to, subject, body);
             message.BodyEncoding = UTF8Encoding.UTF8;
@@ -374,30 +374,29 @@ namespace RecipeManager
 
                 ICollectionView view = CollectionViewSource.GetDefaultView(_Ingredients);
                 view.Refresh();
-            }            
+            }
         }
 
-        // Set the IsSelected property of the row.
-        private void CheckBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {
-            var chk = (CheckBox)sender;
-            var row = VisualTreeHelpers.FindAncestor<DataGridRow>(chk);
-            var newValue = !chk.IsChecked.GetValueOrDefault();
-
-            row.IsSelected = newValue;
-            chk.IsChecked = newValue;
-
-            // Mark event as handled so that the default dataGridPreviewMouseDown doesn't handle the event
-            e.Handled = true;
-        }
-
-        // Ensure that the IsSelected value only changes when the user clicks on the CheckBox.
         private void TestDataGrid_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
         {
             var chk = VisualTreeHelpers.FindAncestor<CheckBox>((DependencyObject)e.OriginalSource, "TestCheckBox");
 
             if (chk == null)
                 e.Handled = true;
+        }
+
+        private void CheckBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var chk = (CheckBox)sender;
+            var row = VisualTreeHelpers.FindAncestor<DataGridRow>(chk);
+            //var newValue = !chk.IsChecked.GetValueOrDefault();
+
+            row.IsSelected = true;
+            chk.IsChecked = true;
+
+            // Mark event as handled so that the default 
+            // DataGridPreviewMouseDown doesn't handle the event
+            e.Handled = true;
         }
     }
 }
