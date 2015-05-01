@@ -377,7 +377,7 @@ namespace RecipeManager
             }
         }
 
-        private void TestDataGrid_PreviewMouseLeftButtonDown_1(object sender, MouseButtonEventArgs e)
+        private void TestDataGrid_MouseButtonDown(object sender, MouseButtonEventArgs e)
         {
             var chk = VisualTreeHelpers.FindAncestor<CheckBox>((DependencyObject)e.OriginalSource, "TestCheckBox");
 
@@ -385,17 +385,34 @@ namespace RecipeManager
                 e.Handled = true;
         }
 
-        private void CheckBox_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void TestDataGrid_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            var chk = VisualTreeHelpers.FindAncestor<CheckBox>((DependencyObject)e.OriginalSource, "TestCheckBox");
+
+            if (chk == null)
+            {
+                e.Handled = true;
+                RemoveSelectedMenu.Visibility = Visibility.Visible;
+                RemoveSelectedMenu.IsOpen = true;
+            }   
+        }
+
+        private void CheckBox_MouseButtonDown(object sender, MouseButtonEventArgs e)
         {
             var chk = (CheckBox)sender;
             var row = VisualTreeHelpers.FindAncestor<DataGridRow>(chk);
-            //var newValue = !chk.IsChecked.GetValueOrDefault();
+            var newValue = !chk.IsChecked.GetValueOrDefault();
 
-            row.IsSelected = true;
-            chk.IsChecked = true;
+            row.IsSelected = newValue;
+            chk.IsChecked = newValue;
 
             // Mark event as handled so that the default 
             // DataGridPreviewMouseDown doesn't handle the event
+            e.Handled = true;
+        }
+
+        private void TestDataGrid_PreviewMouseRightButtonDown_1(object sender, MouseButtonEventArgs e)
+        {
             e.Handled = true;
         }
     }

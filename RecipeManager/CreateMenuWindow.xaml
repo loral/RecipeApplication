@@ -93,9 +93,9 @@
 
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="2" Background="LightGray" />
 
-            <DataGrid Name="IngredientGridView" Grid.Column="1" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,1,5,1" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_PreviewMouseLeftButtonDown_1">
+            <DataGrid Name="IngredientGridView" Grid.Column="1" VirtualizingStackPanel.IsVirtualizing="False" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,1,5,1" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_MouseButtonDown" PreviewMouseRightButtonDown="TestDataGrid_PreviewMouseRightButtonDown_1" PreviewMouseRightButtonUp="TestDataGrid_MouseRightButtonUp">
                 <DataGrid.ContextMenu>
-                    <ContextMenu>
+                    <ContextMenu Name="RemoveSelectedMenu">
                         <MenuItem Header="Remove Selected Ingredients" Click="RemoveIngredients"/>
                     </ContextMenu>
                 </DataGrid.ContextMenu>
@@ -103,9 +103,7 @@
                     <DataGridTemplateColumn Width="25">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <CheckBox x:Name="TestCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="{Binding  Path=IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" PreviewMouseLeftButtonDown="CheckBox_PreviewMouseLeftButtonDown" />
-                                <!-- PreviewMouseLeftButtonDown="CheckBox_PreviewMouseLeftButtonDown" -->
-                                <!--Checked="CheckedMethod"-->
+                                <CheckBox x:Name="TestCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="False" PreviewMouseLeftButtonDown="CheckBox_MouseButtonDown" PreviewMouseRightButtonDown="CheckBox_MouseButtonDown" PreviewMouseRightButtonUp="CheckBox_MouseButtonDown"/>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
