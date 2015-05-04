@@ -4,13 +4,13 @@
         Title="Create Menu" Height="450" Width="600" MinHeight="300" MinWidth="400" Loaded="CreateMenuWindowLoaded">
 
     <Grid>
-        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="45" MinHeight="45"/>
             <RowDefinition Height="*" MinHeight="100"/>
             <RowDefinition Height="37" MinHeight="37"/>
         </Grid.RowDefinitions>
-        
+
         <Grid Grid.Row="0">
             <Label Content="Meals" VerticalAlignment="Center" Margin="7,0,0,0"/>
             <ComboBox Grid.Column="0" Grid.Row="0" Width="45" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="50,0,0,0" Height="23" Name="cb_meals" IsEditable="False" MaxDropDownHeight="250">
@@ -72,7 +72,7 @@
                 </TextBox.Style>
             </TextBox>
         </Grid>
-        
+
         <Grid Grid.Row="1">
 
             <Grid.ColumnDefinitions>
@@ -93,22 +93,24 @@
 
             <GridSplitter Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Stretch" Width="2" Background="LightGray" />
 
-            <DataGrid Name="IngredientGridView" Grid.Column="1" VirtualizingStackPanel.IsVirtualizing="False" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,1,5,1" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_MouseButtonDown" PreviewMouseRightButtonDown="TestDataGrid_PreviewMouseRightButtonDown_1" PreviewMouseRightButtonUp="TestDataGrid_MouseRightButtonUp">
-                <DataGrid.ContextMenu>
-                    <ContextMenu Name="RemoveSelectedMenu">
-                        <MenuItem Header="Remove Selected Ingredients" Click="RemoveIngredients"/>
-                    </ContextMenu>
-                </DataGrid.ContextMenu>
-                <DataGrid.Columns>
-                    <DataGridTemplateColumn Width="25">
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <CheckBox x:Name="TestCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="False" PreviewMouseLeftButtonDown="CheckBox_MouseButtonDown" PreviewMouseRightButtonDown="CheckBox_MouseButtonDown" PreviewMouseRightButtonUp="CheckBox_MouseButtonDown"/>
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                </DataGrid.Columns>
-            </DataGrid>
+            <!--<ScrollViewer ScrollViewer.VerticalScrollBarVisibility="Auto" Grid.Column="1" Margin="1,1,5,1">-->
+            <DataGrid Name="IngredientGridView" Grid.Column="1" VirtualizingStackPanel.IsVirtualizing="False" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,1,1,1" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_MouseButtonDown" PreviewMouseRightButtonDown="TestDataGrid_PreviewMouseRightButtonDown_1" PreviewMouseRightButtonUp="TestDataGrid_MouseRightButtonUp">
+                    <DataGrid.ContextMenu>
+                        <ContextMenu Name="RemoveSelectedMenu">
+                            <MenuItem Header="Remove Selected Ingredients" Click="RemoveIngredients"/>
+                        </ContextMenu>
+                    </DataGrid.ContextMenu>
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Width="25">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <CheckBox x:Name="TestCheckBox" HorizontalAlignment="Center" VerticalAlignment="Center" IsChecked="False" PreviewMouseLeftButtonDown="CheckBox_MouseButtonDown" PreviewMouseRightButtonDown="CheckBox_MouseButtonDown" PreviewMouseRightButtonUp="CheckBox_MouseButtonDown"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            <!--</ScrollViewer>-->
 
             <ListView Grid.Column="1" Name="IngredientListView" FontSize="14" Margin="5,5,5,5" Visibility="Hidden" BorderBrush="Transparent">
                 <ListView.ContextMenu>
@@ -117,7 +119,7 @@
                     </ContextMenu>
                 </ListView.ContextMenu>
             </ListView>
-            
+
         </Grid>
 
         <Grid Grid.Row="3">
@@ -125,7 +127,7 @@
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,89,7" Height="22" Name="btn_emailRecipe" Content="Email Menu" Width="75" Click="emailMenu_btn_Click"/>
             <Button Grid.Row="0" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,7,7" Height="22" Name="btn_cancelRecipe" Content="Cancel" Width="75" Click="cancelRecipe_btn_Click"/>
         </Grid>
-        
+
     </Grid>
-    
+
 </Window>
