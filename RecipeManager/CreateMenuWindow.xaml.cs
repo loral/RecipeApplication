@@ -244,6 +244,7 @@ namespace RecipeManager
 
                 // Update ingredient list view
                 ingredients.Clear();
+                _Ingredients.Clear();
 
                 foreach (Recipe recipe in recipeBookCopy)
                 {
@@ -252,14 +253,16 @@ namespace RecipeManager
                         if (!ingredients.Contains(ingredient.Name))
                         {
                             ingredients.Add(ingredient.Name);
+                            StringValue newIngredient = new StringValue(ingredient.Name);
+                            _Ingredients.Add(newIngredient);
                         }
                     }
                 }
 
                 ingredients.Sort();
+                _Ingredients = _Ingredients.OrderBy(i => i.Value).ToList();
 
-                ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
-                ingredView.Refresh();
+                IngredientGridView.ItemsSource = _Ingredients;
 
             }
 
@@ -324,6 +327,7 @@ namespace RecipeManager
 
                 // Update ingredient list view
                 ingredients.Clear();
+                _Ingredients.Clear();
 
                 foreach (Recipe recipe in recipeBookCopy)
                 {
@@ -332,14 +336,16 @@ namespace RecipeManager
                         if (!ingredients.Contains(ingredient.Name))
                         {
                             ingredients.Add(ingredient.Name);
+                            StringValue newIngredient = new StringValue(ingredient.Name);
+                            _Ingredients.Add(newIngredient);
                         }
                     }
                 }
 
                 ingredients.Sort();
+                _Ingredients = _Ingredients.OrderBy(i => i.Value).ToList();
 
-                ICollectionView ingredView = CollectionViewSource.GetDefaultView(ingredients);
-                ingredView.Refresh();
+                IngredientGridView.ItemsSource = _Ingredients;
             }
 
             else
