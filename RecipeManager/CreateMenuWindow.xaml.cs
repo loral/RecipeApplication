@@ -47,7 +47,8 @@ namespace RecipeManager
 
         private void CreateMenuWindowLoaded(object sender, RoutedEventArgs e)
         {
-
+            cb_meals.Focusable = true;
+            Keyboard.Focus(cb_meals);
         }
 
         private void saveMenu_btn_Click(object sender, RoutedEventArgs e)
