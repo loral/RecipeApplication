@@ -385,10 +385,19 @@ namespace RecipeManager
 
         private void TestDataGrid_MouseButtonDown(object sender, MouseButtonEventArgs e)
         {
+            var src = VisualTreeHelper.GetParent((DependencyObject)e.OriginalSource);
+            var srcType = src.GetType();
             var chk = VisualTreeHelpers.FindAncestor<CheckBox>((DependencyObject)e.OriginalSource, "TestCheckBox");
 
-            if (chk == null)
-                e.Handled = true;
+            if (srcType == typeof(System.Windows.Controls.Primitives.Thumb) || srcType == typeof(System.Windows.Controls.Primitives.RepeatButton))
+            {
+                // Do nothing (let it happen)
+            }
+            else
+            {
+                if (chk == null)
+                    e.Handled = true;
+            }
         }
 
         private void TestDataGrid_MouseRightButtonUp(object sender, MouseButtonEventArgs e)
@@ -400,7 +409,7 @@ namespace RecipeManager
                 e.Handled = true;
                 RemoveSelectedMenu.Visibility = Visibility.Visible;
                 RemoveSelectedMenu.IsOpen = true;
-            }   
+            }
         }
 
         private void CheckBox_MouseButtonDown(object sender, MouseButtonEventArgs e)
