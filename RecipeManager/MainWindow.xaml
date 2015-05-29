@@ -80,14 +80,14 @@
                 <Grid Grid.Row="2">
                     <Label VerticalAlignment="Center" Content="Prep Time" FontWeight="SemiBold" Foreground="DarkGray" />
                     <TextBox Name="prepLowFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="50" IsEnabled="False"/>
-                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to"/>
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to" Foreground="DarkGray" />
                     <TextBox Name="prepHighFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="147,0,0,0" Height="20" Width="50" IsEnabled="False"/>
                 </Grid>
 
                 <Grid Grid.Row="3">
                     <Label VerticalAlignment="Center" Content="Cook Time" FontWeight="SemiBold" Foreground="DarkGray" />
                     <TextBox Name="cookLowFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="70,0,0,0" Height="20" Width="50" IsEnabled="False"/>
-                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to"/>
+                    <Label HorizontalAlignment="Left" VerticalAlignment="Center" Margin="123,0,0,0" Content="to" Foreground="DarkGray" />
                     <TextBox Name="cookHighFilter" HorizontalAlignment="Left" VerticalAlignment="Center" TextChanged="RecipeFilter_OnCriteriaChange" Margin="147,0,0,0" Height="20" Width="50" IsEnabled="False"/>
                 </Grid>
 

@@ -48,4 +48,3 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.g.cs
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.baml
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.g.cs
-C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
