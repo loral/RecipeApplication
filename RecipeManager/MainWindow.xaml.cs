@@ -308,14 +308,23 @@ namespace RecipeManager
 
         private void HideFilter(object sender, ExecutedRoutedEventArgs e)
         {
-            if (LeftColumn.ActualWidth > 1)
+            if(FilterExpander.IsExpanded)
             {
-                LeftColumn.Width = new GridLength(0, GridUnitType.Pixel);
+                FilterExpander.IsExpanded = false;
             }
             else
             {
-                LeftColumn.Width = new GridLength(240, GridUnitType.Pixel);
+                FilterExpander.IsExpanded = true;
             }
+
+            //if (LeftColumn.ActualWidth > 1)
+            //{
+            //    LeftColumn.Width = new GridLength(0, GridUnitType.Pixel);
+            //}
+            //else
+            //{
+            //    LeftColumn.Width = new GridLength(240, GridUnitType.Pixel);
+            //}
         }
 
         private void PopulateSelectedRecipeDisplayed(Recipe _selectedRecipe)
@@ -867,6 +876,11 @@ namespace RecipeManager
             Application.Current.Shutdown();
         }
 
+        private void RecipeFilterOpenedClosed(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         private void Tools(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked 'Tools'");
@@ -878,5 +892,6 @@ namespace RecipeManager
         }
 
         #endregion
+
     }
 }
