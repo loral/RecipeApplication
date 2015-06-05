@@ -51,6 +51,8 @@ namespace RecipeManager
             // Create hot keys
             try
             {
+                #region Key Bindings
+
                 RoutedCommand hideFilter = new RoutedCommand();
                 hideFilter.InputGestures.Add(new KeyGesture(Key.H, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(hideFilter, HideFilter));
@@ -84,28 +86,30 @@ namespace RecipeManager
                 CommandBindings.Add(new CommandBinding(exit, Exit));
 
                 RoutedCommand zoomIn = new RoutedCommand();
-                zoomIn.InputGestures.Add(new KeyGesture(Key.NumPad1, ModifierKeys.Control));
+                zoomIn.InputGestures.Add(new KeyGesture(Key.D1, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(zoomIn, ZoomIn));
 
                 RoutedCommand zoomInNum = new RoutedCommand();
-                zoomInNum.InputGestures.Add(new KeyGesture(Key.D1, ModifierKeys.Control));
+                zoomInNum.InputGestures.Add(new KeyGesture(Key.Add, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(zoomInNum, ZoomIn));
 
                 RoutedCommand zoomOut = new RoutedCommand();
-                zoomOut.InputGestures.Add(new KeyGesture(Key.NumPad2, ModifierKeys.Control));
+                zoomOut.InputGestures.Add(new KeyGesture(Key.D2, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(zoomOut, ZoomOut));
 
                 RoutedCommand zoomOutNum = new RoutedCommand();
-                zoomOutNum.InputGestures.Add(new KeyGesture(Key.D2, ModifierKeys.Control));
+                zoomOutNum.InputGestures.Add(new KeyGesture(Key.Subtract, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(zoomOutNum, ZoomOut));
 
                 RoutedCommand zoomNormal = new RoutedCommand();
-                zoomNormal.InputGestures.Add(new KeyGesture(Key.NumPad0, ModifierKeys.Control));
+                zoomNormal.InputGestures.Add(new KeyGesture(Key.D0, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(zoomNormal, ZoomNormal));
 
                 RoutedCommand zoomNormalNum = new RoutedCommand();
-                zoomNormalNum.InputGestures.Add(new KeyGesture(Key.D0, ModifierKeys.Control));
+                zoomNormalNum.InputGestures.Add(new KeyGesture(Key.NumPad0, ModifierKeys.Control));
                 CommandBindings.Add(new CommandBinding(zoomNormalNum, ZoomNormal));
+
+                #endregion
             }
             catch (Exception ex)
             {

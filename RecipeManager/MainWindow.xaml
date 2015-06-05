@@ -51,7 +51,7 @@
                 <ColumnDefinition Width="*" MinWidth="550" Name="RightColumn"/>
             </Grid.ColumnDefinitions>
 
-            <Expander Name="FilterExpander" Header="" Grid.Column="0" ExpandDirection="Right" Expanded="RecipeFilterOpenedClosed" Collapsed="RecipeFilterOpenedClosed">
+            <Expander Name="FilterExpander" Header="" Grid.Column="0" ExpandDirection="Right" IsExpanded="False" Expanded="RecipeFilterOpenedClosed" Collapsed="RecipeFilterOpenedClosed">
 
                 <Expander.Content>
 
