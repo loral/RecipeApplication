@@ -59,7 +59,7 @@
                         <!--https://msdn.microsoft.com/en-us/library/system.windows.media.colors.aspx-->
 
                         <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="237"/>
+                            <ColumnDefinition Width="235"/>
                         </Grid.ColumnDefinitions>
 
                         <Grid.RowDefinitions>
