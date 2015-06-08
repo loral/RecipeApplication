@@ -48,7 +48,6 @@ C:\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.baml
 C:\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.g.cs
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.baml
 C:\Users\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.g.cs
-C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.config
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb

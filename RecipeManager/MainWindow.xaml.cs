@@ -885,6 +885,25 @@ namespace RecipeManager
 
         }
 
+        private void ClearFilterBtn(object sender, RoutedEventArgs e)
+        {
+            nameFilter.Text = string.Empty;
+            ratingLowFilter.Text = string.Empty;
+            ratingHighFilter.Text = string.Empty;
+            ingredientFilter.Text = string.Empty;
+
+            foreach (CheckBox cb in FindVisualChildren<CheckBox>(RecipeManager))
+            {
+                if (cb.IsChecked == true && cb.Tag != null)
+                {
+                    if (cb.Tag.ToString() == "MealType" || cb.Tag.ToString() == "RecipeType" || cb.Tag.ToString() == "Categorie")
+                    {
+                        cb.IsChecked = false;
+                    }
+                }
+            }
+        }
+
         private void Tools(object sender, RoutedEventArgs e)
         {
             MessageBox.Show("You clicked 'Tools'");

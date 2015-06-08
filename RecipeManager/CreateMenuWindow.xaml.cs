@@ -33,6 +33,7 @@ namespace RecipeManager
         public List<string> ingredients { get; set; }
 
         public List<StringValue> _Ingredients { get; set; }
+        public List<StringValue> _Ingredients2 { get; set; }
 
         public CreateMenuWindow(List<Recipe> _recipes)
         {
@@ -107,7 +108,7 @@ namespace RecipeManager
             RecipeListView.ItemsSource = recipeBookCopy;
 
             // ***Once complete need to narrow to just one***
-            IngredientListView.ItemsSource = ingredients;
+            //IngredientListView.ItemsSource = ingredients;
             IngredientGridView.ItemsSource = _Ingredients;
 
             // Make sure a recipe is selected
@@ -164,12 +165,12 @@ namespace RecipeManager
 
             body += System.Environment.NewLine + "Ingredients:" + System.Environment.NewLine;
 
-            // ***Need to update to pull from grid instead of ingredients***
-            if (IngredientListView.Visibility == System.Windows.Visibility.Visible)
+            //Add ingredients
+            if (IngredientGridView.SelectedItems.Count > 0)
             {
-                foreach (string ingredient in ingredients)
+                foreach (StringValue ingredient in IngredientGridView.SelectedItems)
                 {
-                    body += ingredient + System.Environment.NewLine;
+                    body += ingredient.Value + System.Environment.NewLine;
                 }
             }
             else
@@ -361,27 +362,24 @@ namespace RecipeManager
 
         private void RemoveIngredients(object sender, RoutedEventArgs e)
         {
-            // ***Once testing is done need to remove the if/else and just use one***
-            if (IngredientListView.Visibility == System.Windows.Visibility.Visible)
-            {
-                foreach (string _ingredient in IngredientListView.SelectedItems)
-                {
-                    ingredients.Remove(_ingredient);
-                }
+            //// Old code to remove selected ingredient instead of unselected ingredients
+            //foreach (StringValue _ingredient in IngredientGridView.SelectedItems)
+            //{
+            //    _Ingredients.Remove(_ingredient);
+            //}
 
-                ICollectionView view = CollectionViewSource.GetDefaultView(ingredients);
-                view.Refresh();
-            }
-            else
-            {
-                foreach (StringValue _ingredient in IngredientGridView.SelectedItems)
-                {
-                    _Ingredients.Remove(_ingredient);
-                }
+            _Ingredients.Clear();
 
-                ICollectionView view = CollectionViewSource.GetDefaultView(_Ingredients);
-                view.Refresh();
+            foreach (StringValue x in IngredientGridView.SelectedItems)
+            {
+                _Ingredients.Add(x);
             }
+
+            ICollectionView view = CollectionViewSource.GetDefaultView(_Ingredients);
+            view.Refresh();
+
+            IngredientGridView.SelectedItems.Clear();
+
         }
 
         private void TestDataGrid_MouseButtonDown(object sender, MouseButtonEventArgs e)

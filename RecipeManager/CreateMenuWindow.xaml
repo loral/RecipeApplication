@@ -97,7 +97,7 @@
             <DataGrid Name="IngredientGridView" Grid.Column="1" VirtualizingStackPanel.IsVirtualizing="False" HeadersVisibility="None" ColumnWidth="*" FontSize="14" SelectionMode="Extended" BorderBrush="Transparent" Margin="2,1,1,1" CanUserAddRows="False" PreviewMouseLeftButtonDown="TestDataGrid_MouseButtonDown" PreviewMouseRightButtonDown="TestDataGrid_PreviewMouseRightButtonDown_1" PreviewMouseRightButtonUp="TestDataGrid_MouseRightButtonUp">
                     <DataGrid.ContextMenu>
                         <ContextMenu Name="RemoveSelectedMenu">
-                            <MenuItem Header="Remove Selected Ingredients" Click="RemoveIngredients"/>
+                            <MenuItem Header="Remove unselected ingredients" Click="RemoveIngredients"/>
                         </ContextMenu>
                     </DataGrid.ContextMenu>
                     <DataGrid.Columns>

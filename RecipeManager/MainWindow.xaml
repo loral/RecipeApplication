@@ -72,6 +72,7 @@
                             <RowDefinition Height="35"/>
                             <RowDefinition Height="55"/>
                             <RowDefinition Height="275"/>
+                            <RowDefinition Height="35"/>
                         </Grid.RowDefinitions>
 
                         <Grid Grid.Column="0" Grid.Row="1">
@@ -167,6 +168,10 @@
                             <CheckBox Grid.Row="10" Name="SlowCooker" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Slow Cooker" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
                             <CheckBox Grid.Row="10" Name="SoupStew" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Soup/Stew" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="125,0,0,0"/>
                             <CheckBox Grid.Row="11" Name="VegetablesFruit" Tag="Categorie" Checked="RecipeFilter_OnCriteriaChange" Unchecked="RecipeFilter_OnCriteriaChange" Content="Vegetables/Fruit" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="5,0,0,0"/>
+                        </Grid>
+                        
+                        <Grid Grid.Column="0" Grid.Row="9" >
+                            <Button Name="ClearFilter" Content="Clear" Width="50" Height="20" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,5,10,0" Click="ClearFilterBtn"/>
                         </Grid>
                         
                     </Grid>
