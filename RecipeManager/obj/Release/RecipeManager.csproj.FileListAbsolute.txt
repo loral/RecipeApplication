@@ -73,4 +73,3 @@ C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Rel
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.g.resources
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.Resources.resources
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
-C:\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
