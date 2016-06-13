@@ -73,3 +73,29 @@ C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Rel
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.g.resources
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.Resources.resources
 C:\Users\Loral & Leslie\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe.config
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.exe
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.pdb
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\CustomFonts\andlso.ttf
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\CustomFonts\simplicity.ttf
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.exe
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\RecipeManager.pdb
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.dll
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\bin\Release\itextsharp.xml
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csprojResolveAssemblyReference.cache
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.baml
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\CreateMenuWindow.baml
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.baml
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\MainWindow.baml
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.baml
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\AddRecipeWindow.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\CreateMenuWindow.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\EditRecipeWindow.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\MainWindow.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\ManualRecipeSelection.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\App.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager_Content.g.cs
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager_MarkupCompile.cache
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.g.resources
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.Properties.Resources.resources
+F:\Loral\Documents\GitHub\RecipeApplication\RecipeManager\obj\Release\RecipeManager.csproj.GenerateResource.Cache

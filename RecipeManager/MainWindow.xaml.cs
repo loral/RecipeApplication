@@ -915,6 +915,5 @@ namespace RecipeManager
         }
 
         #endregion
-
     }
 }
